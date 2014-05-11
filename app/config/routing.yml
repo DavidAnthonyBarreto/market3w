@@ -1,0 +1,5 @@
+market3wsite:
+    resource: "@market3wsiteBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

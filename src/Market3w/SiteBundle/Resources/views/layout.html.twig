@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}Market3w{% endblock %}</title>
+        {% block meta %}{% endblock %}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <div>LOGO</div>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('market3w_site_homepage_index') }}">Accueil</a></li>
+                    <li><a href="{{ path('market3w_site_skill_index') }}">Notre expertise</a></li>
+                    <li><a href="{{ path('market3w_site_ourwork_index') }}">Réalisations</a></li>
+                    <li><a href="{{ path('market3w_site_us_index') }}">Société</a></li>
+                    <li><a href="{{ path('market3w_site_contact_index') }}">Contact</a></li>
+                </ul>
+            </nav>
+            <div>
+                {{ render(controller('FOSUserBundle:Security:login')) }}
+            </div>
+        </header>
+                      
+        {% block content %}
+            
+        {% endblock %}
+        <footer></footer>
+        
+        {% block javascript %}{% endblock %}
+    </body>
+</html>

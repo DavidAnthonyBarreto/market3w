@@ -1,10 +1,12 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@Market3wSiteBundle/Resources/config/services.yml" }
+
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -64,3 +66,25 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+#FOSUserbundle Configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Market3w\SiteBundle\Entity\User
+    registration:
+        form:
+            type: market3w_user_registration
+        confirmation:
+            enabled: true
+            from_email:
+                address: noreply@market3w.fr
+                sender_name: Market3w - Valider votre inscription
+    resetting:
+        email:
+            from_email:
+                address: noreply@market3w.fr
+                sender_name: Market3w - Réinitialiser votre mot de passe
+    service:
+        mailer: fos_user.mailer.default
+

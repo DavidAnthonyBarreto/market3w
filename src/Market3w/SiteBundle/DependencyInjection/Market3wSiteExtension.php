@@ -1,6 +1,6 @@
 <?php
 
-namespace market3w\siteBundle\DependencyInjection;
+namespace Market3w\SiteBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class market3wsiteExtension extends Extension
+class Market3wSiteExtension extends Extension
 {
     /**
      * {@inheritDoc}

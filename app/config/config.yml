@@ -32,7 +32,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ Market3wSiteBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -87,4 +87,3 @@ fos_user:
                 sender_name: Market3w - Réinitialiser votre mot de passe
     service:
         mailer: fos_user.mailer.default
-

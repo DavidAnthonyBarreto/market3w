@@ -4,7 +4,17 @@
         <meta charset="utf-8" />
         <title>{% block title %}Market3w{% endblock %}</title>
         {% block meta %}{% endblock %}
-        {% block stylesheets %}{% endblock %}
+        
+        {% block stylesheets %}
+            {% stylesheets 'bundles/market3wsite/css/main.css' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% endblock %}
+        {% block javascripts %}
+            {% javascripts 'bundles/market3wsite/js/jquery-1.11.1.min.js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </head>
     <body>
         <header>

@@ -32,7 +32,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ Market3wSiteBundle ]
+    bundles:        [ Market3wSiteBundle, FOSUserBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -80,6 +80,9 @@ fos_user:
             from_email:
                 address: noreply@market3w.fr
                 sender_name: Market3w - Valider votre inscription
+    profile:
+        form:
+            type: market3w_user_profile
     resetting:
         email:
             from_email:

@@ -54,12 +54,20 @@
                 </div>
             </div>
         </header>
+        
+        <hr>
                       
         {% block content %}
             
         {% endblock %}
+        
+        <hr>
+        
         <footer>
-            FOOTER
+            <ul>
+                <li><a href="{{ path('market3w_site_legalinfo_legalnotice') }}">Mentions légales</a></li>
+                <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
+            </ul>
         </footer>
         
         {% block javascript %}{% endblock %}

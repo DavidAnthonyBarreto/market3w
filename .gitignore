@@ -9,7 +9,10 @@
 /vendor/
 /bin/
 /composer.phar
-
+web/css
+web/js
+web/uploads
+*.php~
 #############
 ## Windows detritus
 #############

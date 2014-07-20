@@ -1,46 +1,104 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 {% block content %}
-    <div>SLIDER</div>
-    <p>
-        Besoin d'un conseil ?
-        Vous voulez nous parler de votre projet ?
-        Vous avez une autre question ? Contactez nous !
-        <a href="">Nous contacter</a>
-    </p>
-    <h1>Notre expertise</h1>
-    <img src="" alt="referencement">
-    <p>Référencement naturel</p>
-    <img src="" alt="etude_marketing"> 
-    <p>Etude marketing</p>
-    <img src="" alt="ecommerce"> 
-    <p>Spécialiste e-commerce</p>
-    <img src="" alt="marketing_mobile"> 
-    <p>Marketing mobile</p>
-    <h1>Nos dernières réalisations</h1>
-    <h1>Qui sommes-nous ?</h1>
-    <h2>Market3w</h2>
-    <p>
-        Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
-        Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
-        du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
-    </p> 
-    <p>
-        Hopla vous savez que la mamsell Huguette, la miss Miss Dahlias du messt
-        de Bischheim était au Christkindelsmärik en compagnie de Richard 
-        Schirmeck (celui qui a un blottkopf), le mari de Chulia Roberstau, qui 
-        lui trempait sa Nüdle dans sa Schneck ! Yo dû, Pfourtz ! Ch'espère 
-        qu'ils avaient du Kabinetpapier, Gal !
-    </p>
-    <h1>Nous suivre</h1>
-    <p>
-        Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
-        Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
-        du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
-    </p>
-    <ul>
-        <li><a href="https://fr-fr.facebook.com/" target="_blank">Facebook</a></li>
-        <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
-        <li><a href="https://plus.google.com/" target="_blank">Google+</a></li>
-        <li><a href="https://fr.linkedin.com/" target="_blank">LinkedIn</a></li>
-    </ul>
+    <div class="slider">
+        <div class="fixed_content"></div>
+    </div>
+
+    <div class="fixed_content">
+        <div class="contact_field">
+            <p>
+                Besoin d'un conseil ?
+                Vous voulez nous parler de votre projet ?
+                Vous avez une autre question ? Contactez nous !
+            </p>
+            <div class="contact_button"><a href="">Nous contacter</a></div>
+        </div>
+    </div>
+    
+    <div class="expertise">
+        <div class="fixed_content">
+            <h1>Notre expertise</h1>
+            <p>Notre agence réunis des personnes de talents qui lui offre des compétences et domaines d’expertise au service de notre clientèle</p>
+            <div class="all_bloc_content">
+                <div class="bloc_content">
+                    <a href="#" class="blocE" id="referencement"></a>
+                    <p>Référencement naturel</p>
+                </div>
+                <div class="bloc_content">
+                    <a href="#" class="blocE" id="etude_marketing"></a>
+                    <p>Etude marketing</p>
+                </div>
+                <div class="bloc_content">
+                    <a href="#" class="blocE" id="ecommerce"></a>
+                    <p>Spécialiste e-commerce</p>
+                </div>
+                <div class="bloc_content">
+                    <a href="#" class="blocE" id="marketing_mobile"></a>
+                    <p>Marketing mobile</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="realisations">
+        <div class="fixed_content">
+            <h1>Nos dernières réalisations</h1>
+            <p>Voici un aperçu des derniers projets sur lesquels notre agence a travaillée :</p>
+            <div class="all_bloc_content">
+                <div class="bloc_content">
+                    <a href="#" class="blocR" id="entrepriseA"></a>
+                    <p>Entreprise A</p>
+                </div>
+                <div class="bloc_content">
+                    <a href="#" class="blocR" id="entrepriseB"></a>
+                    <p>Entreprise B</p>
+                </div>
+                <div class="bloc_content">
+                    <a href="#" class="blocR" id="entrepriseC"></a>
+                    <p>Entreprise C</p>
+                </div>
+                <div class="bloc_content">
+                    <a href="#" class="blocR" id="entrepriseD"></a>
+                    <p>Entreprise D</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="informations">
+        <div class="fixed_content">
+            <div class="about">
+                <h1>Qui sommes-nous ?</h1>
+                <h2>Market3w</h2>
+                <p>
+                    Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
+                    Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
+                    du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
+                </p> 
+                <p>
+                    Hopla vous savez que la mamsell Huguette, la miss Miss Dahlias du messt
+                    de Bischheim était au Christkindelsmärik en compagnie de Richard 
+                    Schirmeck (celui qui a un blottkopf), le mari de Chulia Roberstau, qui 
+                    lui trempait sa Nüdle dans sa Schneck ! Yo dû, Pfourtz ! Ch'espère 
+                    qu'ils avaient du Kabinetpapier, Gal !
+                </p>
+            </div>
+            <div class="follow">
+                <h1>Nous suivre</h1>
+                <p>
+                    Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
+                    Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
+                    du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
+                </p>
+                <div class="follow_content">
+                    <ul>
+                        <li><a href="https://fr-fr.facebook.com/" target="_blank" class="facebook"></a></li>
+                        <li><a href="https://twitter.com/" target="_blank" class="twitter"></a></li>
+                        <li><a href="https://plus.google.com/" target="_blank" class="googleplus"></a></li>
+                        <li><a href="https://fr.linkedin.com/" target="_blank" class="linkedin"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

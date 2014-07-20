@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProjectRepository extends EntityRepository
 {
+    
+    public function findRandomProjects($nb)
+    {
+        $projects = $this->createQueryBuilder('p')
+                ->getQuery()
+                ->getResult();
+        
+        $selection = array_rand($projects, $nb);
+        
+        foreach ($selection as $selected){
+            $randomProjects[] = $projects[$selected];
+        }
+        
+        return $randomProjects;
+    }
 }

@@ -32,4 +32,5 @@ class OurWorkController extends Controller
         
         return array('project' => $project);
     }
+    
 }

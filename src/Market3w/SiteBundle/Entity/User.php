@@ -46,6 +46,12 @@ class User extends BaseUser
      * @ORM\Column(name="company", type="string", length=75, nullable=true)
      */
     protected $company;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="skype_pseudo", type="string", length=255, nullable=true)
+     */
+    protected $skypePseudo;
 
     public function __construct()
     {
@@ -166,5 +172,38 @@ class User extends BaseUser
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set skypePseudo
+     *
+     * @param string $skypePseudo
+     * @return User
+     */
+    public function setSkypePseudo($skypePseudo)
+    {
+        $this->skypePseudo = $skypePseudo;
+
+        return $this;
+    }
+
+    /**
+     * Get skypePseudo
+     *
+     * @return string 
+     */
+    public function getSkypePseudo()
+    {
+        return $this->skypePseudo;
     }
 }

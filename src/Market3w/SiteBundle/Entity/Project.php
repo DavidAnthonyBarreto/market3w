@@ -57,13 +57,11 @@ class Project
     private $work;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="screenshot", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\File", cascade={"persist"})
      */
     private $screenshot;
 
-
+    
     /**
      * Get id
      *
@@ -192,10 +190,10 @@ class Project
     /**
      * Set screenshot
      *
-     * @param string $screenshot
+     * @param \Market3w\SiteBundle\Entity\File $screenshot
      * @return Project
      */
-    public function setScreenshot($screenshot)
+    public function setScreenshot(\Market3w\SiteBundle\Entity\File $screenshot = null)
     {
         $this->screenshot = $screenshot;
 
@@ -205,7 +203,7 @@ class Project
     /**
      * Get screenshot
      *
-     * @return string 
+     * @return \Market3w\SiteBundle\Entity\File 
      */
     public function getScreenshot()
     {

@@ -45,22 +45,12 @@
             <h1>Nos dernières réalisations</h1>
             <p>Voici un aperçu des derniers projets sur lesquels notre agence a travaillée :</p>
             <div class="all_bloc_content">
-                <div class="bloc_content">
-                    <a href="#" class="blocR" id="entrepriseA"></a>
-                    <p>Entreprise A</p>
-                </div>
-                <div class="bloc_content">
-                    <a href="#" class="blocR" id="entrepriseB"></a>
-                    <p>Entreprise B</p>
-                </div>
-                <div class="bloc_content">
-                    <a href="#" class="blocR" id="entrepriseC"></a>
-                    <p>Entreprise C</p>
-                </div>
-                <div class="bloc_content">
-                    <a href="#" class="blocR" id="entrepriseD"></a>
-                    <p>Entreprise D</p>
-                </div>
+                {% for project in projects %}
+                    <div class="bloc_content">
+                        <a href="{{ path('market3w_site_ourwork_detail', {'name':project.name }) }}" class="blocR"></a>
+                        <p>{{ project.name }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

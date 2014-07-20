@@ -21,7 +21,15 @@
             <div class="fixed_content">
                 <div>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a href="{{ path('market3w_site_admin_index') }}">Admin</a>
+                        {% elseif is_granted("ROLE_WEB_MARKETEUR") %}
+                            <a href="">Mes clients</a>
+                        {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
+                            <a href="">Gérer le flux</a>
+                        {% elseif is_granted("ROLE_PROSPECT") or is_granted("ROLE_CLIENT") %}
+                            <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
+                        {% endif %}
                         |
                         <a href="{{ path('fos_user_security_logout') }}">
                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

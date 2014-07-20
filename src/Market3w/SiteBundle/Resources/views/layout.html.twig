@@ -17,18 +17,8 @@
         {% endblock %}
     </head>
     <body>
-        <header>
-            <div>LOGO</div>
-            <nav>
-                <ul>
-                    <li><a href="{{ path('market3w_site_homepage_index') }}">Accueil</a></li>
-                    <li><a href="{{ path('market3w_site_skill_index') }}">Notre expertise</a></li>
-                    <li><a href="{{ path('market3w_site_ourwork_index') }}">Réalisations</a></li>
-                    <li><a href="{{ path('market3w_site_us_index') }}">Société</a></li>
-                    <li><a href="{{ path('market3w_site_contact_index') }}">Contact</a></li>
-                </ul>
-            </nav>
-            <div>
+        <div class="login_field">
+            <div class="fixed_content">
                 <div>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
@@ -54,23 +44,41 @@
                     {% endblock fos_user_content %}
                 </div>
             </div>
+        </div>
+        <header>
+            <div class="fixed_content">
+                <div class="nav_content">
+                    <a href="{{ path('market3w_site_homepage_index') }}" class="logo_header">Market<span class="logo_end">3W</span></a>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ path('market3w_site_homepage_index') }}">Accueil</a></li>
+                            <li><a href="{{ path('market3w_site_skill_index') }}">Expertise</a></li>
+                            <li><a href="{{ path('market3w_site_ourwork_index') }}">Réalisations</a></li>
+                            <li><a href="{{ path('market3w_site_us_index') }}">Société</a></li>
+                            <li><a href="{{ path('market3w_site_contact_index') }}">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </header>
         
-        <hr>
+        <!-- <hr> -->
                       
         {% block content %}
             
         {% endblock %}
         
-        <hr>
+       <!--  <hr> -->
         
         <footer>
-            <ul>
-                <li><a href="{{ path('market3w_site_legalinfo_legalnotice') }}">Mentions légales</a></li>
-                <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
-            </ul>
+            <div class="fixed_content">
+                <ul>
+                    <li><a href="{{ path('market3w_site_legalinfo_legalnotice') }}">Mentions légales</a></li>
+                    <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
+                </ul>
+            </div>
         </footer>
-        
+        <div class="copyright">© Copyright 2014 | Market3W</div>
         {% block javascript %}{% endblock %}
     </body>
 </html>

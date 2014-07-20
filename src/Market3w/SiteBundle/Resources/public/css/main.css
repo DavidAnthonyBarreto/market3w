@@ -1,1 +1,398 @@
+/*lancer netbeans > clic droit Symphony2 > run command > assetic:dump --watch*/
+@font-face {
+    font-family: 'allerregular';
+    src: url('../fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_rg-webfont.woff') format('woff'),
+         url('../fonts/aller_rg-webfont.ttf') format('truetype'),
+         url('../fonts/aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'allerbold';
+    src: url('../fonts/aller_bd-webfont.eot');
+    src: url('../fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_bd-webfont.woff') format('woff'),
+         url('../fonts/aller_bd-webfont.ttf') format('truetype'),
+         url('../fonts/aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+h1{
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 24px;
+	color:#1abc9c;
+}
+h2{
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 20px;
+		color:#95a5a6;
+}
+
+/**************LOGIN**************/
+.login_field{
+	width:100%;
+	height: 30px;
+	background: #95a5a6;
+}
+
+/**************HEADER**************/
+header{
+	background: white;
+	border-bottom: 5px solid #18836e;
+}
+.logo_header{
+	height: 27px;
+	width: 160px;
+	display: inline-block;
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 35px;
+	color: #1abc9c;
+	text-decoration: none;
+}
+.logo_end{
+	color:#95a5a6;
+}
+
+nav {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+}
+nav ul{
+	padding: 0;
+	margin: 0;
+}
+nav ul li{
+	display: inline-block;
+	list-style-type:none;
+	width:120px;
+	height: 100px;
+	text-align: center;
+	margin-left:-4px;
+	
+}
+
+nav ul li a{
+	text-decoration: none;
+	font-family: allerregular,Arial,Helvetica,sans-serif;
+	font-size: 18px;
+	color:#1abc9c;
+	width:120px;
+	height: 100px;
+	display: block;
+	transition: background 0.2s;
+}
+
+nav ul li a:hover{
+	background: #1abc9c;
+	color:#FFF;
+	height: 90px;
+	border-bottom: 10px solid #c6f5ec;
+}
+
+/**************SLIDER**************/
+.slider{
+	height:400px;
+	width: 100%;
+	background:#1abc9c;
+	margin-bottom: 20px;
+}
+
+/**************CONTACT**************/
+.contact_field{
+	height: 40px;
+	border: 5px solid #1abc9c;
+	padding:0 10px;
+	position: relative;
+}
+.contact_button{
+	position: absolute;
+	right:0;
+	top:0;
+	height:40px;
+	width:160px;
+	text-align: center;
+}
+
+.contact_button a{
+	height:40px;
+	width:160px;
+	line-height: 40px;
+	background: #1abc9c;
+	color:#FFF;
+	text-decoration: none;
+	display: block;
+	font-size: 14px;
+	opacity:1;
+	transition: opacity 0.2s;
+}
+
+.contact_button a:hover{
+	opacity:0.8;
+}
+
+/**************EXPERTISE**************/
+.expertise{
+	margin:80px 0;
+}
+.all_bloc_content{
+	text-align: center;
+}
+.bloc_content{
+	display: inline-block;
+	margin:0 5px;
+}
+.bloc_content p{
+	color:#1abc9c;
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 16px;
+}
+.blocE{
+	display:block;
+	background: url("../images/blocE.png")no-repeat;
+	height:180px;
+	width:180px;
+	opacity: 1;
+	transition:opacity 0.2s;
+}
+.blocE:hover{
+	opacity: 0.8;
+	transition:opacity 0.2s;
+}
+
+/**************REALISATIONS**************/
+.realisations{
+	margin:80px 0;
+}
+.blocR{
+	display:block;
+	background: url("../images/blocR.png")no-repeat;
+	height:180px;
+	width:180px;
+	opacity: 1;
+	transition:opacity 0.2s;
+}
+.blocR:hover{
+	opacity: 0.8;
+	transition:opacity 0.2s;
+}
+
+/**************INFORMATIONS**************/
+.informations{
+	margin:80px 0;
+}
+.about{
+	display: inline-block;
+	width:50%;
+	margin-right: 50px;
+	vertical-align: top;
+}
+.follow{
+	display: inline-block;
+	width:40%;
+	vertical-align: top;
+}
+.follow_content{
+	text-align: center;
+	width: 100%;
+}
+.follow_content ul{
+	padding:0;
+}
+.follow_content ul li{
+	display: inline-block;
+	list-style-type: none;
+	margin: 0 5px;
+}
+.follow_content a{
+	display: inline-block;
+	height:50px;
+	width:50px;
+	opacity:1;
+	transition:opacity 0.2s;
+}
+.follow_content a:hover{
+	opacity:0.8;
+}
+.facebook{
+	background: url("../images/facebook.png")no-repeat;
+}
+.twitter{
+	background: url("../images/twitter.png")no-repeat;
+}
+.googleplus{
+	background: url("../images/googleplus.png")no-repeat;
+}
+.linkedin{
+	background: url("../images/linkedin.png")no-repeat;
+}
+
+/**************FOOTER**************/
+footer{
+	border-top: 5px solid #18836e;
+	padding:15px 0;
+	height:300px;
+	width:100%;
+	background: #1abc9c;
+}
+.copyright{
+	height:30px;
+	line-height: 30px;
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 11px;
+	color:#1abc9c;
+	text-align: center;
+}
+/**************CONTENTS**************/
+.fixed_content{
+	width:960px;
+	margin:auto;
+}
+.nav_content{
+	display: inline-block;
+	width:960px;
+	height: 100px;
+	line-height:100px;
+	position: relative;
+}
+
+/**************MEDIA QUERIES**************/
+/*****écrans inférieur à 1024px*****/
+@media screen and (max-width: 1024px) {
+	.fixed_content, .nav_content {
+		width:720px;
+	}
+	/*****Menu*****/
+	nav ul li, nav ul li a{
+		width:100px;
+		font-size: 16px;
+	}
+	/*****Contact*****/
+	.contact_field{
+		height: 60px;
+	}
+	.contact_field p{
+		width:80%;
+	}
+	.contact_button{
+		height:55px;
+	}
+	.contact_button a{
+		height:55px;
+		line-height: 55px;
+	}
+	/*****Expertise*****/
+	.all_bloc_content{
+		width:520px;
+		margin:auto;
+	}
+}
+/*****écrans inférieur à 760px*****/
+@media screen and (max-width: 760px) {
+	.fixed_content, .nav_content {
+		width:520px;
+	}
+	body{
+		font-size: 14px;
+	}
+	/*****Menu*****/
+	.nav_content, nav ul li, nav ul li a{
+		height: 100px;
+		line-height: 100px;
+		font-size: 14px;
+	}
+	nav ul li a:hover{
+		height: 90px;
+	}
+	.nav_content{
+		text-align: center;
+	}
+	nav {
+		border-top: 5px solid #18836e;
+		background: #FFF;
+		position: fixed;
+		bottom:0;
+		z-index: 100;
+		width:100%;
+	}
+	/*****Contact*****/
+	.contact_field{
+		margin-bottom: 30px;
+	}
+	.contact_field p{
+		width:100%;
+	}
+	.contact_button{
+		position: relative;
+		height:55px;
+		width:100%;
+		text-align: center;
+	}
+	.contact_button a{
+		width:100%;
+		margin-left:-15px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	/*****Expertise*****/
+	.expertise{
+		margin-top:160px;
+	}
+	/*****Informations*****/
+	.about, .follow{
+		width:100%;
+	}
+	.about{
+		margin-right: 0;
+	}
+	/*****Footer*****/
+	.copyright{
+		margin-bottom: 115px;
+	}
+
+}
+/*****écrans inférieur à 520px*****/
+@media screen and (max-width: 520px) {
+	.fixed_content, .nav_content, .all_bloc_content {
+		width:280px;
+	}
+	/*****Menu*****/
+	.nav_content, nav ul li, nav ul li a{
+		height: 60px;
+		line-height: 60px;
+	}
+	nav ul li:first-child{
+		display: none;
+	}
+	nav ul li, nav ul li a{
+		width: 80px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	nav ul li a:hover{
+		height: 50px;
+	}
+	.nav_content{
+		text-align: center;
+	}
+	/*****Contact*****/
+	.contact_field,.contact_button{
+		height: 75px;
+	}
+	/*****Footer*****/
+	.copyright{
+		margin-bottom: 75px;
+	}
+}

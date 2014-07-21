@@ -25,7 +25,7 @@ class ContactController extends Controller
         }
         
         $user = $this->container->get('security.context')->getToken()->getUser();
-
+                
         // form
         $appointment = new Appointment();
         $appointment->setProspect($user);
@@ -33,15 +33,39 @@ class ContactController extends Controller
         $form = $this->createForm(new AppointmentType(), $appointment);
         
         $form->handleRequest($request);
-        var_dump($form->getData());
         
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            // assigne web marketeur
+            $wmList  = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
+            $wmIndex = array_rand($wmList, 1);
+            $wm = $wmList[$wmIndex];
+            
+            $appointment->setWebMarketeur($wm);
+            
+            // set skype pseudo
+            if( !is_null($form['skype']->getData()) ){
+                $user->setSkypePseudo($form['skype']->getData());
+            }
+            
             $em->persist($appointment);
             $em->flush();
+            
+            return $this->redirect($this->generateUrl('market3w_site_contact_success'));
         }
 
         
         return array('form'=>$form->createView());
     }
+    
+    /**
+     * @Route("/contact/merci")
+     * @Template()
+     */
+    public function successAction()
+    {
+        return array();
+    }
+    
 }

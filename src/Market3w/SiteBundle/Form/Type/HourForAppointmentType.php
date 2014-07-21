@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+
 class HourForAppointmentType extends AbstractType
 {
         /**
@@ -21,6 +24,18 @@ class HourForAppointmentType extends AbstractType
             'multiple'  => false,
             'required'  => true,
         ));
+        
+        $builder->addEventListener(FormEvents::POST_SUBMIT, array($this, 'onPreSetData'));
+    }
+    
+    public function onPreSetData(FormEvent $event)
+    {
+        $hour = $event->getData();
+        $form = $event->getForm();
+        
+        $hourString   = $hour->getStartTime();
+        $hourDatetime = date_create_from_format('H:i', $hourString);
+        $hour->setStartTime($hourDatetime);
     }
     
     /**

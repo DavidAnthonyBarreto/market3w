@@ -14,11 +14,10 @@ class DateForAppointmentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date', 'date', array(
+        $builder->add('date', 'datetime', array(
             'label'  => 'Quel jour souhaitez-vous rencontrer le conseiller ? ',
-            'input'  => 'datetime',
             'widget' => 'single_text',
-            'format' => 'dd/MM/yyyy',
+            'date_format' => 'dd/MM/yyyy',
         ));
     }
     

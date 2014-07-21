@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function findAvailableWebMarketeur()
+    {
+        $qb = $this->createQueryBuilder('u')
+                ->where('u.roles LIKE :roles')
+                ->setParameter('roles', '%"ROLE_WEB_MARKETEUR"%');
+        
+        return $qb->getQuery()->getResult();
+    }
+    
 }

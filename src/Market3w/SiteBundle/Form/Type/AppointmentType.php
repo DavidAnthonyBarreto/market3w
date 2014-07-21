@@ -34,6 +34,13 @@ class AppointmentType extends AbstractType
             'attr' => array('style' => 'display:none')
         ));
         
+        $builder->add('skype', 'text', array(
+            'label'    => 'Votre pseudo Skype',
+            'required' => false,
+            'mapped'   => false,
+            'attr' => array('style' => 'display:none')
+        ));
+        
         $builder->add('date', new DateForAppointmentType(), array(
             'required' => true
         ));

@@ -47,7 +47,7 @@ class Appointment
     protected $prospect;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\Address")
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\Address", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id", nullable=true)
      **/
     protected $address;

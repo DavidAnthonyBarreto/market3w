@@ -24,14 +24,14 @@ class Hour
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="startTime", type="time")
+     * @ORM\Column(name="startTime", type="time", nullable=false)
      */
     private $startTime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endTime", type="time")
+     * @ORM\Column(name="endTime", type="time", nullable=true)
      */
     private $endTime;
 

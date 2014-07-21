@@ -46,11 +46,6 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
-
-                <div>
-                    {% block fos_user_content %}
-                    {% endblock fos_user_content %}
-                </div>
             </div>
         </div>
         <header>
@@ -73,7 +68,8 @@
         <!-- <hr> -->
                       
         {% block content %}
-            
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
         {% endblock %}
         
        <!--  <hr> -->

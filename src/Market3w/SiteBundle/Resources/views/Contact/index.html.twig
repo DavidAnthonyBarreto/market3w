@@ -1,5 +1,12 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
 {% block content %}
-    <p>CONTACT</p>
+    <h1>Prendre un rendez-vous</h1>
+ 
+    {% if is_granted('ROLE_CLIENT') %}
+        {% include 'Market3wSiteBundle:Contact:_client.html.twig' %}
+    {% elseif is_granted('ROLE_PROSPECT') %}
+        {% include 'Market3wSiteBundle:Contact:_formRdv.html.twig' %}
+    {% endif %} 
+    
 {% endblock %}

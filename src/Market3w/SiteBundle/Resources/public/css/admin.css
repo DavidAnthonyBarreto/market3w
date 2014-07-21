@@ -1,0 +1,16 @@
+table {
+    margin:auto;
+    width: 90%;
+}
+th {
+    background-color : #1abc9c;
+}
+
+table li {
+    list-style: none;
+}
+
+table li a {
+    color: #1abc9c;
+    text-decoration: none;
+}

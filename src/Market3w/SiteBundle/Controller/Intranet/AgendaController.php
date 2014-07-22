@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * Agendra  controller.
+ * Agenda  controller.
  *
  * @Route("/intranet/agenda")
  */
@@ -23,6 +23,6 @@ class AgendaController
      */
     public function indexAction()
     {
-        
+        return array();
     }
 }

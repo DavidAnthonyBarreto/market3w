@@ -12,6 +12,7 @@
 web/css
 web/js
 web/uploads
+web/*.js
 *.php~
 #############
 ## Windows detritus

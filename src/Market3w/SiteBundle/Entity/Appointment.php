@@ -35,7 +35,7 @@ class Appointment
     protected $type;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="appointments")
      * @ORM\JoinColumn(name="web_marketeur_id", referencedColumnName="id", nullable=false)
      **/
     protected $webMarketeur;
@@ -63,6 +63,13 @@ class Appointment
      * @ORM\JoinColumn(name="hour_id", referencedColumnName="id", nullable=false)
      **/
     protected $hour;
+    
+    /**
+    * @var boolean
+    * 
+    * @ORM\Column(name="confirmed", type="boolean", nullable=false)
+    */
+    protected $confirmed = false;
     
     /**
      * Get id
@@ -236,4 +243,27 @@ class Appointment
     }
 
     
+
+    /**
+     * Set confirmed
+     *
+     * @param boolean $confirmed
+     * @return Appointment
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
+
+        return $this;
+    }
+
+    /**
+     * Get confirmed
+     *
+     * @return boolean 
+     */
+    public function getConfirmed()
+    {
+        return $this->confirmed;
+    }
 }

@@ -1,12 +1,15 @@
 <?php
 
-namespace Market3w\SiteBundle\Form\Type;
+namespace Market3w\SiteBundle\Form\Type\Intranet;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class DateForAppointmentType extends AbstractType
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+
+class HourForEditAppointmentType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,11 +17,12 @@ class DateForAppointmentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date', 'date', array(
-            'label'  => 'Quel jour souhaitez-vous rencontrer le conseiller ? ',
-            'widget' => 'single_text',
-            'format' => 'dd/MM/yyyy',
+        $builder->add('startTime', 'time', array(
+            'label'    => "A quelle heure souhaitez-vous rencontrer le conseiller ? ",
+            'input'    => 'datetime',
+            'required' => true,
         ));
+        
     }
     
     /**
@@ -27,7 +31,7 @@ class DateForAppointmentType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Market3w\SiteBundle\Entity\Date'
+            'data_class' => 'Market3w\SiteBundle\Entity\Hour'
         ));
     }
 
@@ -36,6 +40,6 @@ class DateForAppointmentType extends AbstractType
      */
     public function getName()
     {
-        return 'market3w_sitebundle_date';
+        return 'market3w_sitebundle_hour';
     }
 }

@@ -91,4 +91,8 @@ class Hour
     {
         return $this->endTime;
     }
+    
+    public function __toString() {
+        return $this->startTime->format('H:i') ;
+    }
 }

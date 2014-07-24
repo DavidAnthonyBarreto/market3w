@@ -1,0 +1,39 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>Identité du prospect</h1>
+    <p>Le rendez-vous a été pris par : {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }}</p>
+    <p>De la société : {{ appointment.prospect.company }}</p>
+    
+    {% if appointment.prospect.phoneNumber is not null %}
+        <p>Numéro de téléphone : {{ appointment.prospect.phoneNumber }}</p>
+    {% endif %}
+    {% if appointment.prospect.mobilePhoneNumber is not null %}
+        <p>Numéro de téléphone : {{ appointment.prospect.mobilePhoneNumber }}</p>
+    {% endif %}
+    
+    <h1>Modalité du rendez-vous</h1>
+    <p>Le {{ appointment.date.date|date("m/d/Y") }} à {{ appointment.hour.startTime|date("H:i") }}</p>
+    
+    {% if appointment.type.name == "Skype" %}
+        <p>Par Skype, pseudo du prospect : {{ appointment.prospect.skypePseudo }}</p>
+    {% elseif  appointment.type.name == "Physiquement" %}
+        <p>Sur place : 
+            {{ appointment.address.firstLine }}
+            {% if appointment.address.secondLine is not null %}
+                <p>{{ appointment.address.secondLine }}</p> 
+            {% endif %}
+             {% if appointment.address.thirdLine is not null %}
+                <p>{{ appointment.address.thirdLine }}</p> 
+            {% endif %}
+            <p>{{ appointment.address.city }} {{ appointment.address.zipcode }}</p>
+            <p>{{ appointment.address.country }}</p>
+        </p>
+    {% elseif appointment.type.name == "Videoconférence" %}
+        <p>Vidéoconférence via le site</p>
+    {% endif %}
+    
+    <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
+    <a href="{{ path('agenda_edit_appointment', {'id':appointment.id}) }}">Modifer</a>
+
+{% endblock %}

@@ -4,6 +4,8 @@ namespace Market3w\SiteBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection; 
+
 /**
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="Market3w\SiteBundle\Entity\UserRepository")
@@ -48,6 +50,22 @@ class User extends BaseUser
     protected $company;
     
     /**
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\Appointment", mappedBy="webMarketeur")
+     */
+    private $appointments;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\SeoStatistics")
+     * @ORM\JoinColumn(name="seo_statistics_id", referencedColumnName="id")
+     */
+    private $seoStatistics;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\Bill", mappedBy="client")
+     */
+    private $bills;
+    
+    /**
      * @var string
      * @ORM\Column(name="skype_pseudo", type="string", length=255, nullable=true)
      */
@@ -57,6 +75,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->addRole("ROLE_PROSPECT");
+        $this->appointments = new ArrayCollection();
     }
 
     /**
@@ -205,5 +224,63 @@ class User extends BaseUser
     public function getSkypePseudo()
     {
         return $this->skypePseudo;
+    }
+
+    /**
+     * Add appointments
+     *
+     * @param \Market3w\SiteBundle\Entity\Appointment $appointments
+     * @return User
+     */
+    public function addAppointment(\Market3w\SiteBundle\Entity\Appointment $appointments)
+    {
+        $this->appointments[] = $appointments;
+
+        return $this;
+    }
+
+    /**
+     * Remove appointments
+     *
+     * @param \Market3w\SiteBundle\Entity\Appointment $appointments
+     */
+    public function removeAppointment(\Market3w\SiteBundle\Entity\Appointment $appointments)
+    {
+        $this->appointments->removeElement($appointments);
+    }
+
+    /**
+     * Get appointments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAppointments()
+    {
+        return $this->appointments;
+    }
+
+
+
+    /**
+     * Set seoStatistics
+     *
+     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics
+     * @return User
+     */
+    public function setSeoStatistics(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics = null)
+    {
+        $this->seoStatistics = $seoStatistics;
+
+        return $this;
+    }
+
+    /**
+     * Get seoStatistics
+     *
+     * @return \Market3w\SiteBundle\Entity\SeoStatistics 
+     */
+    public function getSeoStatistics()
+    {
+        return $this->seoStatistics;
     }
 }

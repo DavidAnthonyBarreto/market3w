@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Service
  *
- * @ORM\Table()
+ * @ORM\Table(name="service")
  * @ORM\Entity(repositoryClass="Market3w\SiteBundle\Entity\ServiceRepository")
  */
 class Service
@@ -24,14 +24,14 @@ class Service
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
      */
     private $title;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="price", type="float", nullable=false)
      */
     private $price;
 

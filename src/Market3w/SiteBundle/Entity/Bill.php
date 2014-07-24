@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Bill
  *
- * @ORM\Table()
+ * @ORM\Table(name="bill")
  * @ORM\Entity(repositoryClass="Market3w\SiteBundle\Entity\BillRepository")
  */
 class Bill
@@ -22,40 +22,6 @@ class Bill
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="type", type="integer")
-     */
-    private $type;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer")
-     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
-     */
-    private $userId;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_billing", type="datetime")
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
-     */
-    private $dateBilling;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="status", type="integer")
-     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\Bill_status")
-     * @ORM\JoinColumn(name="status_id", referencedColumnName="id", nullable=false)
-     */
-    private $status;
-
-    /**
      * @var float
      *
      * @ORM\Column(name="tva", type="float")
@@ -63,12 +29,19 @@ class Bill
     private $tva;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="discount", type="float")
+     * @ORM\Column(name="discount", type="integer")
      */
     private $discount;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_billing", type="datetime")
+     */
+    private $dateBilling;
+    
     /**
      * @var \DateTime
      *
@@ -79,17 +52,60 @@ class Bill
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
-    private $dateCreated;
+    private $createdAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_updated", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
-    private $dateUpdated;
+    private $updatedAt;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\BillType")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id", nullable=false)
+     **/
+    protected $type;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\BillStatus")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id", nullable=false)
+     */
+    private $status;
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="bills")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id", nullable=false)
+     **/
+    private $client;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\BillLine", mappedBy="bill")
+     */
+    private $lines;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Bill", mappedBy="bill")
+     **/
+    private $estimates;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Bill", inversedBy="estimates")
+     * @ORM\JoinColumn(name="bill_id", referencedColumnName="id", nullable=true)
+     **/
+    private $bill;
+    
+   
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lines = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estimates = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -99,98 +115,6 @@ class Bill
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set type
-     *
-     * @param integer $type
-     * @return Bill
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return integer 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Bill
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set dateBilling
-     *
-     * @param \DateTime $dateBilling
-     * @return Bill
-     */
-    public function setDateBilling($dateBilling)
-    {
-        $this->dateBilling = $dateBilling;
-
-        return $this;
-    }
-
-    /**
-     * Get dateBilling
-     *
-     * @return \DateTime 
-     */
-    public function getDateBilling()
-    {
-        return $this->dateBilling;
-    }
-
-    /**
-     * Set status
-     *
-     * @param integer $status
-     * @return Bill
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return integer 
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
@@ -219,7 +143,7 @@ class Bill
     /**
      * Set discount
      *
-     * @param float $discount
+     * @param integer $discount
      * @return Bill
      */
     public function setDiscount($discount)
@@ -232,11 +156,34 @@ class Bill
     /**
      * Get discount
      *
-     * @return float 
+     * @return integer 
      */
     public function getDiscount()
     {
         return $this->discount;
+    }
+
+    /**
+     * Set dateBilling
+     *
+     * @param \DateTime $dateBilling
+     * @return Bill
+     */
+    public function setDateBilling($dateBilling)
+    {
+        $this->dateBilling = $dateBilling;
+
+        return $this;
+    }
+
+    /**
+     * Get dateBilling
+     *
+     * @return \DateTime 
+     */
+    public function getDateBilling()
+    {
+        return $this->dateBilling;
     }
 
     /**
@@ -263,48 +210,206 @@ class Bill
     }
 
     /**
-     * Set dateCreated
+     * Set createdAt
      *
-     * @param \DateTime $dateCreated
+     * @param \DateTime $createdAt
      * @return Bill
      */
-    public function setDateCreated($dateCreated)
+    public function setCreatedAt($createdAt)
     {
-        $this->dateCreated = $dateCreated;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get dateCreated
+     * Get createdAt
      *
      * @return \DateTime 
      */
-    public function getDateCreated()
+    public function getCreatedAt()
     {
-        return $this->dateCreated;
+        return $this->createdAt;
     }
 
     /**
-     * Set dateUpdated
+     * Set updatedAt
      *
-     * @param \DateTime $dateUpdated
+     * @param \DateTime $updatedAt
      * @return Bill
      */
-    public function setDateUpdated($dateUpdated)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->dateUpdated = $dateUpdated;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get dateUpdated
+     * Get updatedAt
      *
      * @return \DateTime 
      */
-    public function getDateUpdated()
+    public function getUpdatedAt()
     {
-        return $this->dateUpdated;
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \Market3w\SiteBundle\Entity\BillType $type
+     * @return Bill
+     */
+    public function setType(\Market3w\SiteBundle\Entity\BillType $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \Market3w\SiteBundle\Entity\BillType 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set status
+     *
+     * @param \Market3w\SiteBundle\Entity\BillStatus $status
+     * @return Bill
+     */
+    public function setStatus(\Market3w\SiteBundle\Entity\BillStatus $status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return \Market3w\SiteBundle\Entity\BillStatus 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \Market3w\SiteBundle\Entity\User $client
+     * @return Bill
+     */
+    public function setClient(\Market3w\SiteBundle\Entity\User $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \Market3w\SiteBundle\Entity\User 
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Add lines
+     *
+     * @param \Market3w\SiteBundle\Entity\BillLine $lines
+     * @return Bill
+     */
+    public function addLine(\Market3w\SiteBundle\Entity\BillLine $lines)
+    {
+        $this->lines[] = $lines;
+
+        return $this;
+    }
+
+    /**
+     * Remove lines
+     *
+     * @param \Market3w\SiteBundle\Entity\BillLine $lines
+     */
+    public function removeLine(\Market3w\SiteBundle\Entity\BillLine $lines)
+    {
+        $this->lines->removeElement($lines);
+    }
+
+    /**
+     * Get lines
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLines()
+    {
+        return $this->lines;
+    }
+
+    /**
+     * Add estimates
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $estimates
+     * @return Bill
+     */
+    public function addEstimate(\Market3w\SiteBundle\Entity\Bill $estimates)
+    {
+        $this->estimates[] = $estimates;
+
+        return $this;
+    }
+
+    /**
+     * Remove estimates
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $estimates
+     */
+    public function removeEstimate(\Market3w\SiteBundle\Entity\Bill $estimates)
+    {
+        $this->estimates->removeElement($estimates);
+    }
+
+    /**
+     * Get estimates
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstimates()
+    {
+        return $this->estimates;
+    }
+
+    /**
+     * Set bill
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $bill
+     * @return Bill
+     */
+    public function setBill(\Market3w\SiteBundle\Entity\Bill $bill = null)
+    {
+        $this->bill = $bill;
+
+        return $this;
+    }
+
+    /**
+     * Get bill
+     *
+     * @return \Market3w\SiteBundle\Entity\Bill 
+     */
+    public function getBill()
+    {
+        return $this->bill;
     }
 }

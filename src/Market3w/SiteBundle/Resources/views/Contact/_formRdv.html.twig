@@ -18,41 +18,42 @@
 
 {{ form_start(form) }}
     {{ form_errors(form) }}
+    <div class="contact_form">
+        <div class="contact_element">
+            {{ form_label(form.subject) }}
+            {{ form_errors(form.subject) }}
+            {{ form_widget(form.subject) }}
+        </div>
 
-    <div>
-        {{ form_label(form.subject) }}
-        {{ form_errors(form.subject) }}
-        {{ form_widget(form.subject) }}
-    </div>
+        <div class="contact_element">
+            {{ form_label(form.type) }}
+            {{ form_errors(form.type) }}
+            {{ form_widget(form.type) }}
+        </div>
+        
+        <div class="contact_element">
+            {{ form_errors(form.address) }}
+            {{ form_widget(form.address) }}
+        </div>
+        
+        <div  class="contact_element" id="skype">
+            {{ form_label(form.skype) }}
+            {{ form_errors(form.skype) }}
+            {{ form_widget(form.skype) }}
+        </div>
+        
+        <div class="contact_element">
+            {{ form_errors(form.date) }}
+            {{ form_widget(form.date) }}
+        </div>
+        
+        <div class="contact_element">
+            {{ form_errors(form.hour) }}
+            {{ form_widget(form.hour) }}
+        </div>
 
-    <div>
-        {{ form_label(form.type) }}
-        {{ form_errors(form.type) }}
-        {{ form_widget(form.type) }}
+        <input class="submit" type="submit" />
     </div>
-    
-    <div>
-        {{ form_errors(form.address) }}
-        {{ form_widget(form.address) }}
-    </div>
-    
-    <div id="skype">
-        {{ form_label(form.skype) }}
-        {{ form_errors(form.skype) }}
-        {{ form_widget(form.skype) }}
-    </div>
-    
-    <div>
-        {{ form_errors(form.date) }}
-        {{ form_widget(form.date) }}
-    </div>
-    
-    <div>
-        {{ form_errors(form.hour) }}
-        {{ form_widget(form.hour) }}
-    </div>
-
-    <input type="submit" />
 
 {{ form_end(form) }}
 

@@ -412,4 +412,42 @@ class Bill
     {
         return $this->bill;
     }
+    
+    /**
+     * Calculate totalHT
+     *
+     * @return float 
+     */
+    public function calculateTotalHT()
+    {
+        $lines = $this->getLines();
+        $pricesByService = array();
+        
+        foreach( $lines as $line ){
+            $pricesByService[] = $line->getPrice()*$line->getNbHours();
+        }
+        
+        $totalHT = array_sum($pricesByService);
+        
+        return $totalHT;
+    }
+    
+    /**
+     * Calculate totalTTC
+     *
+     * @return float
+     */
+    public function calculateTotalTTC()
+    {
+        $totalHT = $this->calculateTotalHT();
+        
+        if( !is_null($this->getDiscount()) ){
+            $totalHT = $totalHT - $totalHT*$this->getDiscount()/100;
+        }
+        
+        $totalTTC = $totalHT + $totalHT*$this->getTva()/100;
+        
+        return $totalTTC;
+    }
+    
 }

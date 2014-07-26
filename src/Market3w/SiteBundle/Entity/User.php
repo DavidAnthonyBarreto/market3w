@@ -70,12 +70,26 @@ class User extends BaseUser
      * @ORM\Column(name="skype_pseudo", type="string", length=255, nullable=true)
      */
     protected $skypePseudo;
-
+    
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         parent::__construct();
         $this->addRole("ROLE_PROSPECT");
-        $this->appointments = new ArrayCollection();
+        $this->appointments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bills = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -194,16 +208,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * Set skypePseudo
      *
      * @param string $skypePseudo
@@ -259,8 +263,6 @@ class User extends BaseUser
         return $this->appointments;
     }
 
-
-
     /**
      * Set seoStatistics
      *
@@ -282,5 +284,38 @@ class User extends BaseUser
     public function getSeoStatistics()
     {
         return $this->seoStatistics;
+    }
+
+    /**
+     * Add bills
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $bills
+     * @return User
+     */
+    public function addBill(\Market3w\SiteBundle\Entity\Bill $bills)
+    {
+        $this->bills[] = $bills;
+
+        return $this;
+    }
+
+    /**
+     * Remove bills
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $bills
+     */
+    public function removeBill(\Market3w\SiteBundle\Entity\Bill $bills)
+    {
+        $this->bills->removeElement($bills);
+    }
+
+    /**
+     * Get bills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBills()
+    {
+        return $this->bills;
     }
 }

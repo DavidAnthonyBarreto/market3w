@@ -24,9 +24,9 @@ class BillStatus
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $status;
+    private $name;
 
 
     /**
@@ -40,25 +40,25 @@ class BillStatus
     }
 
     /**
-     * Set status
+     * Set name
      *
-     * @param string $status
-     * @return Bill_status
+     * @param string $name
+     * @return BillStatus
      */
-    public function setStatus($status)
+    public function setName($name)
     {
-        $this->status = $status;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get status
+     * Get name
      *
      * @return string 
      */
-    public function getStatus()
+    public function getName()
     {
-        return $this->status;
+        return $this->name;
     }
 }

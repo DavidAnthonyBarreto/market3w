@@ -1,3 +1,8 @@
+/*Faire un pull avant chaque modif > clic droit Git > Remote > Pull*/
+/*lancer netbeans > clic droit Symphony2 > run command > doctrine:schema:update -- force*/
+/*lancer netbeans > clic droit Symphony2 > clear cache*/
+/*lancer netbeans > clic droit Symphony2 > run command > assetic:install*/
+/*lancer netbeans > clic droit Symphony2 > run command > assetic:dump*/
 /*lancer netbeans > clic droit Symphony2 > run command > assetic:dump --watch*/
 @font-face {
     font-family: 'allerregular';
@@ -40,12 +45,71 @@ h2{
 		color:#95a5a6;
 }
 
+ul li {
+	color:#95a5a6;
+}
+ul li a{
+	color:#18836e;
+}
+
+/**************TABLE**************/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #1abc9c;
+    padding: 6px;
+    text-align: left;
+}
+th {
+    background: none repeat scroll 0 0 #18836e;
+    color: white;
+    font-weight: bold;
+}
+tr:nth-of-type(2n+1) {
+    background: none repeat scroll 0 0 #c6f5ec;
+}
+
+/**************Submit**************/
+.submit{
+	background: #1abc9c;
+	color:#FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.submit:hover{
+	background: #FFF;
+	color: #18836e;
+}
+
+
 /**************LOGIN**************/
 .login_field{
 	width:100%;
-	height: 30px;
 	background: #95a5a6;
+	color: #FFF;
 }
+.login_button a{
+	width:100px;
+	height: 40px;
+	line-height: 40px;
+	background: #FFF;
+	color:#1abc9c;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+.login_button a:hover{
+	background: #95a5a6;
+	color:#FFF;
+}
+
 
 /**************HEADER**************/
 header{
@@ -92,7 +156,7 @@ nav ul li a{
 	width:120px;
 	height: 100px;
 	display: block;
-	transition: background 0.2s;
+	transition: background 0.3s;
 }
 
 nav ul li a:hover{
@@ -102,6 +166,37 @@ nav ul li a:hover{
 	border-bottom: 10px solid #c6f5ec;
 }
 
+/**************Formulaire de connexion**************/
+.connexion_field{
+	width:100%;
+	height: 120px;
+	background: #1abc9c;
+	padding-top: 20px;
+	color: #FFF;
+	text-align: center;
+}
+
+.connexion_field a{
+	color: #18836e;
+}
+.connexion_item{
+	margin-right: 20px;
+	display: inline-block;
+}
+.connexion_field .submit{
+	background: #FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	color: #18836e;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.connexion_field .submit:hover{
+	background: #1abc9c;
+	color:#FFF;
+}
 /**************SLIDER**************/
 .slider{
 	height:400px;
@@ -136,7 +231,7 @@ nav ul li a:hover{
 	display: block;
 	font-size: 14px;
 	opacity:1;
-	transition: opacity 0.2s;
+	transition: opacity 0.3s;
 }
 
 .contact_button a:hover{
@@ -165,11 +260,11 @@ nav ul li a:hover{
 	height:180px;
 	width:180px;
 	opacity: 1;
-	transition:opacity 0.2s;
+	transition:opacity 0.3s;
 }
 .blocE:hover{
 	opacity: 0.8;
-	transition:opacity 0.2s;
+	transition:opacity 0.3s;
 }
 
 /**************REALISATIONS**************/
@@ -182,11 +277,11 @@ nav ul li a:hover{
 	height:180px;
 	width:180px;
 	opacity: 1;
-	transition:opacity 0.2s;
+	transition:opacity 0.3s;
 }
 .blocR:hover{
 	opacity: 0.8;
-	transition:opacity 0.2s;
+	transition:opacity 0.3s;
 }
 
 /**************INFORMATIONS**************/
@@ -221,7 +316,7 @@ nav ul li a:hover{
 	height:50px;
 	width:50px;
 	opacity:1;
-	transition:opacity 0.2s;
+	transition:opacity 0.3s;
 }
 .follow_content a:hover{
 	opacity:0.8;
@@ -247,6 +342,10 @@ footer{
 	width:100%;
 	background: #1abc9c;
 }
+footer h1{
+	color: #FFF;
+}
+
 .copyright{
 	height:30px;
 	line-height: 30px;
@@ -254,6 +353,12 @@ footer{
 	font-size: 11px;
 	color:#1abc9c;
 	text-align: center;
+}
+footer ul li {
+	color:#c6f5ec;
+}
+footer ul li a{
+	color:#FFF;
 }
 /**************CONTENTS**************/
 .fixed_content{
@@ -267,6 +372,49 @@ footer{
 	line-height:100px;
 	position: relative;
 }
+
+/**************ADMIN CONTENTS**************/
+.admin_content ul li {
+	list-style-type: none;
+}
+.admin_content ul li a{
+	background: #1abc9c;
+	color:#FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	line-height: 40px;
+	padding: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+	display: inline-block;
+	text-decoration: none;
+}
+.admin_content ul li a:hover{
+	background: #FFF;
+	color: #18836e;
+}
+/**************CONTACT CONTENTS**************/
+.contact_content{
+	margin-bottom: 50px;
+}
+.contact_form {
+    background: none repeat scroll 0 0 #1abc9c;
+    border: 3px solid #18836e;
+    color: #fff;
+    margin: auto;
+    padding: 15px;
+    width: 500px;
+    border-radius: 20px;
+}
+.contact_element{
+	margin-bottom: 20px;
+}
+.contact_element label {
+    font-size: 16px;
+}
+
 
 /**************MEDIA QUERIES**************/
 /*****écrans inférieur à 1024px*****/
@@ -284,14 +432,14 @@ footer{
 		height: 60px;
 	}
 	.contact_field p{
-		width:80%;
+		width:75%;
 	}
 	.contact_button{
-		height:55px;
+		height:60px;
 	}
 	.contact_button a{
-		height:55px;
-		line-height: 55px;
+		height:60px;
+		line-height: 60px;
 	}
 	/*****Expertise*****/
 	.all_bloc_content{
@@ -326,6 +474,23 @@ footer{
 		bottom:0;
 		z-index: 100;
 		width:100%;
+	}
+	/*****Formulaire de connexion*****/
+	.connexion_field{
+		height: 180px;
+		text-align: left;
+	}
+	.connexion_item{
+		margin-right: 0;
+		display: block;
+	}
+	.connexion_item label{
+		display: inline-block;
+	    margin-bottom: 10px;
+	    width: 130px;
+	}
+	.connexion_field .submit{
+		margin-top: -10px;
 	}
 	/*****Contact*****/
 	.contact_field{

@@ -18,12 +18,6 @@ class ContactController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // si l'utilisateur n'est pas connecté, 
-        // il est redirigé vers la page de connexion
-        if( !$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
-        }
-        
         $user = $this->container->get('security.context')->getToken()->getUser();
                 
         // form

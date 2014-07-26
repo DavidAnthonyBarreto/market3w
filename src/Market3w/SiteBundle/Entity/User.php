@@ -61,6 +61,18 @@ class User extends BaseUser
     private $seoStatistics;
     
     /**
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\User", mappedBy="webMarketeur")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     */
+    private $clients;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="clients")
+     * @ORM\JoinColumn(name="web_marketeur_id", referencedColumnName="id")
+     */
+    private $webMarketeur;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\Bill", mappedBy="client")
      */
     private $bills;
@@ -70,12 +82,28 @@ class User extends BaseUser
      * @ORM\Column(name="skype_pseudo", type="string", length=255, nullable=true)
      */
     protected $skypePseudo;
-
+    
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         parent::__construct();
         $this->addRole("ROLE_PROSPECT");
-        $this->appointments = new ArrayCollection();
+        
+        $this->appointments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clients      = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bills        = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -194,16 +222,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * Set skypePseudo
      *
      * @param string $skypePseudo
@@ -259,8 +277,6 @@ class User extends BaseUser
         return $this->appointments;
     }
 
-
-
     /**
      * Set seoStatistics
      *
@@ -282,5 +298,94 @@ class User extends BaseUser
     public function getSeoStatistics()
     {
         return $this->seoStatistics;
+    }
+
+    /**
+     * Add bills
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $bills
+     * @return User
+     */
+    public function addBill(\Market3w\SiteBundle\Entity\Bill $bills)
+    {
+        $this->bills[] = $bills;
+
+        return $this;
+    }
+
+    /**
+     * Remove bills
+     *
+     * @param \Market3w\SiteBundle\Entity\Bill $bills
+     */
+    public function removeBill(\Market3w\SiteBundle\Entity\Bill $bills)
+    {
+        $this->bills->removeElement($bills);
+    }
+
+    /**
+     * Get bills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBills()
+    {
+        return $this->bills;
+    }
+
+    /**
+     * Add clients
+     *
+     * @param \Market3w\SiteBundle\Entity\User $clients
+     * @return User
+     */
+    public function addClient(\Market3w\SiteBundle\Entity\User $clients)
+    {
+        $this->clients[] = $clients;
+
+        return $this;
+    }
+
+    /**
+     * Remove clients
+     *
+     * @param \Market3w\SiteBundle\Entity\User $clients
+     */
+    public function removeClient(\Market3w\SiteBundle\Entity\User $clients)
+    {
+        $this->clients->removeElement($clients);
+    }
+
+    /**
+     * Get clients
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClients()
+    {
+        return $this->clients;
+    }
+
+    /**
+     * Set webMarketeur
+     *
+     * @param \Market3w\SiteBundle\Entity\User $webMarketeur
+     * @return User
+     */
+    public function setWebMarketeur(\Market3w\SiteBundle\Entity\User $webMarketeur = null)
+    {
+        $this->webMarketeur = $webMarketeur;
+
+        return $this;
+    }
+
+    /**
+     * Get webMarketeur
+     *
+     * @return \Market3w\SiteBundle\Entity\User 
+     */
+    public function getWebMarketeur()
+    {
+        return $this->webMarketeur;
     }
 }

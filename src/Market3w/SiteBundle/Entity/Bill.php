@@ -47,7 +47,7 @@ class Bill
      *
      * @ORM\Column(name="date_payment", type="datetime", nullable=true)
      */
-    private $datePayment;
+    private $datePayment = null;
 
     /**
      * @var \DateTime

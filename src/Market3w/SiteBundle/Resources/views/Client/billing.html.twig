@@ -1,0 +1,10 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>Vos factures</h1>
+    <ul>
+        {% for bill in bills %}
+            <li>{{ bill.dateBilling|date("m/d/Y") }} : {{ bill.calculateTotalTTC }} €</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

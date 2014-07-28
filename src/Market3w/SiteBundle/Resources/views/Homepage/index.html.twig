@@ -49,7 +49,7 @@
             <div class="all_bloc_content">
                 {% for project in projects %}
                     <div class="bloc_content">
-                        <a href="{{ path('market3w_site_ourwork_detail', {'name':project.name }) }}" class="blocR"></a>
+                        <a href="{{ path('market3w_site_ourwork_index') }}" class="blocR"></a>
                         <p>{{ project.name }}</p>
                     </div>
                 {% endfor %}

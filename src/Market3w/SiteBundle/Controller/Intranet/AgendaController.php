@@ -7,6 +7,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 
 use Market3w\SiteBundle\Form\Type\AppointmentType;
 
@@ -85,6 +87,7 @@ class AgendaController extends Controller
      * Confirm appointment to prospect
      *
      * @Route("/{id}/confirm", name="agenda_confirm_appointment", requirements={"id" = "\d+"})
+     * @Template()
      */
     public function confirmAction($id)
     {

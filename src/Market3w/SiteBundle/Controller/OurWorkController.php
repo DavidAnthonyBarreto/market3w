@@ -14,23 +14,11 @@ class OurWorkController extends Controller
      */
     public function indexAction()
     {
-        $projects = $this->getDoctrine()
-                         ->getRepository('Market3wSiteBundle:Project');
+        $em = $this->getDoctrine()->getManager();
+       
+        $projects = $em->getRepository('Market3wSiteBundle:Project')->findAll();
         
         return array('projects' => $projects);
-    }
-    
-    /**
-     * @Route("/realisation/{name}")
-     * @Template()
-     */
-    public function detailAction($name)
-    {
-        $project = $this->getDoctrine()
-                        ->getRepository('Market3wSiteBundle:Project')
-                        ->findOneByName($name);
-        
-        return array('project' => $project);
     }
     
 }

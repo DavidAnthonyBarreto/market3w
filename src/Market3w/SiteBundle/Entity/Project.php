@@ -31,6 +31,13 @@ class Project
     /**
      * @var string
      *
+     * @ORM\Column(name="company", type="string", length=100)
+     */
+    private $company;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="presentation", type="text")
      */
     private $presentation;
@@ -208,5 +215,28 @@ class Project
     public function getScreenshot()
     {
         return $this->screenshot;
+    }
+
+    /**
+     * Set company
+     *
+     * @param string $company
+     * @return Project
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return string 
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 }

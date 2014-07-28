@@ -47,12 +47,34 @@
                 <div class="nav_content">
                     <a href="{{ path('market3w_site_homepage_index') }}" class="logo_header">Market<span class="logo_end">3W</span></a>
                     <nav>
+                        
+                        
                         <ul>
-                            <li><a href="{{ path('market3w_site_homepage_index') }}">Accueil</a></li>
-                            <li><a href="{{ path('market3w_site_skill_index') }}">Expertise</a></li>
-                            <li><a href="{{ path('market3w_site_ourwork_index') }}">Réalisations</a></li>
-                            <li><a href="{{ path('market3w_site_us_index') }}">Société</a></li>
-                            <li><a href="{{ path('market3w_site_contact_index') }}">Contact</a></li>
+                            <li>
+                                <a href="{{ path('market3w_site_homepage_index') }}" {% if app.request.attributes.get('_route') == 'market3w_site_homepage_index' %} class="current" {% endif %}> 
+                                    Accueil      
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('market3w_site_skill_index') }}" {% if app.request.attributes.get('_route') == 'market3w_site_skill_index' %} class="current" {% endif %}> 
+                                    Expertise    
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('market3w_site_ourwork_index') }}" {% if app.request.attributes.get('_route') == 'market3w_site_ourwork_index' %} class="current" {% endif %}> 
+                                    Réalisations 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('market3w_site_us_index') }}" {% if app.request.attributes.get('_route') == 'market3w_site_us_index' %} class="current" {% endif %}> 
+                                    Société      
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('market3w_site_contact_index') }}" {% if app.request.attributes.get('_route') == 'market3w_site_contact_index' %} class="current" {% endif %}> 
+                                    Contact
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

@@ -13,8 +13,8 @@
                         <th>Name</th>
                         <th>Presentation</th>
                         <th>Url</th>
-                        <th>Duty</th>
-                        <th>Work</th>
+                        <!-- <th>Duty</th>
+                        <th>Work</th> -->
                         <th>Screenshot</th>
                         <th>Actions</th>
                     </tr>
@@ -26,15 +26,15 @@
                         <td>{{ entity.name }}</td>
                         <td>{{ entity.presentation }}</td>
                         <td>{{ entity.url }}</td>
-                        <td>{{ entity.duty }}</td>
-                        <td>{{ entity.work }}</td>
+                        <!-- <td>{{ entity.duty }}</td>
+                        <td>{{ entity.work }}</td> -->
                         <td>{{ entity.screenshot }}</td>
                         <td>
-                        <ul>
-                            <li>
+                        <ul class="record_actions">
+                            <li class="submit">
                                 <a href="{{ path('admin_project_show', { 'id': entity.id }) }}">show</a>
                             </li>
-                            <li>
+                            <li class="submit">
                                 <a href="{{ path('admin_project_edit', { 'id': entity.id }) }}">edit</a>
                             </li>
                         </ul>

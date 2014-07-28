@@ -39,13 +39,7 @@
                     {% endif %}
                 </div>
 
-                {% for type, messages in app.session.flashbag.all() %}
-                    {% for message in messages %}
-                        <div class="flash-{{ type }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
+                
             </div>
         </div>
         <header>
@@ -69,6 +63,17 @@
                       
         {% block content %}
             {% block fos_user_content %}
+
+            {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="fixed_content">
+                            <div class="flash-{{ type }}">
+                                {{ message }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
             {% endblock fos_user_content %}
         {% endblock %}
         

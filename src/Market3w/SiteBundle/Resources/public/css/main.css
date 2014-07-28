@@ -53,6 +53,11 @@ ul li a{
 	color:#18836e;
 }
 
+a:focus 
+{ 
+	outline:0; 
+} 
+
 /**************Table**************/
 table {
     border-collapse: collapse;
@@ -73,7 +78,7 @@ tr:nth-of-type(2n+1) {
 }
 
 /**************Submit**************/
-.submit{
+.submit, #form_submit{
 	background: #1abc9c;
 	color:#FFF;
 	border: 3px solid #18836e;
@@ -84,7 +89,7 @@ tr:nth-of-type(2n+1) {
 	margin-top: 10px;
 	border-radius: 10px;
 }
-.submit:hover{
+.submit:hover, #form_submit:hover{
 	background: #FFF;
 	color: #18836e;
 	border-radius: 20px;
@@ -215,6 +220,57 @@ nav ul li a:hover{
 	background: #1abc9c;
 	color:#FFF;
 }
+
+/**************Formulaire d'inscription**************/
+.inscription_field h1{
+	color: #FFF;
+}
+.inscription_field{
+	width:100%;
+	color: #FFF;
+	text-align: center;
+}
+.inscription_field form{
+	margin: auto;
+	width: 300px;
+}
+
+.inscription_field .fixed_content{
+	background: #1abc9c;
+	padding:20px;
+	margin:20px auto;
+	border: 5px solid #18836e;
+	border-radius: 20px;
+}
+
+.inscription_field a{
+	color: #18836e;
+}
+.inscription_item{
+	margin-right: 20px;
+	text-align: right;
+}
+.inscription_field .submit{
+	background: #FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	color: #18836e;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.inscription_field .submit:hover{
+	background: #1abc9c;
+	color:#FFF;
+}
+.record_actions li{
+	list-style-type: none;
+}
+
+.record_actions{
+	padding: 0;
+}
 /**************SLIDER**************/
 .slider{
 	height:400px;
@@ -256,6 +312,8 @@ nav ul li a:hover{
 .contact_button a:hover{
 	opacity:0.8;
 }
+
+
 
 /**************ACCUEIL EXPERTISE**************/
 .expertise{
@@ -419,6 +477,24 @@ footer ul li a{
 	color: #18836e;
 	border-radius: 30px;
 }
+
+/**************ADMIN PROJECT**************/
+.record_actions .submit a{
+	text-decoration: none;
+	color:#FFF;
+	text-transform : capitalize;
+}
+
+.record_actions .submit {
+	text-align: center;
+	line-height: 40px;
+}
+
+.record_actions .submit:hover > a{
+	border-radius: 40px;
+	color: #1abc9c;
+}
+
 /**************CONTACT CONTENTS**************/
 .contact_content{
 	margin-bottom: 50px;
@@ -437,6 +513,20 @@ footer ul li a{
 }
 .contact_element label {
     font-size: 16px;
+}
+.contact_form .submit{
+	background: #FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	color: #18836e;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.contact_form .submit:hover{
+	background: #1abc9c;
+	color:#FFF;
 }
 
 /**************PAGE EXPERTISE**************/

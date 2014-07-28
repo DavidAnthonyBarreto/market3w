@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}Market3w{% endblock %}</title>
+        {% block meta %}{% endblock %}
+        
+        {% block stylesheets %}
+            {% stylesheets 'bundles/market3wsite/css/admin.css' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% endblock %}
+        {% block javascripts %}
+            {% javascripts 'bundles/market3wsite/js/jquery-1.11.1.min.js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="login_field">
+            <div class="fixed_content">
+                <div class="login_button">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a href="{{ path('market3w_site_admin_index') }}">Admin</a>
+                        {% elseif is_granted("ROLE_WEB_MARKETEUR") %}
+                            <a href="">Mes clients</a>
+                        {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
+                            <a href="">Gérer le flux</a>
+                        {% elseif is_granted("ROLE_PROSPECT") or is_granted("ROLE_CLIENT") %}
+                            <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
+                        {% endif %}
+                        |
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                </div>
+
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        <header>
+            <div class="fixed_content">
+                <div class="nav_content">
+                    {% block nav %}
+                    {% endblock %}
+                </div>
+            </div>
+        </header>
+        
+        {% block content %}
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        {% endblock %}
+        
+        <footer>
+            <div class="fixed_content">
+                
+            </div>
+        </footer>
+        {% block javascript %}{% endblock %}
+    </body>
+</html>

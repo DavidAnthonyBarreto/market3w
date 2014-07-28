@@ -1,15 +1,15 @@
-{% extends 'Market3wSiteBundle::layout.html.twig' %}
+{% extends 'Market3wSiteBundle::adminIntranetLayout.html.twig' %}
 
 {% block content %}
-	<div class="admin_content">
-		<div class="fixed_content">
-			<h1>Espace Administrateur</h1>
-			<p>Bienvenue dans l'espace Administrateur, vous trouverez ci-après les différents paramètres auxquels vous avez accès :</p>
-		    <ul>
-		{#        <li><a href="{{ path('') }}">Gestion des utilisateurs</a></li>#}
-		        <li><a href="{{ path('admin_project') }}">Gestion des projets</a></li>
-		    </ul>
-	    </div>
+    <div class="admin_content">
+        <div class="fixed_content">
+                <h1>Espace Administrateur</h1>
+                <p>Bienvenue dans l'espace Administrateur, vous trouverez ci-après les différents paramètres auxquels vous avez accès :</p>
+            <ul>
+        {#        <li><a href="{{ path('') }}">Gestion des utilisateurs</a></li>#}
+                <li><a href="{{ path('admin_project') }}">Gestion des projets</a></li>
+            </ul>
+        </div>
     </div>
 
 {% endblock %}

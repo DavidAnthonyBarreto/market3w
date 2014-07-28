@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ClientController extends Controller
 {
     /**
-     * @Route("/account/billing", )
+     * @Route("/account/billing")
      * @Template()
      */
     public function billingAction()

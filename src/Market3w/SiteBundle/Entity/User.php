@@ -91,13 +91,13 @@ class User extends BaseUser
     private $seoStatistics;
     
     /**
-     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\User", mappedBy="webMarketeur")
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\User", mappedBy="webMarketeur", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $clients;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="clients")
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="clients", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="web_marketeur_id", referencedColumnName="id")
      */
     private $webMarketeur;

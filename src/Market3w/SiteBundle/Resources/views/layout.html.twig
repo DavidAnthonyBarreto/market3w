@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <title>{% block title %}Market3w{% endblock %}</title>
+        <title>{% block title %} Market3w {% endblock %}</title>
         {% block meta %}{% endblock %}
         
         {% block stylesheets %}
@@ -12,11 +12,6 @@
             output='css/market3w.css' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
-        {% endblock %}
-        {% block javascripts %}
-            {% javascripts 'bundles/market3wsite/js/jquery-1.11.1.min.js' %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
         {% endblock %}
     </head>
     <body>
@@ -83,9 +78,7 @@
                 </div>
             </div>
         </header>
-        
-        <!-- <hr> -->
-                      
+                              
         {% block content %}
             {% block fos_user_content %}
 
@@ -101,9 +94,7 @@
 
             {% endblock fos_user_content %}
         {% endblock %}
-        
-       <!--  <hr> -->
-        
+                
         <footer>
             <div class="fixed_content">
                 <h1>Plan du site</h1>
@@ -114,6 +105,12 @@
             </div>
         </footer>
         <div class="copyright">© Copyright 2014 | Market3W</div>
-        {% block javascript %}{% endblock %}
+        {% block javascripts %}
+            {% javascripts 
+                'bundles/market3wsite/js/jquery-1.11.1.min.js'
+                output='js/market3w.js' filter='?yui_js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>

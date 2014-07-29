@@ -1,0 +1,494 @@
+@font-face {
+    font-family: 'allerregular';
+    src: url('../fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_rg-webfont.woff') format('woff'),
+         url('../fonts/aller_rg-webfont.ttf') format('truetype'),
+         url('../fonts/aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'allerbold';
+    src: url('../fonts/aller_bd-webfont.eot');
+    src: url('../fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_bd-webfont.woff') format('woff'),
+         url('../fonts/aller_bd-webfont.ttf') format('truetype'),
+         url('../fonts/aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:#474747;
+}
+
+h1{
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 24px;
+	color:#1abc9c;
+}
+h2{
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 20px;
+		color:#95a5a6;
+}
+
+ul li {
+	color:#95a5a6;
+}
+ul li a{
+	color:#18836e;
+}
+
+a
+{ 
+	outline:0; 
+} 
+
+/**************Table**************/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #1abc9c;
+    padding: 6px;
+    text-align: left;
+}
+th {
+    background: none repeat scroll 0 0 #18836e;
+    color: white;
+    font-weight: bold;
+}
+tr:nth-of-type(2n+1) {
+    background: none repeat scroll 0 0 #c6f5ec;
+}
+
+/**************Submit**************/
+.submit, #form_submit{
+	background: #1abc9c;
+	color:#FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+.submit:hover, #form_submit:hover{
+	background: #FFF;
+	color: #18836e;
+	border-radius: 20px;
+}
+
+/**************LOGIN**************/
+.login_field{
+	width:100%;
+	background: #95a5a6;
+	color: #FFF;
+}
+.login_button a{
+	width:100px;
+	height: 40px;
+	line-height: 40px;
+	background: #FFF;
+	color:#1abc9c;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+.login_button a:hover{
+	background: #95a5a6;
+	color:#FFF;
+}
+
+/**************HEADER**************/
+header{
+	background: white;
+	border-bottom: 5px solid #18836e;
+}
+.logo_header{
+	height: 27px;
+	width: 160px;
+	display: inline-block;
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 35px;
+	color: #1abc9c;
+	text-decoration: none;
+}
+.logo_end{
+	color:#95a5a6;
+}
+
+nav {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+}
+nav ul{
+	padding: 0;
+	margin: 0;
+}
+nav ul li{
+	display: inline-block;
+	list-style-type:none;
+	width:120px;
+	height: 100px;
+	text-align: center;
+	margin-left:-4px;
+	
+}
+
+nav ul li a{
+	text-decoration: none;
+	font-family: allerregular,Arial,Helvetica,sans-serif;
+	font-size: 18px;
+	color:#1abc9c;
+	width:120px;
+	height: 100px;
+	display: block;
+	transition: background 0.3s;
+}
+
+nav ul li a:hover{
+	background: #1abc9c;
+	color:#FFF;
+	height: 90px;
+	border-bottom: 10px solid #c6f5ec;
+}
+
+.current{
+	background: #1abc9c;
+	color:#FFF;
+	height: 90px;
+	border-bottom: 10px solid #c6f5ec;
+}
+
+/**************Formulaire de connexion**************/
+.connexion_field h1{
+	color: #FFF;
+}
+.connexion_field{
+	width:100%;
+	color: #FFF;
+	text-align: center;
+}
+
+.connexion_field .fixed_content{
+	background: #1abc9c;
+	padding:20px;
+	margin:20px auto;
+	border: 5px solid #18836e;
+	border-radius: 20px;
+}
+
+.connexion_field a{
+	color: #18836e;
+}
+.connexion_item{
+	margin-right: 20px;
+	display: inline-block;
+}
+.connexion_field .submit{
+	background: #FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	color: #18836e;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.connexion_field .submit:hover{
+	background: #1abc9c;
+	color:#FFF;
+}
+
+/**************Formulaire d'inscription**************/
+.inscription_field h1{
+	color: #FFF;
+}
+.inscription_field{
+	width:100%;
+	color: #FFF;
+	text-align: center;
+}
+.inscription_field form{
+	margin: auto;
+	width: 300px;
+}
+
+.inscription_field .fixed_content{
+	background: #1abc9c;
+	padding:20px;
+	margin:20px auto;
+	border: 5px solid #18836e;
+	border-radius: 20px;
+}
+
+.inscription_field a{
+	color: #18836e;
+}
+.inscription_item{
+	margin-right: 20px;
+	text-align: right;
+}
+.inscription_field .submit{
+	background: #FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	color: #18836e;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.inscription_field .submit:hover{
+	background: #1abc9c;
+	color:#FFF;
+}
+.record_actions li{
+	list-style-type: none;
+}
+
+.record_actions{
+	padding: 0;
+}
+
+/**************FOOTER**************/
+footer{
+	border-top: 5px solid #18836e;
+	padding:15px 0;
+	height:300px;
+	width:100%;
+	background: #1abc9c;
+	margin-top: 50px;
+}
+footer h1{
+	color: #FFF;
+}
+
+.copyright{
+	height:30px;
+	line-height: 30px;
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 11px;
+	color:#1abc9c;
+	text-align: center;
+}
+footer ul li {
+	color:#c6f5ec;
+}
+footer ul li a{
+	color:#FFF;
+}
+
+/**************CONTENTS**************/
+.fixed_content{
+	width:960px;
+	margin:auto;
+}
+.nav_content{
+	display: inline-block;
+	width:960px;
+	height: 100px;
+	line-height:100px;
+	position: relative;
+}
+
+/**************MEDIA QUERIES**************/
+/*****écrans inférieur à 1024px*****/
+@media screen and (max-width: 1024px) {
+	.fixed_content, .nav_content {
+		width:720px;
+	}
+	/*****Menu*****/
+	nav ul li, nav ul li a{
+		width:100px;
+		font-size: 16px;
+	}
+	/*****Contact*****/
+	.contact_field{
+		height: 60px;
+	}
+	.contact_field p{
+		width:75%;
+	}
+	.contact_button{
+		height:60px;
+	}
+	.contact_button a{
+		height:60px;
+		line-height: 60px;
+	}
+	/*****Accueil Expertise*****/
+	.all_bloc_content{
+		width:520px;
+		margin:auto;
+	}
+	/*****Page Réalisation*****/
+	.realisation_apercu_content, .realisation_apercu{
+		height: 600px;
+		width: 600px;
+		margin: auto;
+	}
+
+}
+/*****écrans inférieur à 760px*****/
+@media screen and (max-width: 760px) {
+	.fixed_content, .nav_content {
+		width:520px;
+	}
+	body{
+		font-size: 14px;
+	}
+	/*****Menu*****/
+	.nav_content, nav ul li, nav ul li a{
+		height: 100px;
+		line-height: 100px;
+		font-size: 14px;
+	}
+	nav ul li a:hover{
+		height: 90px;
+	}
+	.nav_content{
+		text-align: center;
+	}
+	nav {
+		border-top: 5px solid #18836e;
+		background: #FFF;
+		position: fixed;
+		bottom:0;
+		z-index: 100;
+		width:100%;
+	}
+	/*****Formulaire de connexion*****/
+	.connexion_field .fixed_content{
+		padding:5px;
+	}
+	.connexion_field{
+		text-align: left;
+	}
+	.connexion_item{
+		margin-right: 0;
+		display: block;
+	}
+	.connexion_item label{
+		display: inline-block;
+	    margin-bottom: 10px;
+	    width: 130px;
+	}
+	.connexion_field .submit{
+		margin-top: -10px;
+	}
+	/*****Contact*****/
+	.contact_field{
+		margin-bottom: 30px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	.contact_field p{
+		width:100%;
+	}
+	.contact_button{
+		position: relative;
+		height:55px;
+		width:100%;
+		text-align: center;
+	}
+	.contact_button a{
+		width:100%;
+		margin-left:-15px;
+		padding-right: 15px;
+		padding-left: 15px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+	}
+	/*****Accueil Expertise*****/
+	.expertise{
+		margin-top:160px;
+	}
+	/*****Accueil Informations*****/
+	.about, .follow{
+		width:100%;
+	}
+	.about{
+		margin-right: 0;
+	}
+	/*****Page Expertise*****/
+	.expertise_detail_content{
+		margin-bottom: 80px;
+		text-align: center;
+	}
+	.expertise_detail_content .blocE{
+		margin:auto;
+		display: block;
+	}
+	.expertise_detail{
+		display: block;
+		vertical-align: top;
+	    width: 100%;
+	    margin-left: 0px;
+	}
+	/*****Page Réalisation*****/
+	.realisation_apercu_content, .realisation_apercu{
+		height: 500px;
+		width: 500px;
+		margin: auto;
+	}
+	/*****Footer*****/
+	.copyright{
+		margin-bottom: 115px;
+	}
+
+
+}
+/*****écrans inférieur à 520px*****/
+@media screen and (max-width: 520px) {
+	.fixed_content, .nav_content, .all_bloc_content {
+		width:280px;
+	}
+	/*****Menu*****/
+	.nav_content, nav ul li, nav ul li a{
+		height: 60px;
+		line-height: 60px;
+	}
+	nav ul li:first-child{
+		display: none;
+	}
+	nav ul li, nav ul li a{
+		width: 80px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	nav ul li a:hover{
+		height: 50px;
+	}
+	.nav_content{
+		text-align: center;
+	}
+	/*****Page Réalisation*****/
+	.realisation_apercu_content, .realisation_apercu{
+		height: 250px;
+		width: 250px;
+		margin: auto;
+	}
+	/*****Contact*****/
+	.contact_field,.contact_button{
+		height: 75px;
+	}
+	/*****Footer*****/
+	.copyright{
+		margin-bottom: 75px;
+	}
+
+}

@@ -6,7 +6,10 @@
         {% block meta %}{% endblock %}
         
         {% block stylesheets %}
-            {% stylesheets 'bundles/market3wsite/css/main.css' filter='cssrewrite' %}
+            {% stylesheets 
+            'bundles/market3wsite/css/main.css' 
+            'bundles/market3wsite/css/common.css' 
+            output='css/market3w.css' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}

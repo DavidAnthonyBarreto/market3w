@@ -1,16 +1,61 @@
+/**************Table**************/
 table {
-    margin:auto;
-    width: 90%;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #1abc9c;
+    padding: 6px;
+    text-align: left;
 }
 th {
-    background-color : #1abc9c;
+    background: none repeat scroll 0 0 #18836e;
+    color: white;
+    font-weight: bold;
+}
+tr:nth-of-type(2n+1) {
+    background: none repeat scroll 0 0 #c6f5ec;
 }
 
-table li {
-    list-style: none;
+/**************ADMIN CONTENTS**************/
+.admin_content ul li {
+	list-style-type: none;
+}
+.admin_content ul li a{
+	background: #1abc9c;
+	color:#FFF;
+	border: 3px solid #18836e;
+	height:40px;
+	line-height: 40px;
+	padding: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 10px;
+}
+.admin_content ul li a:hover{
+	background: #FFF;
+	color: #18836e;
+	border-radius: 30px;
 }
 
-table li a {
-    color: #1abc9c;
-    text-decoration: none;
+/**************ADMIN PROJECT**************/
+.record_actions .submit a{
+	text-decoration: none;
+	color:#FFF;
+	text-transform : capitalize;
 }
+
+.record_actions .submit {
+	text-align: center;
+	line-height: 40px;
+}
+
+.record_actions .submit:hover > a{
+	border-radius: 40px;
+	color: #1abc9c;
+}
+

@@ -260,6 +260,10 @@ nav ul li a:hover{
 	list-style-type: none;
 }
 
+.inscription_field li{
+	color:#FFF;
+}
+
 .record_actions{
 	padding: 0;
 }

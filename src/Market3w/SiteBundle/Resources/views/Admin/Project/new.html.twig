@@ -1,15 +1,19 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block body -%}
-    <h1>Project creation</h1>
+<div class="new_project_content">
+	<div class="fixed_content">
+	    <h1>Project creation</h1>
 
-    {{ form(form) }}
+	    {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_project') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+	        <ul class="record_actions">
+			    <li>
+			        <a href="{{ path('admin_project') }}">
+			            Back to the list
+			        </a>
+			    </li>
+			</ul>
+	</div>
+</div>
 {% endblock %}

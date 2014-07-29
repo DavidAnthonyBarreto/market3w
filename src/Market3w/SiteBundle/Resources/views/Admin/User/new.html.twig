@@ -1,15 +1,19 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block body -%}
-    <h1>User creation</h1>
+<div class="new_user_field">
+    <div class="fixed_content">
+	    <h1>User creation</h1>
 
-    {{ form(form) }}
+	    {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_user') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+	        <ul class="record_actions">
+			    <li>
+			        <a href="{{ path('admin_user') }}">
+			            Back to the list
+			        </a>
+			    </li>
+			</ul>
+	</div>
+</div>
 {% endblock %}

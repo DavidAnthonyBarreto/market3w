@@ -1,12 +1,13 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-    <p>{{ 'profile.show.firstName'|trans }}: {{ user.firstName }}</p>
-    <p>{{ 'profile.show.lastName'|trans }}: {{ user.lastName }}</p>
-    <p>{{ 'profile.show.phoneNumber'|trans }}: {{ user.phoneNumber }}</p>
-    <p>{{ 'profile.show.mobilePhoneNumber'|trans }}: {{ user.mobilePhoneNumber }}</p>
-    <p>{{ 'profile.show.company'|trans }}: {{ user.company }}</p>
+<div class="fixed_content">
+	<div class="fos_user_user_show">
+	    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+	    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+	    <p>{{ 'profile.show.firstName'|trans }}: {{ user.firstName }}</p>
+	    <p>{{ 'profile.show.lastName'|trans }}: {{ user.lastName }}</p>
+	    <p>{{ 'profile.show.phoneNumber'|trans }}: {{ user.phoneNumber }}</p>
+	    <p>{{ 'profile.show.mobilePhoneNumber'|trans }}: {{ user.mobilePhoneNumber }}</p>
+	    <p>{{ 'profile.show.company'|trans }}: {{ user.company }}</p>
+	</div>
+	<a href="{{ path('fos_user_profile_edit') }}">Modifier</a>
 </div>
-<a href="{{ path('fos_user_profile_edit') }}">Modifier</a>

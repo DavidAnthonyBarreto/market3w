@@ -1,12 +1,14 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
 {% block content %}
-    
-    <h1>Votre référencement</h1>
-    
-    <p> Visiteurs uniques : {% if seoStatistics.uniqueVisitors is null %} n/a {% else %} {{ seoStatistics.uniqueVisitors }} {% endif %} </p>
-    <p> Rang :              {% if seoStatistics.rank is null %}           n/a {% else %} {{ seoStatistics.rank }}           {% endif %} </p>
-    <p> Mots clefs :        {% if seoStatistics.keywords is null %}       n/a {% else %} {{ seoStatistics.keywords }}       {% endif %} </p>
-    <p> Top des vues :      {% if seoStatistics.topViewed is null %}      n/a {% else %} {{ seoStatistics.topViewed }}      {% endif %} </p>
-
+<div class="seo_content">
+	<div class="fixed_content">
+	    <h1>Votre référencement</h1>
+	    
+	    <p> Visiteurs uniques : {% if seoStatistics.uniqueVisitors is null %} n/a {% else %} {{ seoStatistics.uniqueVisitors }} {% endif %} </p>
+	    <p> Rang :              {% if seoStatistics.rank is null %}           n/a {% else %} {{ seoStatistics.rank }}           {% endif %} </p>
+	    <p> Mots clefs :        {% if seoStatistics.keywords is null %}       n/a {% else %} {{ seoStatistics.keywords }}       {% endif %} </p>
+	    <p> Top des vues :      {% if seoStatistics.topViewed is null %}      n/a {% else %} {{ seoStatistics.topViewed }}      {% endif %} </p>
+	</div>
+</div>
 {% endblock %}

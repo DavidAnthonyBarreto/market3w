@@ -22,43 +22,47 @@
 {% endblock %}
 
 {% block content %}
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
+<div class="agenda_content">
+    <div class="fixed_content">
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
 
-        <div>
-            {{ form_label(form.subject) }}
-            {{ form_errors(form.subject) }}
-            {{ form_widget(form.subject) }}
-        </div>
+            <div>
+                {{ form_label(form.subject) }}
+                {{ form_errors(form.subject) }}
+                {{ form_widget(form.subject) }}
+            </div>
 
-        <div>
-            {{ form_label(form.type) }}
-            {{ form_errors(form.type) }}
-            {{ form_widget(form.type) }}
-        </div>
+            <div>
+                {{ form_label(form.type) }}
+                {{ form_errors(form.type) }}
+                {{ form_widget(form.type) }}
+            </div>
 
-        <div>
-            {{ form_errors(form.address) }}
-            {{ form_widget(form.address) }}
-        </div>
+            <div>
+                {{ form_errors(form.address) }}
+                {{ form_widget(form.address) }}
+            </div>
 
-        <div id="skype">
-            {{ form_label(form.skype) }}
-            {{ form_errors(form.skype) }}
-            {{ form_widget(form.skype) }}
-        </div>
+            <div id="skype">
+                {{ form_label(form.skype) }}
+                {{ form_errors(form.skype) }}
+                {{ form_widget(form.skype) }}
+            </div>
 
-        <div>
-            {{ form_errors(form.date) }}
-            {{ form_widget(form.date) }}
-        </div>
+            <div>
+                {{ form_errors(form.date) }}
+                {{ form_widget(form.date) }}
+            </div>
 
-        <div>
-            {{ form_errors(form.hour) }}
-            {{ form_widget(form.hour) }}
-        </div>
+            <div>
+                {{ form_errors(form.hour) }}
+                {{ form_widget(form.hour) }}
+            </div>
 
-        <input type="submit" />
+            <input type="submit" />
+    </div>
+</div>
 
     {{ form_end(form) }}
 {% endblock %}

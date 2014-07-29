@@ -21,6 +21,85 @@
 	width: 100%;
 	background:#1abc9c;
 	margin-bottom: 20px;
+	position: relative;
+}
+
+/***slider responsif***/
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.rslides > li{
+  width: 100%;
+  height: 400px;
+}
+
+.rslides li a{
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+ }
+
+.rslides_tabs {
+	position: absolute;
+	bottom: 0;
+	margin: auto;
+	padding:0;
+	text-align: center;
+	width: inherit;
+	z-index:10;
+}
+
+.rslides_tabs li a{
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	color: #FFF;
+	background: #18836e;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+.rslides_tabs li a:hover{
+	background: #FFF;
+	color: #1abc9c;
+	text-decoration: none;
+}
+
+.rslides_tabs li{
+	display: inline-block;
+	list-style-type: none;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.rslides_tabs .rslides_here a{
+	background: #FFF;
+	color: #1abc9c;
 }
 
 /**************CONTACT**************/

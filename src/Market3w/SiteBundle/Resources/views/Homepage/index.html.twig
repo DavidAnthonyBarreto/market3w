@@ -2,7 +2,11 @@
 {% block content %}
     <div class="slider">
         <div class="fixed_content">
-            <p class="accroche">L'expert en <strong>Web Marketing</strong></p>
+            <ul class="rslides">
+              <li><p class="accroche">L'expert en <strong>Web Marketing</strong></p></li>
+              <li><p class="accroche">Contactez nous pour <strong>une expertise personnalisée</strong></p></li>
+              <li><p class="accroche">Découvrez <strong>notre équipe</strong></p></li>
+            </ul>
         </div>
     </div>
 
@@ -93,4 +97,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts 
+        'bundles/market3wsite/js/responsiveslides.min.js'
+        'bundles/market3wsite/js/homepage_slider.js'
+        output='homepage.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

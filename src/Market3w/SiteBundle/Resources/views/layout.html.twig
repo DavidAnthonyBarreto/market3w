@@ -108,7 +108,8 @@
         {% block javascripts %}
             {% javascripts 
                 'bundles/market3wsite/js/jquery-1.11.1.min.js'
-                output='js/market3w.js' filter='?yui_js' %}
+                'bundles/market3wsite/js/common.js' 
+                output='js/market3w.js' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}

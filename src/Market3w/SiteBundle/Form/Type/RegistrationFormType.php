@@ -11,12 +11,36 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('lastName')
-                ->add('firstName')
-                ->add('phoneNumber')
-                ->add('mobilePhoneNumber')
-                ->add('company')
-        ;
+        $builder->add('lastName', 'text', array(
+            'label'              => 'form.lastName', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
+        $builder->add('firstName', 'text', array(
+            'label'              => 'form.firstName', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
+        $builder->add('phoneNumber', 'text', array(
+            'label'              => 'form.phoneNumber', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
+        $builder->add('mobilePhoneNumber', 'text', array(
+            'label'              => 'form.mobilePhoneNumber', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
+        $builder->add('company', 'text', array(
+            'label'              => 'form.company', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
     }
 
     public function getName()

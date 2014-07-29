@@ -16,8 +16,8 @@ group:
 
 security:
     login:
-        username: "Nom d'utilisateur :"
-        password: "Mot de passe :"
+        username: "Nom d'utilisateur"
+        password: "Mot de passe"
         remember_me: Se souvenir de moi
         submit: Connexion
 
@@ -45,15 +45,15 @@ change_password:
 # Registration
 registration:
     check_email: Un e-mail a été envoyé à l'adresse %email%. Il contient un lien d'activation sur lequel il vous faudra cliquer afin d'activer votre compte.
-    confirmed: Félicitations %username%, votre compte est maintenant activé.
+    confirmed: Félicitations %firstName% %lastName%, votre compte est maintenant activé.
     back: Retour à la page d'origine.
     submit: Enregistrer
     flash:
         user_created: L'utilisateur a été créé avec succès
     email:
-        subject: Bienvenue %username% !
+        subject: Bienvenue %firstName% %lastName% !
         message: |
-            Bonjour %username% !
+            Bonjour %firstName% %lastName% !
 
             Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
 
@@ -91,16 +91,16 @@ layout:
 
 # Form field labels
 form:
-    group_name: "Nom du groupe :"
-    username: "Nom d'utilisateur :"
-    email: "Adresse e-mail :"
-    firstName: "Prénom :"
-    lastName: "Nom :"
-    phoneNumber: "Téléphone :"
-    mobilePhoneNumber: "Mobile :"
-    company: "Société :"
-    current_password: "Mot de passe actuel :"
-    password: "Mot de passe :"
-    password_confirmation: "Vérification :"
-    new_password: "Nouveau mot de passe :"
-    new_password_confirmation: "Vérification :"
+    group_name: "Nom du groupe"
+    username: "Nom d'utilisateur"
+    email: "Adresse e-mail"
+    firstName: "Prénom"
+    lastName: "Nom"
+    phoneNumber: "Téléphone"
+    mobilePhoneNumber: "Mobile"
+    company: "Société"
+    current_password: "Mot de passe actuel"
+    password: "Mot de passe"
+    password_confirmation: "Vérification"
+    new_password: "Nouveau mot de passe"
+    new_password_confirmation: "Vérification"

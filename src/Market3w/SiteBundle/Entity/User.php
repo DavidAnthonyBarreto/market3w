@@ -4,7 +4,9 @@ namespace Market3w\SiteBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
-use Doctrine\Common\Collections\ArrayCollection; 
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Table(name="user")
@@ -22,24 +24,52 @@ class User extends BaseUser
     /**
      * @var string
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre nom ne peut pas contenir de chiffres"
+     * )
      */
     protected $lastName;
     
     /**
      * @var string
      * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre nom ne peut pas contenir de chiffres"
+     * )
      */
     protected $firstName;
     
     /**
      * @var string
      * @ORM\Column(name="phone_number", type="string", length=100, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     message="Le numéro ne doit contenir que des chiffres"
+     * )
+     * @Assert\Length(
+     *      min = "10",
+     *      max = "10",
+     *      exactMessage = "Le numéro doit avoir exactement {{ limit }} chiffres"
+     * )
      */
     protected $phoneNumber;
     
     /**
      * @var string
      * @ORM\Column(name="mobile_phone_number", type="string", length=100, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     message="Le numéro ne doit contenir que des chiffres"
+     * )
+     * @Assert\Length(
+     *      min = "10",
+     *      max = "10",
+     *      exactMessage = "Le numéro doit avoir exactement {{ limit }} chiffres"
+     * )
      */
     protected $mobilePhoneNumber;
     

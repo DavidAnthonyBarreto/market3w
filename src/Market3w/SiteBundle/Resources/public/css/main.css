@@ -20,7 +20,6 @@
 	height:400px;
 	width: 100%;
 	background:#1abc9c;
-	margin-bottom: 20px;
 	position: relative;
 }
 
@@ -104,16 +103,23 @@
 
 /**************CONTACT**************/
 .contact_field{
+	padding: 20px 0;
+	background: #2e3533;
+	color: #FFF;
+}
+
+.contact_field .fixed_content{
 	height: 40px;
-	border: 5px solid #1abc9c;
+	/*border: 2px solid #1abc9c;*/
+	font-size: 16px;
 	padding:0 10px;
 	position: relative;
-	border-radius: 15px;
+	border-radius: 10px;
 }
 .contact_button{
 	position: absolute;
 	right:0;
-	top:0;
+	top:-5px;
 	height:40px;
 	width:160px;
 	text-align: center;
@@ -142,21 +148,46 @@
 }
 .all_bloc_content{
 	text-align: center;
+	margin-top: 30px;
 }
 .bloc_content{
 	display: inline-block;
 	margin:0 5px;
+	margin-bottom: 120px;
+	height:100px;
+	width:200px;
+	text-align: center;
 }
 .bloc_content p{
 	color:#1abc9c;
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 16px;
 }
+
+#referencement{
+	background: url("../images/expertise/seo.png")no-repeat;
+}
+
+#etude_marketing{
+	background: url("../images/expertise/etude_marketing.png")no-repeat;
+}
+
+#ecommerce{
+	background: url("../images/expertise/ecommerce.png")no-repeat;
+}
+
+#marketing_mobile{
+	background: url("../images/expertise/marketing_mobile.png")no-repeat;
+}
+
 .blocE{
 	display:block;
-	background: url("../images/blocE.png")no-repeat;
-	height:180px;
-	width:180px;
+	/*background: url("../images/blocE.png")no-repeat;*/
+	height:120px;
+	width:120px;
+	margin: auto;
+	border-radius: 200px;
+	border:6px solid #1abc9c;
 	opacity: 1;
 	transition:opacity 0.3s;
 }
@@ -240,12 +271,12 @@
 }
 .contact_form {
     background: none repeat scroll 0 0 #1abc9c;
-    border: 3px solid #18836e;
+    /*border: 3px solid #18836e;*/
     color: #fff;
     margin: auto;
     padding: 15px;
     width: 500px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .contact_element{
 	margin-bottom: 20px;
@@ -255,7 +286,7 @@
 }
 .contact_form .submit{
 	background: #FFF;
-	border: 3px solid #18836e;
+	/*border: 3px solid #18836e;*/
 	height:40px;
 	color: #18836e;
 	font-weight: bold;
@@ -290,8 +321,16 @@
 }
 
 /**************PAGE SOCIETE**************/
+.overlay {
+    background:transparent; 
+    position:relative; 
+    width:100%;
+    height:400px; 
+    top:400px; 
+    margin-top:-400px;
+}
 .google_map_conteneur{
-	border-top: 5px solid #18836e;
+	/*border-top: 5px solid #18836e;*/
 }
 .google_map{
 	height: 400px;
@@ -319,10 +358,6 @@
 	height:100px;
 	width:100px;
 	border-radius: 60px;
-	border: 5px solid #1abc9c;
 	transition:all 0.3s;
 }
 
-.team_content img:hover{
-	border: 5px solid #c6f5ec;
-}

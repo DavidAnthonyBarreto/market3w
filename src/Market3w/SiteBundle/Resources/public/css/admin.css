@@ -24,7 +24,7 @@ tr:nth-of-type(2n+1) {
 .admin_content ul li a{
 	background: #1abc9c;
 	color:#FFF;
-	border: 3px solid #18836e;
+	/*border: 3px solid #18836e;*/
 	height:40px;
 	line-height: 40px;
 	padding: 5px;
@@ -39,7 +39,7 @@ tr:nth-of-type(2n+1) {
 .admin_content ul li a:hover{
 	background: #FFF;
 	color: #18836e;
-	border-radius: 30px;
+	border-radius: 20px;
 }
 
 /**************ADMIN PROJECT**************/

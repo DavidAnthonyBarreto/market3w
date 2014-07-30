@@ -22,16 +22,16 @@ class History
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="seoStatistics", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      **/
-    protected $userId;
+    protected $client;
     
     /**
      * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\SeoStatistics")
      * @ORM\JoinColumn(name="seo_id", referencedColumnName="id", nullable=false)
      **/
-    protected $seoId;
+    protected $seoStatistic;
     
     /**
      * @var \DateTime
@@ -39,7 +39,6 @@ class History
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
 
     /**
      * Get id
@@ -75,48 +74,48 @@ class History
     }
 
     /**
-     * Set userId
+     * Set client
      *
-     * @param \Market3w\SiteBundle\Entity\User $userId
+     * @param \Market3w\SiteBundle\Entity\User $client
      * @return History
      */
-    public function setUserId(\Market3w\SiteBundle\Entity\User $userId)
+    public function setClient(\Market3w\SiteBundle\Entity\User $client)
     {
-        $this->userId = $userId;
+        $this->client = $client;
 
         return $this;
     }
 
     /**
-     * Get userId
+     * Get client
      *
      * @return \Market3w\SiteBundle\Entity\User 
      */
-    public function getUserId()
+    public function getClient()
     {
-        return $this->userId;
+        return $this->client;
     }
 
     /**
-     * Set seoId
+     * Set seoStatistic
      *
-     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoId
+     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistic
      * @return History
      */
-    public function setSeoId(\Market3w\SiteBundle\Entity\SeoStatistics $seoId)
+    public function setSeoStatistic(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistic)
     {
-        $this->seoId = $seoId;
+        $this->seoStatistic = $seoStatistic;
 
         return $this;
     }
 
     /**
-     * Get seoId
+     * Get seoStatistic
      *
      * @return \Market3w\SiteBundle\Entity\SeoStatistics 
      */
-    public function getSeoId()
+    public function getSeoStatistic()
     {
-        return $this->seoId;
+        return $this->seoStatistic;
     }
 }

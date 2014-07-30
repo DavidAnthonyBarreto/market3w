@@ -3,6 +3,7 @@
 namespace Market3w\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SeoStatistics
@@ -25,6 +26,11 @@ class SeoStatistics
      * @var integer
      *
      * @ORM\Column(name="uniqueVisitors", type="integer")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=true,
+     *     message="Votre nom ne peut contenir que des chiffres"
+     * )
      */
     private $uniqueVisitors;
 
@@ -32,8 +38,37 @@ class SeoStatistics
      * @var integer
      *
      * @ORM\Column(name="rank", type="integer")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=true,
+     *     message="Votre nom ne peut contenir que des chiffres"
+     * )
      */
     private $rank;
+    
+     /**
+     * @var nbViewedPages
+     *
+     * @ORM\Column(name="nbViewedPages", type="integer")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=true,
+     *     message="Votre nom ne peut contenir que des chiffres"
+     * )
+     */
+    private $nbViewedPages;
+    
+     /**
+     * @var reboundTime
+     *
+     * @ORM\Column(name="reboundTime", type="integer")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=true,
+     *     message="Votre nom ne peut contenir que des chiffres"
+     * )
+     */
+    private $reboundTime;
 
     /**
      * @var string
@@ -53,6 +88,7 @@ class SeoStatistics
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime")
+     * @Assert\Type(type="datetime", message="La valeur {{ value }} n'est pas un type {{ type }} valide.")
      */
     private $createdAt;
 
@@ -212,4 +248,50 @@ class SeoStatistics
         return $this->updatedAt;
     }
 
+
+    /**
+     * Set nbViewedPages
+     *
+     * @param integer $nbViewedPages
+     * @return SeoStatistics
+     */
+    public function setNbViewedPages($nbViewedPages)
+    {
+        $this->nbViewedPages = $nbViewedPages;
+
+        return $this;
+    }
+
+    /**
+     * Get nbViewedPages
+     *
+     * @return integer 
+     */
+    public function getNbViewedPages()
+    {
+        return $this->nbViewedPages;
+    }
+
+    /**
+     * Set reboundTime
+     *
+     * @param integer $reboundTime
+     * @return SeoStatistics
+     */
+    public function setReboundTime($reboundTime)
+    {
+        $this->reboundTime = $reboundTime;
+
+        return $this;
+    }
+
+    /**
+     * Get reboundTime
+     *
+     * @return integer 
+     */
+    public function getReboundTime()
+    {
+        return $this->reboundTime;
+    }
 }

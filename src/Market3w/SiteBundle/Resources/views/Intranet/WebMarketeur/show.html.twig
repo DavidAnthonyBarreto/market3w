@@ -1,0 +1,17 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <ul>
+        <div class="sheet_container">
+            <span>Entreprise :</span><span class="company">{{client.company}}</span>
+            <span>Prénom :</span><span class="firstName">{{client.firstName}}</span>
+            <span>Nom :</span><span class="lastName">{{client.lastName}}</span>
+            <span>Email :</span><span class="email">{{client.email}}</span>
+            <span>Téléphone :</span><span class="phone-number">{{client.phoneNumber}}</span>
+            <span>Portable :</span><span class="mobile-phone-number">{{client.mobilePhoneNumber}}</span>
+            {% if client.skypePseudo != false %}
+                <span>Pseudo Skype :</span><span class="skypePseudo">{{client.skypePseudo}}</span>
+            {% endif %}
+        </div>
+    </ul>
+{% endblock %}

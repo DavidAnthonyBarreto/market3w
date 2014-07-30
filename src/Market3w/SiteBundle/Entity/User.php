@@ -85,7 +85,7 @@ class User extends BaseUser
     private $appointments;
     
     /**
-     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\SeoStatistics")
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\SeoStatistics", mappedBy="client", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="seo_statistics_id", referencedColumnName="id")
      */
     private $seoStatistics;
@@ -121,9 +121,10 @@ class User extends BaseUser
         parent::__construct();
         $this->addRole("ROLE_PROSPECT");
         
-        $this->appointments = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->clients      = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->bills        = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->appointments  = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->seoStatistics = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clients       = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bills         = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -308,29 +309,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set seoStatistics
-     *
-     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics
-     * @return User
-     */
-    public function setSeoStatistics(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics = null)
-    {
-        $this->seoStatistics = $seoStatistics;
-
-        return $this;
-    }
-
-    /**
-     * Get seoStatistics
-     *
-     * @return \Market3w\SiteBundle\Entity\SeoStatistics 
-     */
-    public function getSeoStatistics()
-    {
-        return $this->seoStatistics;
-    }
-
-    /**
      * Add bills
      *
      * @param \Market3w\SiteBundle\Entity\Bill $bills
@@ -417,5 +395,38 @@ class User extends BaseUser
     public function getWebMarketeur()
     {
         return $this->webMarketeur;
+    }
+
+    /**
+     * Add seoStatistics
+     *
+     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics
+     * @return User
+     */
+    public function addSeoStatistic(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics)
+    {
+        $this->seoStatistics[] = $seoStatistics;
+
+        return $this;
+    }
+
+    /**
+     * Remove seoStatistics
+     *
+     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics
+     */
+    public function removeSeoStatistic(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics)
+    {
+        $this->seoStatistics->removeElement($seoStatistics);
+    }
+
+    /**
+     * Get seoStatistics
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSeoStatistics()
+    {
+        return $this->seoStatistics;
     }
 }

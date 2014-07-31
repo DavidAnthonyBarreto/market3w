@@ -1,0 +1,40 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="fixed_content">
+        <div class="chart-uniqueVisitors container">
+            <h1>Nombres de visiteurs uniques</h1>
+            <canvas id="chart-uniqueVisitors" height="300" width="960"></canvas>
+        </div>
+        <div class="chart-rank container">
+            <h1>Classement dans les moteurs de recherche</h1>
+            <canvas id="chart-rank" height="300" width="960"></canvas>
+        </div>
+        <div class="chart-nbViewedPages container">
+            <h1>Nombres de pages vues</h1>
+            <canvas id="chart-nbViewedPages" height="300" width="960"></canvas>
+        </div>
+        <div class="chart-reboundTime container">
+            <h1>Taux de rebond</h1>
+            <canvas id="chart-reboundTime" height="300" width="960"></canvas>
+        </div>
+        <div class="keywords container">
+            <h1>Mots clés</h1>
+            <div id="keywords"></div>
+        </div>
+        <div class="topPages container">
+            <h1>Top pages</h1>
+            <div id="topViewedPage"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    {% javascripts 
+        'bundles/market3wsite/js/Chart.min.js'
+        'bundles/market3wsite/js/statistic.js'
+        output='seoStatisticClient.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="contact_form">
+            <div class="contact_element">
+                {{ form_label(form.uniqueVisitors) }}
+                {{ form_errors(form.uniqueVisitors) }}
+                {{ form_widget(form.uniqueVisitors) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.rank) }}
+                {{ form_errors(form.rank) }}
+                {{ form_widget(form.rank) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.nbViewedPages) }}
+                {{ form_errors(form.nbViewedPages) }}
+                {{ form_widget(form.nbViewedPages) }}
+            </div>
+
+            <div  class="contact_element" id="skype">
+                {{ form_label(form.reboundTime) }}
+                {{ form_errors(form.reboundTime) }}
+                {{ form_widget(form.reboundTime) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.keywords) }}
+                {{ form_errors(form.keywords) }}
+                {{ form_widget(form.keywords) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.topViewed) }}
+                {{ form_errors(form.topViewed) }}
+                {{ form_widget(form.topViewed) }}
+            </div>
+
+            <input class="submit" type="submit" />
+        </div>
+
+    {{ form_end(form) }}
+{% endblock %}

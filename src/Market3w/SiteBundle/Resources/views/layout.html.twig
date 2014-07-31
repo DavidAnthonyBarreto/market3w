@@ -22,7 +22,7 @@
                         {% if is_granted("ROLE_ADMIN") %}
                             <a href="{{ path('market3w_site_admin_index') }}">Admin</a>
                         {% elseif is_granted("ROLE_WEB_MARKETEUR") %}
-                            <a href="">Mes clients</a>
+                            <a href="{{ path('clients_index') }}">Mes clients</a>
                         {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
                             <a href="">Gérer le flux</a>
                         {% elseif is_granted("ROLE_PROSPECT") or is_granted("ROLE_CLIENT") %}

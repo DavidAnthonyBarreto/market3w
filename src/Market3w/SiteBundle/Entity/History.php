@@ -23,7 +23,7 @@ class History
 
     /**
      * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="seoStatistics", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id", nullable=false)
      **/
     protected $client;
     

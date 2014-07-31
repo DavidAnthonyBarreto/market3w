@@ -85,7 +85,7 @@ class User extends BaseUser
     private $appointments;
     
     /**
-     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\SeoStatistics", mappedBy="client", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\History", mappedBy="client", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="seo_statistics_id", referencedColumnName="id")
      */
     private $seoStatistics;
@@ -397,13 +397,15 @@ class User extends BaseUser
         return $this->webMarketeur;
     }
 
+   
+
     /**
      * Add seoStatistics
      *
-     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics
+     * @param \Market3w\SiteBundle\Entity\History $seoStatistics
      * @return User
      */
-    public function addSeoStatistic(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics)
+    public function addSeoStatistic(\Market3w\SiteBundle\Entity\History $seoStatistics)
     {
         $this->seoStatistics[] = $seoStatistics;
 
@@ -413,9 +415,9 @@ class User extends BaseUser
     /**
      * Remove seoStatistics
      *
-     * @param \Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics
+     * @param \Market3w\SiteBundle\Entity\History $seoStatistics
      */
-    public function removeSeoStatistic(\Market3w\SiteBundle\Entity\SeoStatistics $seoStatistics)
+    public function removeSeoStatistic(\Market3w\SiteBundle\Entity\History $seoStatistics)
     {
         $this->seoStatistics->removeElement($seoStatistics);
     }

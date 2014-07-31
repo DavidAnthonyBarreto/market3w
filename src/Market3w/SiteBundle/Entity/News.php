@@ -45,7 +45,7 @@ class News
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="pubDate", type="date")
+     * @ORM\Column(name="pub_date", type="date")
      */
     private $pubDate;
 

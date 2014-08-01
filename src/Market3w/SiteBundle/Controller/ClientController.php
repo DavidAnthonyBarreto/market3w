@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ClientController extends Controller
 {
     /**
-     * @Route("/account/billing")
+     * @Route("/profile/billing")
      * @Template()
      */
     public function billingAction()
@@ -22,16 +22,14 @@ class ClientController extends Controller
     }
 
     /**
-     * @Route("/account/seo")
+     * @Route("/profile/seo")
      * @Template()
      */
     public function seoAction()
     {
         $client = $this->container->get('security.context')->getToken()->getUser();
-        
-        $seoStatistics = $client->getSeoStatistics();
-                
-        return array( 'seoStatistics' => $seoStatistics );    
+                       
+        return array( 'client' => $client );    
     }
 
 }

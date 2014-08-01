@@ -3,12 +3,10 @@
 namespace Market3w\SiteBundle\Controller\Intranet;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Market3w\SiteBundle\Controller\Intranet\DateTime;
 
 use Market3w\SiteBundle\Entity\History;
 use Market3w\SiteBundle\Entity\SeoStatistics;
@@ -82,7 +80,6 @@ class StatisticsController extends Controller
         $em      = $this->getDoctrine()->getManager();
         $client  = $em->getRepository('Market3wSiteBundle:User')->find($id); 
         
-        
         $history = $client->getSeoStatistics();
         $statistics = array();
         foreach($history as $stats){
@@ -96,9 +93,6 @@ class StatisticsController extends Controller
             $statistics['strings']['topViewedPage'][$date] = $seoStatistics->getTopViewed();
             $statistics['date'][]                          = $date;
         }                
-        
-        
-        
         
         $response = new Response(json_encode($statistics));
         $response->headers->set('Content-Type', 'application/json');

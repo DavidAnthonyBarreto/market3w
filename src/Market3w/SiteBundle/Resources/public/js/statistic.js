@@ -5,7 +5,7 @@
  */
 
 $.ajax({
-  url: "http://localhost/market3w/web/app_dev.php/intranet/client/7/statistics/get",
+  url: $('#ajax_url').val(),
   context: document.body
 }).done(function(data) {
     $.each(data, function(type, values) {

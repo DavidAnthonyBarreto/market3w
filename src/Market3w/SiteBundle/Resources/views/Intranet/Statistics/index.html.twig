@@ -1,6 +1,8 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
 {% block content %}
+    <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics', {'id':clientId}) }}"></input>
+    
     <div class="fixed_content">
         <div class="chart-uniqueVisitors container">
             <h1>Nombres de visiteurs uniques</h1>

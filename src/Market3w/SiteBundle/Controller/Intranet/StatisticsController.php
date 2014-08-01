@@ -29,15 +29,7 @@ class StatisticsController extends Controller
      */
     public function indexAction($id)
     {
-        $wm       = $this->getUser();
-        $em       = $this->getDoctrine()->getManager();
-        
-        $em->flush();
-        
-        
-        $clients = $wm->getClients();
-        
-        return array('clients' => $clients);
+        return array('clientId' => $id);
     }
     
     /**
@@ -104,6 +96,8 @@ class StatisticsController extends Controller
             $statistics['strings']['topViewedPage'][$date] = $seoStatistics->getTopViewed();
             $statistics['date'][]                          = $date;
         }                
+        
+        
         
         
         $response = new Response(json_encode($statistics));

@@ -1,13 +1,3 @@
-{% block stylesheets %}
-            {% stylesheets 
-                'bundles/market3wsite/css/jquery-ui.min.css'
-                'bundles/market3wsite/css/jquery-ui.structure.min.css' 
-                output='jquery-ui.css' filter='cssrewrite' %}
-                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-            {% endstylesheets %}
-        {% endblock %}
-        
-
 {{ form_start(form) }}
     {{ form_errors(form) }}
     <div class="contact_form">

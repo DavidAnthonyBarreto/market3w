@@ -1,5 +1,26 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 
+        'bundles/market3wsite/css/jquery-ui.min.css'
+        'bundles/market3wsite/css/jquery-ui.structure.min.css' 
+        output='jquery-ui.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts 
+        'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
+        'bundles/market3wsite/js/appointment.js'
+        output='appointment.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
 {% block content %}
 <div class="contact_content">
     <div class="fixed_content">

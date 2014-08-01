@@ -1,64 +1,90 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets 
-        'bundles/market3wsite/css/jquery-ui.min.css'
-        'bundles/market3wsite/css/jquery-ui.structure.min.css' 
-        output='jquery-ui.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-    {% endstylesheets %}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {% javascripts 
-        'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
-        'bundles/market3wsite/js/appointment.js'
-        output='appointment.js'
-    %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
 
 {% block content %}
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
-
-        <div>
-            {{ form_label(form.subject) }}
-            {{ form_errors(form.subject) }}
-            {{ form_widget(form.subject) }}
+    <div class="inscription_field">
+        <div class="fixed_content">
+            {{ form_start(form) }}
+                <div id="client_info">
+                    <h1>Client</h1>
+                    <div class="inscription_item">
+                        {{ form_label(form.firstName)  }}
+                        {{ form_errors(form.firstName) }}
+                        {{ form_widget(form.firstName) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.lastName)  }}
+                        {{ form_errors(form.lastName) }}
+                        {{ form_widget(form.lastName) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.phoneNumber)  }}
+                        {{ form_errors(form.phoneNumber) }}
+                        {{ form_widget(form.phoneNumber) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.mobilePhoneNumber)  }}
+                        {{ form_errors(form.mobilePhoneNumber) }}
+                        {{ form_widget(form.mobilePhoneNumber) }}
+                    </div>
+                </div>
+                <div id="company_info">
+                    <h1>Entreprise</h1>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.name)  }}
+                        {{ form_errors(form.company.name) }}
+                        {{ form_widget(form.company.name) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.siret)  }}
+                        {{ form_errors(form.company.siret) }}
+                        {{ form_widget(form.company.siret) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.firstLine)  }}
+                        {{ form_errors(form.company.address.firstLine) }}
+                        {{ form_widget(form.company.address.firstLine) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.secondLine)  }}
+                        {{ form_errors(form.company.address.secondLine) }}
+                        {{ form_widget(form.company.address.secondLine) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.thirdLine)  }}
+                        {{ form_errors(form.company.address.thirdLine) }}
+                        {{ form_widget(form.company.address.thirdLine) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.city)  }}
+                        {{ form_errors(form.company.address.city) }}
+                        {{ form_widget(form.company.address.city) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.zipcode)  }}
+                        {{ form_errors(form.company.address.zipcode) }}
+                        {{ form_widget(form.company.address.zipcode) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.country)  }}
+                        {{ form_errors(form.company.address.country) }}
+                        {{ form_widget(form.company.address.country) }}
+                    </div>
+                </div>
+                    
+                <div id="company_info">
+                    <h1>Devis</h1>
+                </div>
+                    
+                <div id="company_info">
+                    <h1>Factures</h1>
+                </div>
+                    {{ form_row(form._token) }}
+                <div>
+                    <input class="submit" type="submit" value="{{ 'registration.submit'|trans }}" />
+                </div>
+            </form>
         </div>
-
-        <div>
-            {{ form_label(form.type) }}
-            {{ form_errors(form.type) }}
-            {{ form_widget(form.type) }}
-        </div>
-
-        <div>
-            {{ form_errors(form.address) }}
-            {{ form_widget(form.address) }}
-        </div>
-
-        <div id="skype">
-            {{ form_label(form.skype) }}
-            {{ form_errors(form.skype) }}
-            {{ form_widget(form.skype) }}
-        </div>
-
-        <div>
-            {{ form_errors(form.date) }}
-            {{ form_widget(form.date) }}
-        </div>
-
-        <div>
-            {{ form_errors(form.hour) }}
-            {{ form_widget(form.hour) }}
-        </div>
-
-        <input type="submit" />
-
-    {{ form_end(form) }}
-{% endblock %}
+    </div>
+{% endblock content %}

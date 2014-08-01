@@ -8,9 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
+use Market3w\SiteBundle\Form\Type\Intranet\ClientInfoType;
 
 /**
- * Agenda  controller.
+ * WebMarketeur  controller.
  *
  * @Route("/intranet/client")
  */
@@ -24,9 +25,9 @@ class WebMarketeurController extends Controller
      */
     public function indexAction()
     {
-        $wm       = $this->getUser();
-        $em       = $this->getDoctrine()->getManager();
+        $wm = $this->getUser();
         
+        $em      = $this->getDoctrine()->getManager();
         $clients = $wm->getClients();
         
         return array('clients' => $clients);
@@ -45,5 +46,29 @@ class WebMarketeurController extends Controller
          $client   = $em->getRepository('Market3wSiteBundle:User')->find($id);
                
         return array('client' => $client);
+    }
+    
+    /**
+     * Edit client
+     *
+     * @Route("/{id}/edit", name="web_marketeur_edit_client", requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function editAction(Request $request, $id)
+    {
+        $wm = $this->getUser();
+        
+        $em     = $this->getDoctrine()->getManager();
+        $client = $em->getRepository('Market3wSiteBundle:User')->find($id);
+
+        $form = $this->createForm(new ClientInfoType(), $client);
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) {
+            $em->persist($client);
+            $em->flush();
+        }
+        
+        return array('form' => $form->createView());
     }
 }

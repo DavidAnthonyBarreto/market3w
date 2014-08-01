@@ -5,11 +5,9 @@
     {% for client in clients %}
         <a href="{{ path( 'client_show', {'id':client.id} ) }}">
             <li class="nb-client">
-                                <span class="company">{{client.id}}</span>
-
-                <span class="company">{{client.company}}</span>
-                <span class="lastname">{{client.lastName}}</span>
-                <span class="firstname">{{client.firstName}}</span>
+                <span class="company">   {{ client.company.name }} : </span>
+                <span class="lastname">  {{ client.lastName     }} </span>
+                <span class="firstname"> {{ client.firstName    }} </span>
             </li>
         </a>
     {% endfor %}

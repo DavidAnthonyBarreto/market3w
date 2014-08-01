@@ -1,17 +1,87 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
 {% block content %}
-    <ul>
-        <div class="sheet_container">
-            <span>Entreprise :</span><span class="company">{{client.company}}</span>
-            <span>Prénom :</span><span class="firstName">{{client.firstName}}</span>
-            <span>Nom :</span><span class="lastName">{{client.lastName}}</span>
-            <span>Email :</span><span class="email">{{client.email}}</span>
-            <span>Téléphone :</span><span class="phone-number">{{client.phoneNumber}}</span>
-            <span>Portable :</span><span class="mobile-phone-number">{{client.mobilePhoneNumber}}</span>
-            {% if client.skypePseudo != false %}
-                <span>Pseudo Skype :</span><span class="skypePseudo">{{client.skypePseudo}}</span>
-            {% endif %}
-        </div>
-    </ul>
+    <div class="sheet_container">
+        <h1>Client</h1>
+        <p>
+            <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>
+        </p>
+        <p>
+            <span>Nom : </span><span class="lastName"> {{ client.lastName }} </span>
+        </p>
+        <p>
+            <span>Email : </span><span class="email"> {{ client.email }} </span>
+        </p>
+        <p>
+            <span>Téléphone : </span><span class="phone-number"> {{ client.phoneNumber }} </span>
+        </p>    
+        <p>
+            <span>Portable : </span><span class="mobile-phone-number"> {{ client.mobilePhoneNumber }} </span>
+        </p>
+        {% if client.skypePseudo != false %}
+            <p>
+                <span>Pseudo Skype : </span><span class="skypePseudo"> {{ client.skypePseudo }} </span>
+            </p>
+        {% endif %}
+        <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}">Modifer les informations</a>
+        <a href="{{ path('client_show_statitics', {'id': client.id}) }}">Voir les statistiques</a>
+    </div>
+    <h1>Société</h1>
+    <p> Nom : {{ client.company.name }}     </p>
+    <p> Adresse : 
+        {{ client.company.address.firstLine  }}
+        {% if client.company.address.secondLine is not null %}
+            {{ client.company.address.secondLine }}
+        {% endif %}
+        {% if client.company.address.thirdLine is not null %}
+            {{ client.company.address.thirdLine  }}
+        {% endif %}
+        {{ client.company.address.zipcode    }}
+        {{ client.company.address.country    }}
+    </p>
+    <p> SIRET :   {{ client.company.siret }} </p>
+    <h1>Devis</h1>
+    <table>
+        <thead>
+            <th> Numéro      </th>
+            <th> Date        </th>
+            <th> Montant TTC </th>
+            <th> Etat        </th>
+            <th> Action      </th>
+        </thead>
+        <tbody>
+            {#{% foreach estimate in estimates %}
+                <td> {{ estimate.id }}                      </td>
+                <td> {{ estimate.dateCreated|date("H:i") }} </td>
+                <td> {{ estimate.calculateTotalTTC }}       </td>
+                <td> 
+                    <a href="{{ path('', {'id': estimate.id}) }}"> Voir    </a>
+                    <a href="{{ path('', {'id': estimate.id}) }}"> Modifer </a>
+                    <a href="{{ path('', {'id': estimate.id}) }}"> Valider </a>
+                </td>
+            {% endforeach %}#}
+        </tbody>
+    </table>
+    <h1>Facture</h1>
+    <table>
+        <thead>
+            <th> Numéro      </th>
+            <th> Date        </th>
+            <th> Montant TTC </th>
+            <th> Etat        </th>
+            <th> Action      </th>
+        </thead>
+        <tbody>
+            {#{% foreach bill in bills %}
+                <td> {{ bill.id }}                      </td>
+                <td> {{ bill.dateCreated|date("H:i") }} </td>
+                <td> {{ bill.calculateTotalTTC }}       </td>
+                <td> 
+                    <a href="{{ path('', {'id': bill.id}) }}"> Voir    </a>
+                    <a href="{{ path('', {'id': bill.id}) }}"> Modifer </a>
+                    <a href="{{ path('', {'id': bill.id}) }}"> Valider </a>
+                </td>
+            {% endforeach %}#}
+        </tbody>
+    </table>
 {% endblock %}

@@ -35,10 +35,11 @@ class ProfileFormType extends BaseType
             'label' => 'form.mobilePhoneNumber', 
             'translation_domain' => 'FOSUserBundle'
         ));
-        
-        $builder->add('company', null, array(
-            'label' => 'form.company', 
-            'translation_domain' => 'FOSUserBundle'
+                
+        $builder->add('company', new CompanyType(), array(
+            'label' => 'form.company',
+            'translation_domain' => 'FOSUserBundle',
+            'required' => true,
         ));
     }
 }

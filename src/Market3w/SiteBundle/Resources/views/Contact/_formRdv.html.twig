@@ -6,15 +6,7 @@
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}
-        {% block javascripts %}
-            {% javascripts 
-                'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
-                'bundles/market3wsite/js/appointment.js'
-                output='appointment.js'
-            %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
+        
 
 {{ form_start(form) }}
     {{ form_errors(form) }}

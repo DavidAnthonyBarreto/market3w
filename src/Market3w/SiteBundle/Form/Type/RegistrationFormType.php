@@ -35,12 +35,11 @@ class RegistrationFormType extends BaseType
             'required'           => true
         ));
         
-        $builder->add('company', 'text', array(
-            'label'              => 'form.company', 
+        $builder->add('company', new CompanyType(), array(
+            'label'              => 'form.company',
             'translation_domain' => 'FOSUserBundle',
-            'required'           => true
-        ));
-        
+            'required'           => true,
+        ));           
     }
 
     public function getName()

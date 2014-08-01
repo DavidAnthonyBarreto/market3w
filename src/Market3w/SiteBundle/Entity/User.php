@@ -73,11 +73,11 @@ class User extends BaseUser
      */
     protected $mobilePhoneNumber;
     
-    /**
-     * @var string
-     * @ORM\Column(name="company", type="string", length=75, nullable=true)
-     */
-    protected $company;
+//    /**
+//     * @var string
+//     * @ORM\Column(name="company", type="string", length=75, nullable=true)
+//     */
+//    protected $company;
     
     /**
      * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\Appointment", mappedBy="webMarketeur")
@@ -112,6 +112,12 @@ class User extends BaseUser
      * @ORM\Column(name="skype_pseudo", type="string", length=255, nullable=true)
      */
     protected $skypePseudo;
+    
+    /**
+    * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\Company", cascade={"remove", "persist"})
+    * @ORM\JoinColumn(name="company_id", referencedColumnName="id", nullable=true)
+    */
+    private $company;
     
     /**
      * Constructor
@@ -227,29 +233,6 @@ class User extends BaseUser
     public function getMobilePhoneNumber()
     {
         return $this->mobilePhoneNumber;
-    }
-
-    /**
-     * Set company
-     *
-     * @param string $company
-     * @return User
-     */
-    public function setCompany($company)
-    {
-        $this->company = $company;
-
-        return $this;
-    }
-
-    /**
-     * Get company
-     *
-     * @return string 
-     */
-    public function getCompany()
-    {
-        return $this->company;
     }
 
     /**
@@ -397,8 +380,6 @@ class User extends BaseUser
         return $this->webMarketeur;
     }
 
-   
-
     /**
      * Add seoStatistics
      *
@@ -430,5 +411,28 @@ class User extends BaseUser
     public function getSeoStatistics()
     {
         return $this->seoStatistics;
+    }
+   
+    /**
+     * Set company
+     *
+     * @param \Market3w\SiteBundle\Entity\Company $company
+     * @return User
+     */
+    public function setCompany(\Market3w\SiteBundle\Entity\Company $company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \Market3w\SiteBundle\Entity\Company 
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 }

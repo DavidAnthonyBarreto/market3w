@@ -1,17 +1,15 @@
-{% extends 'Market3wSiteBundle::layout.html.twig' %}
-
 <?xml version="1.0" encoding="ISO-8859-15" ?>
 <rss version="2.0">
-        <channel>
-                <description>Market3W l'expert en web marketing</description>
-                <link>http://www.market3w.fr</link>
-                <title>Les dernières news de Market3W</title>
-                <item>
-			        <title>{{news.title}}</title>
-			        <description>{{news.description}}</description>
-			        <author>{{news.author}}</author>
-			        <pubDate>{{news.pubDate|date('d/m/Y')}}</pubDate>
-			        <guid>{{news.title}}</guid>
-				</item>
-        </channel>
+    <channel>
+            <description>Market3W l'expert en web marketing</description>
+            <link>http://www.market3w.fr</link>
+            <title>Les dernières news de Market3W</title>
+            <item>
+                <title>{{news.title}}</title>
+                <description>{{news.description}}</description>
+                <author>{{news.author}}</author>
+                <pubDate>{{news.pubDate|date('d/m/Y')}}</pubDate>
+                <guid>{{news.title}}</guid>
+            </item>
+    </channel>
 </rss>

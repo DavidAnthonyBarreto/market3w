@@ -20,7 +20,6 @@ class NewsController extends Controller
      * My clients.
      *
      * @Route("/intranet/news", name="intranet_news_index")
-     * @Route("/rss", name="news_rss_index")
      * @Template()
      */
     public function indexAction()
@@ -81,21 +80,21 @@ class NewsController extends Controller
      * Show statistics
      *
      * @Route("/intranet/news/{id}", name="news_show", requirements={"id" = "\d+"})
-     * @Route("/rss/{id}", name="oneNews_rss_show", requirements={"id" = "\d+"})
      * @Template()
      */
     public function showAction($id)
     {
         $em    = $this->getDoctrine()->getManager();
-        $news  = $em->getRepository('Market3wSiteBundle:News')->find($id); 
+        $oneNews  = $em->getRepository('Market3wSiteBundle:News')->find($id); 
         
         $request = $this->container->get('request');
         $routeName = $request->get("_route");
+        
         if($routeName=="oneNews_rss_show"){
-           return $this->render("Market3wSiteBundle:rssOneNews.xml.twig", array('news'=>$news));
+           return $this->render("Market3wSiteBundle:Intranet/News:rssOneNews.xml.twig", array('news'=>$oneNews));
         }
         
-        return array('news'=>$news);
+        return array('news'=>$oneNews);
     }
     
 }

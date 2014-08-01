@@ -2,6 +2,20 @@ market3wsite:
     resource: "@Market3wSiteBundle/Controller/"
     type:     annotation
     prefix:   /
+    
+news_rss_index:
+    path : /rss
+    defaults: { _controller: Market3wSiteBundle:Intranet/News:Index, _format: xml }
+    requirements:
+        _format: rss
+                
+oneNews_rss_show:
+    path : /rss/{id}
+    defaults: { _controller: Market3wSiteBundle:Intranet/News:Show, _format: xml }
+    requirements:
+        _format: rss
+        id: \d+
+
 
 # FOSUserBundle
 fos_user_security:

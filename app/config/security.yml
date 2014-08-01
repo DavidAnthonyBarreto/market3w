@@ -24,6 +24,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/intranet/news/, role: ROLE_COMMUNITY_MANAGER }
         - { path: ^/intranet/client/\d/statistics/get, role: ROLE_CLIENT }
         - { path: ^/intranet/, role: [ ROLE_WEB_MARKETEUR, ROLE_COMMUNITY_MANAGER, ROLE_ADMIN] }
         - { path: ^/contact, role: ROLE_PROSPECT }

@@ -24,7 +24,7 @@
                         {% elseif is_granted("ROLE_WEB_MARKETEUR") %}
                             <a href="{{ path('clients_index') }}">Mes clients</a>
                         {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
-                            <a href="">Gérer le flux</a>
+                            <a href="{{ path( 'intranet_news_index') }}">Gérer le flux</a>
                         {% elseif is_granted("ROLE_PROSPECT") or is_granted("ROLE_CLIENT") %}
                             <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
                         {% endif %}

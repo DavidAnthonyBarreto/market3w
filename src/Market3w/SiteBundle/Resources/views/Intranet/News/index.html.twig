@@ -1,0 +1,15 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <ul>
+    {% for oneNews in news %}
+        <a href="{{ path( 'news_show',{"id":oneNews.id} ) }}">
+            <li class="news">
+                <span class="company">{{oneNews.pubDate|date('d/m/Y')}}</span>
+                <span class="company">{{oneNews.title}}</span>
+                <span class="lastname">{{oneNews.description|slice(0, 120)}}...</span>
+            </li>
+        </a>
+    {% endfor %}
+    </ul>
+{% endblock %}

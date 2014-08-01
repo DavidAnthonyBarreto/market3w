@@ -1,0 +1,8 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+    <span class="company">{{news.pubDate|date('d/m/Y')}}</span>
+    <span class="company">{{news.title}}</span>
+    <span class="lastname">{{news.description}}</span>
+    <span class="lastname">{{news.author}}</span>
+{% endblock %}

@@ -25,7 +25,7 @@ body{
 	margin:0;
 	padding:0;
 	font-family: Arial,Helvetica,sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	color:#474747;
 }
 
@@ -48,7 +48,7 @@ ul li a{
 	color:#18836e;
 }
 
-a
+a, input
 { 
 	outline:none; 
 } 
@@ -86,8 +86,8 @@ tr:nth-of-type(2n+1) {
 	border-radius: 10px;
 }
 .submit:hover, #form_submit:hover{
-	background: #FFF;
-	color: #18836e;
+	background: #18836e;
+	color: #FFF;
 	border-radius: 20px;
 }
 
@@ -212,8 +212,8 @@ nav ul li a:hover{
 	margin-top: 10px;
 }
 .connexion_field .submit:hover{
-	background: #1abc9c;
-	color:#FFF;
+	background: #18836e;
+	color: #FFF;
 }
 
 /**************Formulaire d'inscription**************/

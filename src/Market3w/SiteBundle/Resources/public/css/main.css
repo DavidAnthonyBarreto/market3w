@@ -295,14 +295,19 @@
 	margin-top: 10px;
 }
 .contact_form .submit:hover{
-	background: #1abc9c;
-	color:#FFF;
+	background: #18836e;
+	color: #FFF;
 }
 
 /**************PAGE EXPERTISE**************/
 .expertise_detail_content{
 	margin-bottom: 30px;
 }
+
+.expertise_detail_content .blocE{
+	margin-top: 40px;
+}
+
 .expertise_detail_content .blocE{
 	display: inline-block;
 }

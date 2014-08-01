@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?>
+<rss version="2.0">
+        <channel>
+                <description>Market3W l'expert en web marketing</description>
+                <link>http://www.market3w.fr</link>
+                <title>Les dernières news de Market3W</title>
+                {% for oneNews in news %}
+                    <item>
+                        <title>{{oneNews.title}}</title>
+                        <description>{{oneNews.description|slice(0, 120)}}...</description>
+                        <pubDate>{{oneNews.pubDate|date('d/m/Y')}}</pubDate>
+                    </item>
+                {% endfor %}
+        </channel>
+</rss>

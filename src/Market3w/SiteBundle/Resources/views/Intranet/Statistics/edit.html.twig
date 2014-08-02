@@ -22,6 +22,7 @@
 {% endblock %}
 
 {% block content %}
+    <div class="fixed_content">
     {{ form_start(form) }}
         {{ form_errors(form) }}
 
@@ -58,4 +59,5 @@
         <input type="submit" />
 
     {{ form_end(form) }}
+    </div>
 {% endblock %}

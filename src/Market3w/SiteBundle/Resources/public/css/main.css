@@ -5,6 +5,14 @@
 /*lancer netbeans > clic droit Symphony2 > run command > assetic:dump*/
 /*lancer netbeans > clic droit Symphony2 > run command > assetic:dump --watch*/
 
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	color:#474747;
+}
+
 /**************Phrase d'Accroche**************/
 .accroche{
 	font-size: 36px;

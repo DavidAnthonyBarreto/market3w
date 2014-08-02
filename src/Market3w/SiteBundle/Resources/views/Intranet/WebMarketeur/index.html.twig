@@ -1,6 +1,7 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
 {% block content %}
+<div class="fixed_content">
     <ul>
     {% for client in clients %}
         <a href="{{ path( 'client_show', {'id':client.id} ) }}">
@@ -12,4 +13,5 @@
         </a>
     {% endfor %}
     </ul>
+</div>
 {% endblock %}

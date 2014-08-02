@@ -21,14 +21,6 @@
 
 }
 
-body{
-	margin:0;
-	padding:0;
-	font-family: Arial,Helvetica,sans-serif;
-	font-size: 14px;
-	color:#474747;
-}
-
 h1{
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 40px;
@@ -464,8 +456,8 @@ footer ul li a{
 
 
 }
-/*****écrans inférieur à 520px*****/
-@media screen and (max-width: 520px) {
+/*****écrans inférieur à 560px*****/
+@media screen and (max-width: 560px) {
 	.fixed_content, .nav_content, .all_bloc_content {
 		width:280px;
 	}

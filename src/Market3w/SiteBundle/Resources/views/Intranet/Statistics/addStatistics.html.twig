@@ -1,6 +1,7 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 
 {% block content %}
+<div class="fixed_content">
     {{ form_start(form) }}
         {{ form_errors(form) }}
         <div class="contact_form">
@@ -44,4 +45,5 @@
         </div>
 
     {{ form_end(form) }}
+</div>
 {% endblock %}

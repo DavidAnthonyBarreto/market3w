@@ -18,14 +18,20 @@ body{
 	font-size: 36px;
 	color: #FFF;
 	text-align: center;
-	padding-top:150px;
+	padding-top:100px;
 	margin-top:0;
+}
+
+.sub_accroche{
+	font-size: 26px;
+	color: #FFF;
+	text-align: center;
 }
 
 
 /**************SLIDER**************/
 .slider{
-	height:400px;
+	height:500px;
 	width: 100%;
 	background:#1abc9c;
 	position: relative;
@@ -42,7 +48,7 @@ body{
 }
 .rslides > li{
   width: 100%;
-  height: 400px;
+  height: 500px;
 }
 
 .rslides li a{
@@ -152,7 +158,16 @@ body{
 
 /**************ACCUEIL EXPERTISE**************/
 .expertise{
-	margin:80px 0;
+	padding:80px 0;
+	color:#FFF;
+	background: url("../images/expertise/expertise_fond.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.expertise h1{
+	color:#FFF;
 }
 .all_bloc_content{
 	text-align: center;
@@ -167,47 +182,40 @@ body{
 	text-align: center;
 }
 .bloc_content p{
-	color:#1abc9c;
+	color:#fff;
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 16px;
 }
 
-#referencement{
-	background: url("../images/expertise/seo.png")no-repeat;
-}
-
-#etude_marketing{
-	background: url("../images/expertise/etude_marketing.png")no-repeat;
-}
-
-#ecommerce{
-	background: url("../images/expertise/ecommerce.png")no-repeat;
-}
-
-#marketing_mobile{
-	background: url("../images/expertise/marketing_mobile.png")no-repeat;
-}
-
 .blocE{
 	display:block;
-	/*background: url("../images/blocE.png")no-repeat;*/
 	height:120px;
 	width:120px;
 	margin: auto;
 	border-radius: 200px;
-	border:6px solid #1abc9c;
+	border:2px solid #FFF;
+	background-color: rgba(255, 255, 255, 0.5);
 	opacity: 1;
-	transition:opacity 0.3s;
+	transition:all 0.3s;
 }
 .blocE:hover{
-	opacity: 0.8;
-	transition:opacity 0.3s;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 /**************ACCUEIL REALISATIONS**************/
 .realisations{
-	margin:80px 0;
+	padding:80px 0;
 }
+
+.realisations .bloc_content p{
+	color:#18836e;
+}
+
+.realisations .bloc_content{
+	margin-bottom: 160px;
+}
+
 .blocR{
 	display:block;
 	background: url("../images/blocR.png")no-repeat;
@@ -216,6 +224,7 @@ body{
 	opacity: 1;
 	transition:opacity 0.3s;
 }
+
 .blocR:hover{
 	opacity: 0.8;
 	transition:opacity 0.3s;
@@ -223,7 +232,7 @@ body{
 
 /**************ACCUEIL INFORMATIONS**************/
 .informations{
-	margin:80px 0;
+	padding:80px 0;
 }
 .about{
 	display: inline-block;
@@ -313,7 +322,8 @@ body{
 }
 
 .expertise_detail_content .blocE{
-	margin-top: 40px;
+	margin-top: 50px;
+	border:2px solid #1abc9c;
 }
 
 .expertise_detail_content .blocE{

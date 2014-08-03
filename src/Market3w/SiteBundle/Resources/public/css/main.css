@@ -356,7 +356,7 @@ body{
 .team_content{
 	display: inline-block;
 	margin: 20px;
-	width: 200px;
+	width: 250px;
 	vertical-align: top;
 }
 .team_content strong{
@@ -368,9 +368,9 @@ body{
 }
 .team_content img{
 	display:block;
-	height:100px;
-	width:100px;
-	border-radius: 60px;
+	height:150px;
+	width:150px;
+	border-radius: 80px;
 	transition:all 0.3s;
 }
 

@@ -26,6 +26,7 @@ h1{
 	font-size: 40px;
 	color:#1abc9c;
 	text-align: center;
+	border-bottom: 1px solid;
 }
 h2{
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
@@ -34,7 +35,7 @@ h2{
 }
 
 ul li {
-	color:#95a5a6;
+	color:#1abc9c;
 }
 ul li a{
 	color:#18836e;

@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <th> Numéro      </th>
+        <th> Date        </th>
+        <th> Montant TTC </th>
+        <th> Etat        </th>
+        <th> Action      </th>
+    </thead>
+    <tbody>
+        {% for bill in bills %}
+            <tr>
+                <td> {{ bill.id }}                        </td>
+                <td> {{ bill.dateBilling|date("m/d/Y") }} </td>
+                <td> {{ bill.calculateTotalTTC }} €       </td>
+                <td> {{ bill.status }}                    </td>
+                <td> 
+                    <a href="{{ path('bill_show', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Voir </a>
+                    
+                    {% if view != 'client' %}
+                        <a href="{{ path('bill_edit', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Modifer </a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+

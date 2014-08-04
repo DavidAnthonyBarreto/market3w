@@ -1,0 +1,46 @@
+{% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
+
+{% block content %}
+<h1>Nouvelle facture / Nouveau devis</h1>
+
+<div class="fixed_content">
+    {{ form_start(form) }}
+    
+    <div id="lines" data-prototype="{{ form_widget(form.lines.vars.prototype)|e }}">
+        <div class="line">
+            <div>
+                {{ form_label(form.lines[0].service)  }}
+                {{ form_errors(form.lines[0].service) }}
+                {{ form_widget(form.lines[0].service) }}
+            </div>
+            <div>
+                {{ form_label(form.lines[0].nbHours)  }}
+                {{ form_errors(form.lines[0].nbHours) }}
+                {{ form_widget(form.lines[0].nbHours) }}h
+            </div>
+        </div>
+    </div>
+        
+    <div>
+        {{ form_label(form.discount)  }}
+        {{ form_errors(form.discount) }}
+        {{ form_widget(form.discount) }}%
+    </div>
+    
+    {{ form_row(form._token) }}
+    
+    <input type="submit" />
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    {% javascripts 
+        'bundles/market3wsite/js/billForm.js'
+        output='billForm.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

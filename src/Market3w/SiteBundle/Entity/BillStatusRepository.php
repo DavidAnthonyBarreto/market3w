@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class BillStatusRepository extends EntityRepository
 {
+    public function findStatusForBill()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->andWhere($qb->expr()->in('s.id', array(1,2,3)));
+        
+        return $qb->getQuery()->getResult();
+    }
+    
+    public function findStatusForEstimate()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->andWhere($qb->expr()->in('s.id', array(4,5,6,7)));
+        
+        return $qb->getQuery()->getResult();
+    }
+    
 }

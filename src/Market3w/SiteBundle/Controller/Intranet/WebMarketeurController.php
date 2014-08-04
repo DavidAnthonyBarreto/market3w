@@ -43,9 +43,12 @@ class WebMarketeurController extends Controller
     public function showAction($id)
     {
         $em       = $this->getDoctrine()->getManager();
-         $client   = $em->getRepository('Market3wSiteBundle:User')->find($id);
-               
-        return array('client' => $client);
+        
+        $client    = $em->getRepository('Market3wSiteBundle:User')->find($id);
+        $bills     = $em->getRepository("Market3wSiteBundle:Bill")->findBillForClient($client->getId());
+        $estimates = $em->getRepository("Market3wSiteBundle:Bill")->findEstimateForClient($client->getId());
+                       
+        return array('client' => $client, 'bills' => $bills, 'estimates' => $estimates);
     }
     
     /**

@@ -14,13 +14,31 @@ class ClientController extends Controller
      */
     public function billingAction()
     {
-        $client = $this->container->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
         
-        $bills = $client->getBills();
+        $client    = $this->container->get('security.context')->getToken()->getUser();
+        $bills     = $em->getRepository("Market3wSiteBundle:Bill")->findBillForClient($client->getId());
+        $estimates = $em->getRepository("Market3wSiteBundle:Bill")->findEstimateForClient($client->getId());
         
-        return array( 'bills' => $bills );    
+        return array( 
+            'bills'     => $bills, 
+            'estimates' => $estimates 
+        );    
     }
-
+    
+    /**
+     * @Route("/profile/billing/{id}", name="client_billing_show", requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function billingShowAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $bill = $em->getRepository("Market3wSiteBundle:Bill")->find($id);
+        
+        return array("bill" => $bill);
+    }
+    
     /**
      * @Route("/profile/seo")
      * @Template()

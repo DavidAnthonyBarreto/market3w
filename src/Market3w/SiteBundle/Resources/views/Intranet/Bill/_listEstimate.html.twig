@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <th> Numéro      </th>
+        <th> Date        </th>
+        <th> Montant TTC </th>
+        <th> Etat        </th>
+        <th> Action      </th>
+    </thead>
+    <tbody>
+        {% for estimate in estimates %}
+            <tr>
+                <td> {{ estimate.id }}                        </td>
+                <td> {{ estimate.dateBilling|date("m/d/Y") }} </td>
+                <td> {{ estimate.calculateTotalTTC }} €       </td>
+                <td> {{ estimate.status }}                    </td>
+                <td> 
+                    {% if view != 'client' %}
+                        <a href="{{ path( 'bill_show', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Voir </a>
+                    {% else %}
+                        <a href="{{ path( 'client_billing_show', {'id': estimate.id} ) }}"> Voir </a>
+                    {% endif %}
+                    {% if view != 'client' %}
+                        <a href="{{ path( 'bill_edit',     {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Modifer </a>
+                        <a href="{{ path( 'bill_validate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+

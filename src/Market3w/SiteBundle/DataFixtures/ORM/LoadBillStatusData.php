@@ -33,6 +33,10 @@ class LoadBillStatusData implements FixtureInterface
             "En attente de paiement",
             "Payée",
             "Paiement refusé",
+            "En attente de réponse",
+            "Accepté",
+            "Refusé",
+            "Expiré",           
         );
         
         return $status;

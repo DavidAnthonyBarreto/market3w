@@ -1,0 +1,30 @@
+{% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
+
+{% block content %}
+    <div class="fixed_content">
+        <p>Référence : {{ bill.id }}</p>
+        <p>Etat : {{ bill.status }}</p>
+        {% for line in bill.lines %}
+            <div class="line">
+                <div class="service">{{ line.service }}</div>
+                <div class="hours">{{ line.nbHours }}h</div>
+                <div class="price">{{ line.price }}€/h</div>
+            </div>
+        {% endfor %}
+        
+        <div class="totalHt">
+            Total HT{{ bill.calculateTotalHT }}€
+        </div>
+        
+        <div class="tva">
+            TVA {{ bill.tva }}% 
+        </div>
+        
+        <div class="totalTtc">
+            Total TTC {{ bill.calculateTotalTtc }}€
+        </div>
+        
+        <a href="{{ path('bill_edit', {'idClient': idClient, 'idBill' : bill.id}) }}">Editer</a>
+        
+    </div> 
+{% endblock %}

@@ -3,12 +3,11 @@
 {% block content %}
 <div class="billing_field">
     <div class="fixed_content">
-	    <h1>Vos factures</h1>
-	    <ul>
-	        {% for bill in bills %}
-	            <li>{{ bill.dateBilling|date("m/d/Y") }} : {{ bill.calculateTotalTTC }} €</li>
-	        {% endfor %}
-	    </ul>
+        <h1>Vos devis</h1>
+	{% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'client' } %}
+
+        <h1>Vos factures</h1>
+        {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'client' } %}
     </div>
 </div>
 {% endblock %}

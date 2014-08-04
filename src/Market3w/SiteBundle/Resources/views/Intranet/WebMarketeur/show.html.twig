@@ -1,4 +1,4 @@
-{% extends 'Market3wSiteBundle::layout.html.twig' %}
+{% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block content %}
 <div class="fixed_content">
@@ -41,49 +41,13 @@
         {{ client.company.address.country    }}
     </p>
     <p> SIRET :   {{ client.company.siret }} </p>
+    
     <h1>Devis</h1>
-    <table>
-        <thead>
-            <th> Numéro      </th>
-            <th> Date        </th>
-            <th> Montant TTC </th>
-            <th> Etat        </th>
-            <th> Action      </th>
-        </thead>
-        <tbody>
-            {#{% foreach estimate in estimates %}
-                <td> {{ estimate.id }}                      </td>
-                <td> {{ estimate.dateCreated|date("H:i") }} </td>
-                <td> {{ estimate.calculateTotalTTC }}       </td>
-                <td> 
-                    <a href="{{ path('', {'id': estimate.id}) }}"> Voir    </a>
-                    <a href="{{ path('', {'id': estimate.id}) }}"> Modifer </a>
-                    <a href="{{ path('', {'id': estimate.id}) }}"> Valider </a>
-                </td>
-            {% endforeach %}#}
-        </tbody>
-    </table>
+    <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis</a><p>
+    {% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'wm' } %}
+    
     <h1>Facture</h1>
-    <table>
-        <thead>
-            <th> Numéro      </th>
-            <th> Date        </th>
-            <th> Montant TTC </th>
-            <th> Etat        </th>
-            <th> Action      </th>
-        </thead>
-        <tbody>
-            {#{% foreach bill in bills %}
-                <td> {{ bill.id }}                      </td>
-                <td> {{ bill.dateCreated|date("H:i") }} </td>
-                <td> {{ bill.calculateTotalTTC }}       </td>
-                <td> 
-                    <a href="{{ path('', {'id': bill.id}) }}"> Voir    </a>
-                    <a href="{{ path('', {'id': bill.id}) }}"> Modifer </a>
-                    <a href="{{ path('', {'id': bill.id}) }}"> Valider </a>
-                </td>
-            {% endforeach %}#}
-        </tbody>
-    </table>
+    <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'bill' } ) }}">Nouvelle facture</a><p>
+    {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'wm' } %}
 </div>
 {% endblock %}

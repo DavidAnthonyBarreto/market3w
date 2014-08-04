@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="Market3w\SiteBundle\Entity\BillRepository")
  */
 class Bill
-{
+{    
     /**
      * @var integer
      *
@@ -48,6 +48,13 @@ class Bill
      * @ORM\Column(name="date_payment", type="datetime", nullable=true)
      */
     private $datePayment = null;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="accepted", type="boolean", nullable=true)
+     */
+    private $accepted = null;
 
     /**
      * @var \DateTime
@@ -75,14 +82,14 @@ class Bill
      */
     private $status;
     
-     /**
+    /**
      * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\User", inversedBy="bills")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id", nullable=false)
      **/
     private $client;
 
     /**
-     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\BillLine", mappedBy="bill")
+     * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\BillLine", mappedBy="bill", cascade={"remove", "persist"})
      */
     private $lines;
     
@@ -96,14 +103,13 @@ class Bill
      * @ORM\JoinColumn(name="bill_id", referencedColumnName="id", nullable=true)
      **/
     private $bill;
-    
-   
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->lines = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lines     = new \Doctrine\Common\Collections\ArrayCollection();
         $this->estimates = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -207,6 +213,29 @@ class Bill
     public function getDatePayment()
     {
         return $this->datePayment;
+    }
+
+    /**
+     * Set accepted
+     *
+     * @param boolean $accepted
+     * @return Bill
+     */
+    public function setAccepted($accepted)
+    {
+        $this->accepted = $accepted;
+
+        return $this;
+    }
+
+    /**
+     * Get accepted
+     *
+     * @return boolean 
+     */
+    public function getAccepted()
+    {
+        return $this->accepted;
     }
 
     /**
@@ -413,7 +442,7 @@ class Bill
         return $this->bill;
     }
     
-    /**
+        /**
      * Calculate totalHT
      *
      * @return float 
@@ -448,6 +477,5 @@ class Bill
         $totalTTC = $totalHT + $totalHT*$this->getTva()/100;
         
         return $totalTTC;
-    }
-    
+    }    
 }

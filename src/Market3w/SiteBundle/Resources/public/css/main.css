@@ -15,6 +15,7 @@ body{
 
 /**************Phrase d'Accroche**************/
 .accroche{
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 36px;
 	color: #FFF;
 	text-align: center;
@@ -30,13 +31,98 @@ body{
 
 
 /**************SLIDER**************/
+
 .slider{
-	height:500px;
+	height:700px;
 	width: 100%;
-	background:#1abc9c;
+	background-color: rgba(26, 188, 156, 0.6);
 	position: relative;
+	overflow: hidden;
+}
+/**************VIDEO**************/
+video#bgvid {
+	position: absolute; 
+	top:0;
+	right: 0; 
+	min-width: 100%; 
+	min-height: 100%;
+	width: 100%; 
+	height: auto; 
+	z-index: -100;
+	background: url("../images/video/static_background.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
+.image_back {
+	display: none;
+}
+.video_bouton{
+	width:inherit;
+	text-align: center;
+	color:#FFF;
+	position: absolute;
+	top: 35%;
+}
+
+.video_bouton a{
+	display: block;
+	height:40px;
+	width:200px;
+	margin: auto;
+	line-height: 40px;
+	border: 2px solid #FFF;
+	color: #FFF;
+	transition: all 0.3s;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+}
+.video_bouton a:hover{
+	background: #FFF;
+	color:#1abc9c;
+}
+.video_accroche{
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 36px;
+	color: #FFF;
+}
+.sub_video_accroche{
+	margin-top: -20px;
+	font-size: 16px;
+}
+/*********media queries slider*********/
+/*****écrans inférieur à 1300px*****/
+@media screen and (max-width: 1300px) {
+	.slider{
+		height:520px;
+	}
+}
+/*****écrans inférieur à 960px*****/
+@media screen and (max-width: 960px) {
+	.slider{
+		height:360px;
+	}
+	.video_bouton{
+		top: 5%;
+	}
+
+}
+/*****écrans inférieur à 660px*****/
+@media screen and (max-width: 660px) {
+	.slider{
+		height:300px;
+	}
+	.video_accroche{
+		font-size: 24px;
+	}
+	.sub_video_accroche{
+		margin-top: -20px;
+		font-size: 14px;
+	}
+}
 /***slider responsif***/
 .rslides {
   position: relative;
@@ -114,6 +200,8 @@ body{
 	background: #FFF;
 	color: #1abc9c;
 }
+
+
 
 /**************CONTACT**************/
 .contact_field{

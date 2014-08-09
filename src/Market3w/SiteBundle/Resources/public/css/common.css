@@ -398,7 +398,6 @@ footer ul li a{
 		height: 120px;
 	}
 	.contact_field{
-		margin-bottom: 30px;
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;
 	}
@@ -418,10 +417,7 @@ footer ul li a{
 		padding-right: 12px;
 		padding-left: 12px;
 	}
-	/*****Accueil Expertise*****/
-	.expertise{
-		margin-top:10px;
-	}
+	
 	/*****Accueil Informations*****/
 	.about, .follow{
 		width:100%;
@@ -481,6 +477,32 @@ footer ul li a{
 	.nav_content{
 		text-align: center;
 	}
+	/*****Video accueil*****/
+	.slider{
+		height:500px;
+	}
+	video#bgvid {
+		display: none;
+	}
+	.image_back {
+		display: block;
+		position: absolute; 
+		top:0;
+		right: 0; 
+		min-width: 100%; 
+		min-height: 100%;
+		width: 100%; 
+		height: auto; 
+		z-index: -100;
+		background: url("../images/video/static_background.jpg") no-repeat center center;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+	}
+	.video_bouton{
+		top: 25%;
+	}
 	/*****Page Réalisation*****/
 	.realisation_apercu_content, .realisation_apercu{
 		height: 250px;
@@ -498,5 +520,6 @@ footer ul li a{
 	.copyright{
 		margin-bottom: 75px;
 	}
+
 
 }

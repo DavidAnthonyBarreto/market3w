@@ -7,15 +7,45 @@
         
         {% block stylesheets %}
             {% stylesheets 
-            'bundles/market3wsite/css/admin.css' 
             'bundles/market3wsite/css/common.css' 
+            'bundles/market3wsite/css/admin.css' 
             output='css/market3w_backend.css' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}
     </head>
     <body>
-        {% include 'Market3wSiteBundle::_loginLogout.html.twig' %}
+        <div class="login_field">
+            <div class="fixed_content">
+                <div class="login_button">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a href="{{ path('market3w_site_admin_index') }}">Admin</a>
+                        {% elseif is_granted("ROLE_WEB_MARKETEUR") %}
+                            <a href="">Mes clients</a>
+                        {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
+                            <a href="">Gérer le flux</a>
+                        {% elseif is_granted("ROLE_PROSPECT") or is_granted("ROLE_CLIENT") %}
+                            <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
+                        {% endif %}
+                        |
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                </div>
+
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
         <header>
             <div class="fixed_content">
                 <div class="nav_content">
@@ -30,7 +60,7 @@
             {% endblock fos_user_content %}
         {% endblock %}
         
-        <footer>
+        <!-- <footer>
             <div class="fixed_content">
                 <h2>Plan du site</h2>
                 <ul>
@@ -38,7 +68,7 @@
                     <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
                 </ul>
             </div>
-        </footer>
+        </footer> -->
 
 
         {% block javascripts %}

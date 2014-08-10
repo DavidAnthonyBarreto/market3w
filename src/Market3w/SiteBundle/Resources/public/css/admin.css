@@ -7,6 +7,29 @@ body{
 	background: #2E3533;
 }
 
+/**************Admin nav header**************/
+.login_field {
+	background: #FFF;
+	color: #18836e;
+}
+.login_button a {
+	background: #18836e;
+	color: #fff;
+}
+
+.login_button a:hover {
+	background: #FFF;
+	color: #18836e;
+}
+
+header {
+	background: #18836e;
+	border-bottom: 2px solid #1abc9c;
+}
+.logo_header{
+	color:#FFF;
+}
+
 /**************Table**************/
 table {
     border-collapse: collapse;
@@ -23,7 +46,8 @@ th {
     font-weight: bold;
 }
 tr:nth-of-type(2n+1) {
-    background: none repeat scroll 0 0 #c6f5ec;
+    background: none repeat scroll 0 0 #4B4B4B;
+    color:#FFF;
 }
 
 /**************ADMIN CONTENTS**************/
@@ -69,4 +93,26 @@ tr:nth-of-type(2n+1) {
 	border-radius: 40px;
 	color: #1abc9c;
 }
+/**************ADMIN SHOW CLIENT**************/
+.show_client_container{
+	margin-bottom: 100px;
+}
+.show_client_container a{
+	color:#1abc9c;
+}
+.info_client_container{
+	text-align: center;
+}
+.info_client_bloc{
+	text-align: left;
+	width:40%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 20px;
+}
 
+
+/**************ADMIN Copyright**************/
+.copyright{
+	background: #FFF;
+}

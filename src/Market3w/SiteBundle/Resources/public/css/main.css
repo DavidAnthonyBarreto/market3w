@@ -33,13 +33,20 @@ body{
 /**************SLIDER**************/
 
 .slider{
-	height:700px;
+	height:520px;
 	width: 100%;
-	background-color: rgba(26, 188, 156, 0.6);
+	background-color: #1abc9c;
 	position: relative;
 	overflow: hidden;
 }
 /**************VIDEO**************/
+.video_content{
+	height:700px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.4);
+	position: relative;
+	overflow: hidden;
+}
 video#bgvid {
 	position: absolute; 
 	top:0;
@@ -62,7 +69,7 @@ video#bgvid {
 .video_bouton{
 	width:inherit;
 	text-align: center;
-	color:#FFF;
+	color:#2E3533;
 	position: absolute;
 	top: 35%;
 }
@@ -73,21 +80,21 @@ video#bgvid {
 	width:200px;
 	margin: auto;
 	line-height: 40px;
-	border: 2px solid #FFF;
-	color: #FFF;
+	border: 2px solid #1abc9c;
+	color: #2E3533;
 	transition: all 0.3s;
 	font-weight: bold;
 	font-size: 16px;
 	text-decoration: none;
 }
 .video_bouton a:hover{
-	background: #FFF;
-	color:#1abc9c;
+	background: #1abc9c;
+	color:#fff;
 }
 .video_accroche{
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 36px;
-	color: #FFF;
+	color: #1abc9c;
 }
 .sub_video_accroche{
 	margin-top: -20px;
@@ -96,13 +103,13 @@ video#bgvid {
 /*********media queries slider*********/
 /*****écrans inférieur à 1300px*****/
 @media screen and (max-width: 1300px) {
-	.slider{
+	.video_content{
 		height:520px;
 	}
 }
 /*****écrans inférieur à 960px*****/
 @media screen and (max-width: 960px) {
-	.slider{
+	.video_content{
 		height:360px;
 	}
 	.video_bouton{
@@ -112,7 +119,7 @@ video#bgvid {
 }
 /*****écrans inférieur à 660px*****/
 @media screen and (max-width: 660px) {
-	.slider{
+	.video_content{
 		height:300px;
 	}
 	.video_accroche{
@@ -321,6 +328,11 @@ video#bgvid {
 /**************ACCUEIL INFORMATIONS**************/
 .informations{
 	padding:80px 0;
+	background: #18836E;
+	color:#FFF;
+}
+.informations h2{
+	color:#FFF;
 }
 .about{
 	display: inline-block;
@@ -343,19 +355,17 @@ video#bgvid {
 .follow_content ul li{
 	display: inline-block;
 	list-style-type: none;
-	margin: 0 5px;
+	margin: 5px 5px;
 }
 .follow_content a{
 	display: inline-block;
 	height:50px;
 	width:50px;
 	border-radius: 10px;
-	opacity:1;
 	transition:all 0.3s;
 }
 .follow_content a:hover{
-	border-radius: 20px;
-	opacity:0.8;
+	border-radius: 25px;
 }
 .facebook{
 	background: url("../images/facebook.png")no-repeat;
@@ -405,6 +415,9 @@ video#bgvid {
 }
 
 /**************PAGE EXPERTISE**************/
+.expertise_content{
+	margin-bottom: 100px;
+}
 .expertise_detail_content{
 	margin-bottom: 30px;
 }
@@ -425,6 +438,9 @@ video#bgvid {
 }
 
 /**************PAGE REALISATIONS**************/
+.realisations_content{
+	margin-bottom: 100px;
+}
 .realisation_apercu_content, .realisation_apercu{
 	height: 800px;
 	width: 800px;
@@ -440,13 +456,10 @@ video#bgvid {
     top:400px; 
     margin-top:-400px;
 }
-.google_map_conteneur{
-	/*border-top: 5px solid #18836e;*/
-}
 .google_map{
 	height: 400px;
 	width: 100%;
-	margin-bottom: -54px;
+	margin-bottom: -3px;
 }
 .all_team_content{
 	text-align: center;

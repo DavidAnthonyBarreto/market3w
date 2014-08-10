@@ -268,11 +268,11 @@ nav ul li a:hover{
 /**************FOOTER**************/
 footer{
 	border-top: 2px solid #a7a7a7;
-	padding:15px 0;
-	height:300px;
+	padding:15px 0 80px 0;
+	height:100%;
 	width:100%;
 	background: #2e3533;
-	margin-top: 50px;
+	color:#FFF;
 }
 
 footer h2{
@@ -287,11 +287,28 @@ footer h2{
 	color:#1abc9c;
 	text-align: center;
 }
-footer ul li {
-	color:#c6f5ec;
-}
-footer ul li a{
+
+footer ul li a, footer ul li{
 	color:#FFF;
+}
+.bloc_footer_content{
+	width:100%;
+	text-align: center;
+}
+.bloc_footer{
+	text-align: left;
+	display: inline-block;
+	width: 230px;
+	vertical-align: top;
+}
+.bloc_footer h3{
+	font-size: 20px;
+	color: #1abc9c;
+}
+.bloc_footer ul, .bloc_footer ul li{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
 
 /**************CONTENTS**************/
@@ -478,7 +495,7 @@ footer ul li a{
 		text-align: center;
 	}
 	/*****Video accueil*****/
-	.slider{
+	.video_content{
 		height:500px;
 	}
 	video#bgvid {

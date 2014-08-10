@@ -1,58 +1,53 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block content %}
-<div class="show_client_container">
-    <div class="fixed_content">
-        <div class="info_client_container">
-            <div class="info_client_bloc">
-                <h1>Client</h1>
-                <p>
-                    <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>
-                </p>
-                <p>
-                    <span>Nom : </span><span class="lastName"> {{ client.lastName }} </span>
-                </p>
-                <p>
-                    <span>Email : </span><span class="email"> {{ client.email }} </span>
-                </p>
-                <p>
-                    <span>Téléphone : </span><span class="phone-number"> {{ client.phoneNumber }} </span>
-                </p>    
-                <p>
-                    <span>Portable : </span><span class="mobile-phone-number"> {{ client.mobilePhoneNumber }} </span>
-                </p>
-                {% if client.skypePseudo != false %}
-                    <p>
-                        <span>Pseudo Skype : </span><span class="skypePseudo"> {{ client.skypePseudo }} </span>
-                    </p>
-                {% endif %}
-                <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}">Modifer les informations</a>
-                <a href="{{ path('client_show_statitics', {'id': client.id}) }}">Voir les statistiques</a>
-            </div>
-            <div class="info_client_bloc">
-                <h1>Société</h1>
-                <p> Nom : {{ client.company.name }}     </p>
-                <p> Adresse : 
-                    {{ client.company.address.firstLine  }}
-                    {% if client.company.address.secondLine is not null %}
-                        {{ client.company.address.secondLine }}
-                    {% endif %}
-                    {% if client.company.address.thirdLine is not null %}
-                        {{ client.company.address.thirdLine  }}
-                    {% endif %}
-                    {{ client.company.address.zipcode    }}
-                    {{ client.company.address.country    }}
-                </p>
-                <p> SIRET :   {{ client.company.siret }} </p>
-            </div>
-        </div>
-        <h1>Devis</h1>
-        <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis</a><p>
-        {% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'wm' } %}
-        
-        <h1>Facture</h1>
-        <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'bill' } ) }}">Nouvelle facture</a><p>
-        {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'wm' } %}
+<div class="fixed_content">
+    <div class="sheet_container">
+        <h1>Client</h1>
+        <p>
+            <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>
+        </p>
+        <p>
+            <span>Nom : </span><span class="lastName"> {{ client.lastName }} </span>
+        </p>
+        <p>
+            <span>Email : </span><span class="email"> {{ client.email }} </span>
+        </p>
+        <p>
+            <span>Téléphone : </span><span class="phone-number"> {{ client.phoneNumber }} </span>
+        </p>    
+        <p>
+            <span>Portable : </span><span class="mobile-phone-number"> {{ client.mobilePhoneNumber }} </span>
+        </p>
+        {% if client.skypePseudo != false %}
+            <p>
+                <span>Pseudo Skype : </span><span class="skypePseudo"> {{ client.skypePseudo }} </span>
+            </p>
+        {% endif %}
+        <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}">Modifer les informations</a>
+        <a href="{{ path('client_show_statitics', {'id': client.id}) }}">Voir les statistiques</a>
     </div>
+    <h1>Société</h1>
+    <p> Nom : {{ client.company.name }}     </p>
+    <p> Adresse : 
+        {{ client.company.address.firstLine  }}
+        {% if client.company.address.secondLine is not null %}
+            {{ client.company.address.secondLine }}
+        {% endif %}
+        {% if client.company.address.thirdLine is not null %}
+            {{ client.company.address.thirdLine  }}
+        {% endif %}
+        {{ client.company.address.zipcode    }}
+        {{ client.company.address.country    }}
+    </p>
+    <p> SIRET :   {{ client.company.siret }} </p>
+    
+    <h1>Devis</h1>
+    <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis</a><p>
+    {% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'wm' } %}
+    
+    <h1>Facture</h1>
+    <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'bill' } ) }}">Nouvelle facture</a><p>
+    {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'wm' } %}
 </div>
 {% endblock %}

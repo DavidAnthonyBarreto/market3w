@@ -63,11 +63,6 @@ th {
 }
 tr:nth-of-type(2n+1) {
     background: none repeat scroll 0 0 #c6f5ec;
-    color:#2E3533;
-}
-table a{
-   	color:#1abc9c;
-   	font-weight: bold;
 }
 
 /**************Submit**************/
@@ -537,11 +532,6 @@ footer ul li a, footer ul li{
 	}
 	.contact_button{
 		height: 75px;
-	}
-	/*****Page Show Client*****/
-	.info_client_bloc{
-		width:100%;
-		margin: 0;
 	}
 	/*****Footer*****/
 	.copyright{

@@ -20,9 +20,8 @@ class BillLineType extends AbstractType
          $builder->add('service', 'entity', array(
             'label'    => 'Service', 
             'class'    => 'Market3wSiteBundle:Service',
-            'property' => 'title',
             'expanded' => false,
-            'multiple' => false,
+            'multiple' => false,    
         ));
          
         $builder->add('nbHours', 'integer', array(
@@ -40,7 +39,6 @@ class BillLineType extends AbstractType
         
         $service = $billLine->getService();
         
-        $billLine->setService($service->getTitle());
         $billLine->setPrice($service->getPrice());
     }
     

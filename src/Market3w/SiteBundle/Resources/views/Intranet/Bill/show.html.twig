@@ -2,6 +2,12 @@
 
 {% block content %}
     <div class="fixed_content">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+        
         <p>Référence : {{ bill.id }}</p>
         <p>Etat : {{ bill.status }}</p>
         {% for line in bill.lines %}

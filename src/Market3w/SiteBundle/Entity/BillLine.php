@@ -29,9 +29,8 @@ class BillLine
     private $nbHours;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="service", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\Service")
+     * @ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false)
      */
     private $service;
 

@@ -435,4 +435,21 @@ class User extends BaseUser
     {
         return $this->company;
     }
+    
+    /**
+     * Get readable roles
+     *
+     * @return array 
+     */
+    public function getReadableRoles()
+    {
+        $roles = $this->getRoles();
+        $readableRoles = array();
+        
+        foreach ($roles as $role){
+            $readableRoles[] = ucfirst(strtolower(str_replace('ROLE_', '', $role)));
+        }
+        
+        return $readableRoles;
+    }
 }

@@ -70,8 +70,38 @@ class WebMarketeurController extends Controller
         if ($form->isValid()) {
             $em->persist($client);
             $em->flush();
+            
+            
+            
         }
         
         return array('form' => $form->createView());
     }
+    
+//     /**
+//     * Billing client
+//     *
+//     * @Route("/{id}/billing", name="web_marketeur_edit_client", requirements={"id" = "\d+"})
+//     * @Template()
+//     */
+//    public function editAction(Request $request, $id)
+//    {
+//        $wm = $this->getUser();
+//        
+//        $em     = $this->getDoctrine()->getManager();
+//        $client = $em->getRepository('Market3wSiteBundle:User')->find($id);
+//
+//        $form = $this->createForm(new ClientInfoType(), $client);
+//        $form->handleRequest($request);
+//        
+//        if ($form->isValid()) {
+//            $em->persist($client);
+//            $em->flush();
+//            
+//            
+//            
+//        }
+//        
+//        return array('form' => $form->createView());
+//    }
 }

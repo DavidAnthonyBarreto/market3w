@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Market3w\SiteBundle\Entity\Bill;
 use Market3w\SiteBundle\Entity\BillLine;
@@ -63,9 +64,43 @@ class BillController extends Controller
      */
     public function editAction(Request $request, $idClient, $idBill)
     {
-        return array(
-                // ...
-            );    }
+        $em   = $this->getDoctrine()->getManager();
+        $bill = $em->getRepository('Market3wSiteBundle:Bill')->find($idBill);
+        
+        if (!$bill) {
+            throw $this->createNotFoundException('Aucune facture/devis trouvée pour cet id : '.$idBill);
+        }
+        
+        $originalLines = new ArrayCollection();
+        foreach ($bill->getLines() as $line) {
+            $originalLines->add($line);
+        }
+        
+        $form = $this->createForm(new BillType(), $bill);
+        
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) {
+            foreach ($originalLines as $line){
+                if ($bill->getLines()->contains($line) == false){
+                    $em->remove($line);
+                }
+            }
+            
+            foreach($bill->getLines() as $line) { 
+                $line->setBill($bill);
+            }
+                        
+            $bill->setUpdatedAt(new \DateTime());
+               
+            $em->persist($bill);
+            $em->flush();
+            
+            return $this->redirect($this->generateUrl('bill_show', array('idClient' => $idClient, 'idBill' => $bill->getid()) ));
+        }
+        
+        return array('form' => $form->createView());     
+    }
 
     /**
      * @Route("/add/{type}", name="intranet_client_bill_add", requirements={"type" = "\w+"} )
@@ -105,7 +140,7 @@ class BillController extends Controller
             
             $em = $this->getDoctrine()->getManager();
             
-            $bill->setTva(20);
+            $bill->setTva($this->container->getParameter('tva'));
             $bill->setDateBilling(new \DateTime());
             $bill->setCreatedAt(new \DateTime());
             $bill->setUpdatedAt(new \DateTime());
@@ -113,21 +148,58 @@ class BillController extends Controller
             $em->persist($bill);
             $em->flush();
             
-//            return $this->redirect($this->generateUrl('market3w_site_contact_success'));
+            return $this->redirect($this->generateUrl('bill_show', array('idClient' => $client->getId(), 'idBill' => $bill->getid()) ));
         }
         
         return array('form' => $form->createView());    
     }
     
     /**
-     * @Route("/{idBill}/validate", name="bill_validate", requirements={"idBill" = "\d+"})
+     * @Route("/{idBill}/validate", name="bill_validate_estimate", requirements={"idBill" = "\d+"})
      * @Template()
      */
-    public function validateAction($idBill)
+    public function validateAction($idClient, $idBill)
     {
         
+        $em     = $this->getDoctrine()->getManager();
+        $client = $em->getRepository('Market3wSiteBundle:User')->find($idClient);
+        $bill   = $em->getRepository('Market3wSiteBundle:Bill')->find($idBill);
         
-        return array();    
+        // estimate is accepted
+        $acceptedStatus = $em->getRepository('Market3wSiteBundle:BillStatus')->find(5);
+        $bill->setStatus($acceptedStatus);
+        $bill->setAccepted(true);
+        $em->persist($bill);
+        $em->flush();
+        
+        // the prospect becomes a client
+        $fosUserManipulator = $this->container->get('fos_user.util.user_manipulator');
+        $fosUserManipulator->removeRole($client->getUsername(), 'ROLE_PROSPECT');
+        $fosUserManipulator->addRole($client->getUsername(), 'ROLE_CLIENT');
+        
+        // affichage d'un message de confirmation
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Le devis est accepté.'
+        );
+        
+        return $this->redirect($this->generateUrl('bill_show', array('idClient' => $client->getId(), 'idBill' => $bill->getid()) ));
     }
 
+      /**
+     * @Route("/{idBill}/generate-bill", name="bill_estimate_to_bill", requirements={"idBill" = "\d+"})
+     * @Template()
+     */
+    public function generateBillAction($idClient, $idBill)
+    {
+        
+        $em     = $this->getDoctrine()->getManager();
+        $client = $em->getRepository('Market3wSiteBundle:User')->find($idClient);
+        $bill   = $em->getRepository('Market3wSiteBundle:Bill')->find($idBill);
+        
+        // création d'une facture à partir du devis
+        // on redirige vers la facture créée
+        
+        return array();
+    }
 }

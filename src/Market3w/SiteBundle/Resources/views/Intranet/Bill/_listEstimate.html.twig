@@ -21,7 +21,7 @@
                     {% endif %}
                     {% if view != 'client' %}
                         <a href="{{ path( 'bill_edit',     {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Modifer </a>
-                        <a href="{{ path( 'bill_validate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
+                        <a href="{{ path( 'bill_validate_estimate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
                     {% endif %}
                 </td>
             </tr>

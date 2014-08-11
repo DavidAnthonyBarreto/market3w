@@ -31,8 +31,7 @@ class LoadAppointmentTypeData implements FixtureInterface
     {
         $types = array(
             "Physiquement",
-            "Skype",
-            "Videoconférence",
+            "Videoconférence (via Skype)",
         );
         
         return $types;

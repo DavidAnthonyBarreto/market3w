@@ -193,13 +193,46 @@ class BillController extends Controller
     public function generateBillAction($idClient, $idBill)
     {
         
-        $em     = $this->getDoctrine()->getManager();
-        $client = $em->getRepository('Market3wSiteBundle:User')->find($idClient);
-        $bill   = $em->getRepository('Market3wSiteBundle:Bill')->find($idBill);
+        $em       = $this->getDoctrine()->getManager();
+        $client   = $em->getRepository('Market3wSiteBundle:User')->find($idClient);
+        $estimate = $em->getRepository('Market3wSiteBundle:Bill')->find($idBill);
         
-        // création d'une facture à partir du devis
-        // on redirige vers la facture créée
+        // Default value
+        $type   = $em->getRepository('Market3wSiteBundle:BillType')->find(2);
+        $status = $em->getRepository('Market3wSiteBundle:BillStatus')->find(1);
         
-        return array();
+        // Bill creation
+        $bill = new Bill();
+        $bill->setType($type);
+        $bill->setStatus($status);
+        $bill->setCreatedAt(new \DateTime());
+        $bill->setUpdatedAt(new \DateTime());
+        $bill->setTva($this->container->getParameter('tva'));
+        $bill->setDiscount($estimate->getDiscount());
+        $bill->setDateBilling(new \DateTime());
+        $bill->setClient($client);
+        
+       
+        
+        foreach ( $estimate->getLines() as $estimateLine )
+        {
+            $billLine = new BillLine();
+            $billLine->setService($estimateLine->getService());
+            $billLine->setNbHours($estimateLine->getNbHours());
+            $billLine->setPrice($estimateLine->getPrice());
+            $billLine->setBill($bill);
+            
+            $bill->addLine($billLine);
+        }
+        
+        $em->persist($bill);
+        
+        // Set link between estimate and bill
+        $estimate->setBill($bill);
+        $em->persist($estimate);
+        
+        $em->flush();
+ 
+        return $this->redirect($this->generateUrl('bill_show', array('idClient' => $client->getId(), 'idBill' => $bill->getid()) ));
     }
 }

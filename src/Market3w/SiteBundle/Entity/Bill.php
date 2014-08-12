@@ -94,7 +94,7 @@ class Bill
     private $lines;
     
     /**
-     * @ORM\OneToMany(targetEntity="Bill", mappedBy="bill")
+     * @ORM\OneToMany(targetEntity="Bill", mappedBy="bill", cascade={"remove", "persist"})
      **/
     private $estimates;
 

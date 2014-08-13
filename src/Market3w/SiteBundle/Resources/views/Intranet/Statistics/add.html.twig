@@ -1,10 +1,17 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block content %}
-<div class="fixed_content">
+<div id="statistics-add" class="fixed_content">
     {{ form_start(form) }}
+        <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics_dates', {'id':id}) }}"></input>
         {{ form_errors(form) }}
         <div class="contact_form">
+            <div class="contact_element">
+                {{ form_label(form.createdAt) }}
+                {{ form_errors(form.createdAt) }}
+                {{ form_widget(form.createdAt) }}
+            </div>
+           
             <div class="contact_element">
                 {{ form_label(form.uniqueVisitors) }}
                 {{ form_errors(form.uniqueVisitors) }}
@@ -46,4 +53,15 @@
 
     {{ form_end(form) }}
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    {% javascripts 
+        'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
+        'bundles/market3wsite/js/statistic.js'
+        output='seoStatisticClient.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

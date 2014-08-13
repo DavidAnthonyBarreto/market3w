@@ -1,63 +1,67 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets 
-        'bundles/market3wsite/css/jquery-ui.min.css'
-        'bundles/market3wsite/css/jquery-ui.structure.min.css' 
-        output='jquery-ui.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-    {% endstylesheets %}
+{% block content %}
+<div id="statistics-add" class="fixed_content">
+    {{ form_start(form) }}
+        <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics_dates', {'id':id}) }}"></input>
+        {{ form_errors(form) }}
+        <div class="contact_form">
+            <div class="contact_element">
+                {{ form_label(form.createdAt) }}
+                {{ form_errors(form.createdAt) }}
+                {{ form_widget(form.createdAt) }}
+            </div>
+           
+            <div class="contact_element">
+                {{ form_label(form.uniqueVisitors) }}
+                {{ form_errors(form.uniqueVisitors) }}
+                {{ form_widget(form.uniqueVisitors) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.rank) }}
+                {{ form_errors(form.rank) }}
+                {{ form_widget(form.rank) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.nbViewedPages) }}
+                {{ form_errors(form.nbViewedPages) }}
+                {{ form_widget(form.nbViewedPages) }}
+            </div>
+
+            <div  class="contact_element" id="skype">
+                {{ form_label(form.reboundTime) }}
+                {{ form_errors(form.reboundTime) }}
+                {{ form_widget(form.reboundTime) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.keywords) }}
+                {{ form_errors(form.keywords) }}
+                {{ form_widget(form.keywords) }}
+            </div>
+
+            <div class="contact_element">
+                {{ form_label(form.topViewed) }}
+                {{ form_errors(form.topViewed) }}
+                {{ form_widget(form.topViewed) }}
+            </div>
+
+            <input class="submit" type="submit" />
+        </div>
+
+    {{ form_end(form) }}
+</div>
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
+    {{parent()}}
     {% javascripts 
         'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
-        'bundles/market3wsite/js/appointment.js'
-        output='appointment.js'
+        'bundles/market3wsite/js/statistic.js'
+        output='seoStatisticClient.js'
     %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-{% endblock %}
-
-{% block content %}
-    <div class="fixed_content">
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
-
-        <div>
-            {{ form_label(form.rank) }}
-            {{ form_errors(form.rank) }}
-            {{ form_widget(form.rank) }}
-        </div>
-
-        <div>
-            {{ form_label(form.keywords) }}
-            {{ form_errors(form.keywords) }}
-            {{ form_widget(form.keywords) }}
-        </div>
-
-        <div>
-            {{ form_label(form.nbViewedPage) }}
-            {{ form_errors(form.nbViewedPage) }}
-            {{ form_widget(form.nbViewedPage) }}
-        </div>
-
-        <div>
-            {{ form_label(form.uniqueVisitors) }}
-            {{ form_errors(form.uniqueVisitors) }}
-            {{ form_widget(form.uniqueVisitors) }}
-        </div>
-
-        <div>
-            {{ form_label(form.topViewed) }}
-            {{ form_errors(form.topViewed) }}
-            {{ form_widget(form.topViewed) }}
-        </div>
-
-        <input type="submit" />
-
-    {{ form_end(form) }}
-    </div>
 {% endblock %}

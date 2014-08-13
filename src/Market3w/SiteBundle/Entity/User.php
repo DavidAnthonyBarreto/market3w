@@ -87,6 +87,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\History", mappedBy="client", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="seo_statistics_id", referencedColumnName="id")
+     * @ORM\OrderBy({"date" = "ASC"})
      */
     private $seoStatistics;
     

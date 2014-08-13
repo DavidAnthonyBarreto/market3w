@@ -4,22 +4,71 @@
  * and open the template in the editor.
  */
 
-$.ajax({
-  url: $('#ajax_url').val(),
-  context: document.body
-}).done(function(data) {
-    $.each(data, function(type, values) {
-        if(type == 'charts'){
-            $.each(values, function(chartName, items) {
-                buildchart(data['date'], chartName, items);
-            });
-        }
-        if(type == "strings"){
-            buildTableChart(values);
-        }
-        
-    });
+$( document ).ready(function() {
+    if($('#statistics-add').length){
+        var jqxhr = $.getJSON( $('#ajax_url').val(), function() {
+            console.log( "success" );
+        })
+        .done(function(disabledDates) {
+            $('.datepicker').datepicker({
+                beforeShowDay: function(date){
+                    var string = jQuery.datepicker.formatDate('dd/mm/yy', date);
+                    return [ disabledDates.indexOf(string) == -1 ]
+                },
+                firstDay: 1,
+                altField: "#datepicker",
+                closeText: 'Fermer',
+                prevText: 'Précédent',
+                nextText: 'Suivant',
+                currentText: 'Aujourd\'hui',
+                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                weekHeader: 'Sem.',
+                dateFormat: 'dd/mm/yy'
+            },
+            $.datepicker.regional['fr']
+            );
+        })
+    }
+    if($('#statistics-charts').length){
+        $.ajax({
+            url: $('#ajax_url').val(),
+            context: document.body
+        }).done(function(data) {
+            $.each(data, function(type, values) {
+                if(type == 'charts'){
+                    $.each(values, function(chartName, items) {
+                    buildchart(data['date'], chartName, items);
+                });
+            }
+            if(type == "strings"){
+                buildTableChart(values);
+            }
+          });
+      });
+      
+      if($('#edit-date').length && $('#edit-submit').length){
+          changeEditLink($('#edit-date'));
+          $('#edit-date').change(function(){
+              changeEditLink($(this));
+              var prevUrl = $('#edit-submit').attr('href'); 
+              var newUrl = prevUrl.replace(/statistics\/.+\/edit/, 'statistics/'+$(this).val()+'/edit');
+              $('#edit-submit').attr('href', newUrl);
+          });
+      }
+  }
 });
+
+
+function changeEditLink(elm){
+    var prevUrl = $('#edit-submit').attr('href'); 
+    var newUrl = prevUrl.replace(/statistics\/.+\/edit/, 'statistics/'+elm.val()+'/edit');
+    $('#edit-submit').attr('href', newUrl);
+}
+
 
 function buildchart(labels, chartName, items){
     var lineChartData = {

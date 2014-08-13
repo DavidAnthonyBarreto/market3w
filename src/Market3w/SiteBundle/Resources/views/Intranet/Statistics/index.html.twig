@@ -2,8 +2,8 @@
 
 {% block content %}
     <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics', {'id':clientId}) }}"></input>
-    
-    <div class="fixed_content">
+    {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
+    <div id="statistics-charts" class="fixed_content">
         <div class="chart-uniqueVisitors container">
             <h1>Nombres de visiteurs uniques</h1>
             <canvas id="chart-uniqueVisitors" height="300" width="960"></canvas>
@@ -29,6 +29,7 @@
             <div id="topViewedPage"></div>
         </div>
     </div>
+    {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
 {% endblock %}
 {% block javascripts %}
     {{parent()}}

@@ -113,6 +113,15 @@ tr:nth-of-type(2n+1) {
 
 
 /**************ADMIN Copyright**************/
-.copyright{
+.copyright {
 	background: #FFF;
+	height: 30px;
+	line-height: 30px;
+	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
+	font-size: 11px;
+	color: #1abc9c;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	bottom: 0;
 }

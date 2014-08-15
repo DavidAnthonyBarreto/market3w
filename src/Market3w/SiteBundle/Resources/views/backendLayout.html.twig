@@ -7,8 +7,8 @@
         
         {% block stylesheets %}
             {% stylesheets 
+            'bundles/market3wsite/css/common.css'
             'bundles/market3wsite/css/admin.css' 
-            'bundles/market3wsite/css/common.css' 
             output='css/market3w_backend.css' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
@@ -36,7 +36,7 @@
             {% endblock fos_user_content %}
         {% endblock %}
         
-        <footer>
+        <!-- <footer>
             <div class="fixed_content">
                 <h2>Plan du site</h2>
                 <ul>
@@ -44,7 +44,7 @@
                     <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
                 </ul>
             </div>
-        </footer>
+        </footer> -->
 
 
         {% block javascripts %}

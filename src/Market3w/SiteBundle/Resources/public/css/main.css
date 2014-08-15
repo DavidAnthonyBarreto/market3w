@@ -302,10 +302,6 @@ video#bgvid {
 	padding:80px 0;
 }
 
-.all_bloc_content p{
-	color:#18836e;
-}
-
 .realisations .bloc_content{
 	display: inline-block;
 	margin:0;
@@ -358,7 +354,11 @@ video#bgvid {
 /**************ACCUEIL INFORMATIONS**************/
 .informations{
 	padding:80px 0;
-	background: #18836E;
+	background: url("../images/informations/info_background.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	color:#FFF;
 }
 .informations h2{
@@ -429,6 +429,9 @@ video#bgvid {
 .contact_element label {
     font-size: 16px;
 }
+.contact_element textarea{
+    width: 99%;
+}
 .contact_form .submit{
 	background: #FFF;
 	/*border: 3px solid #18836e;*/
@@ -443,7 +446,9 @@ video#bgvid {
 	background: #18836e;
 	color: #FFF;
 }
-
+.contact_form input[type=text] {
+	display: block;
+}
 /**************PAGE EXPERTISE**************/
 .expertise_content{
 	margin-bottom: 100px;

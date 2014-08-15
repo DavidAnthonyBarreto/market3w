@@ -532,6 +532,9 @@ footer ul li a, footer ul li{
 		margin: auto;
 	}
 	/*****Contact*****/
+	.contact_form{
+		width: 250px;
+	}
 	.contact_field{
 		height: 160px;
 	}

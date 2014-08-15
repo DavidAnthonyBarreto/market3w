@@ -5,6 +5,7 @@ body{
 	font-size: 14px;
 	color:#fff;
 	background: #2E3533;
+	
 }
 
 /**************Admin nav header**************/
@@ -120,8 +121,10 @@ tr:nth-of-type(2n+1) {
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 11px;
 	color: #1abc9c;
-	position: absolute;
 	text-align: center;
 	width: 100%;
-	bottom: 0;
+	margin: 0;
+	/*position: absolute;
+	bottom: 0;*/
+	margin-top: 100px;
 }

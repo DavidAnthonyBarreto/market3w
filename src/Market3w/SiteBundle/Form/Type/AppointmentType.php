@@ -82,6 +82,6 @@ class AppointmentType extends AbstractType
      */
     public function getName()
     {
-        return 'market3w_sitebundle_appointment';
+        return 'appointment';
     }
 }

@@ -14,12 +14,12 @@
             {{ form_widget(form.type) }}
         </div>
         
-        <div class="contact_element">
+        <div class="contact_element contact_hidden" id="address">
             {{ form_errors(form.address) }}
             {{ form_widget(form.address) }}
         </div>
         
-        <div  class="contact_element" id="skype">
+        <div  class="contact_element contact_hidden" id="skype">
             {{ form_label(form.skype) }}
             {{ form_errors(form.skype) }}
             {{ form_widget(form.skype) }}

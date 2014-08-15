@@ -251,6 +251,10 @@ video#bgvid {
 	opacity:0.8;
 }
 
+.contact_hidden {
+            display: none !important;
+}
+
 /**************ACCUEIL EXPERTISE**************/
 .expertise{
 	padding:80px 0;

@@ -72,10 +72,15 @@
             <p>Voici un aperçu des derniers projets sur lesquels notre agence a travaillée :</p>
             <div class="all_bloc_content">
                 {% for project in projects %}
-                    <div class="bloc_content">
-                        <a href="{{ path('market3w_site_ourwork_index') }}" class="blocR"></a>
-                        <p>{{ project.name }}</p>
-                    </div>
+                <a href="{{ path('market3w_site_ourwork_index') }}" class="blocR">
+                    <span class="bloc_content">
+                        <span class="detail_realisations">
+                        {{ project.name }}<br>
+                        <hr noshade class="detail_separator">
+                        <em>En savoir plus</em>
+                    </span>
+                    </span>
+                </a>
                 {% endfor %}
             </div>
         </div>

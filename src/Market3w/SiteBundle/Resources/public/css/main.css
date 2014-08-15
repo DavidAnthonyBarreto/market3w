@@ -273,7 +273,6 @@ video#bgvid {
 	margin:0 5px;
 	margin-bottom: 120px;
 	height:100px;
-	width:200px;
 	text-align: center;
 }
 .bloc_content p{
@@ -303,28 +302,59 @@ video#bgvid {
 	padding:80px 0;
 }
 
-.realisations .bloc_content p{
+.all_bloc_content p{
 	color:#18836e;
 }
 
 .realisations .bloc_content{
-	margin-bottom: 160px;
+	display: inline-block;
+	margin:0;
+	height:180px;
+	text-align: center;
 }
 
 .blocR{
-	display:block;
+	display:inline-block;
+	margin:10px;
 	background: url("../images/blocR.png")no-repeat;
 	height:180px;
 	width:180px;
 	opacity: 1;
+	overflow: hidden;
+	vertical-align: top;
 	transition:opacity 0.3s;
 }
-
-.blocR:hover{
-	opacity: 0.8;
-	transition:opacity 0.3s;
+.detail_realisations {
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 500px;
+	height: 180px;
+	width: 180px;
+	color: #FFF;
+	padding-top: 60px;
+	transition-property: margin;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
+	display: block;
+	background: rgba(46, 53, 51, 0.7);
+	vertical-align:top;
+}
+.detail_realisations em{
+	font-size: 12px;
+	margin-top: -5px;
 }
 
+.detail_separator{
+	background: #1abc9c;
+	width:60px;
+	height:1px;
+	margin:10px auto 5px;
+	border: none;
+}
+
+.bloc_content:hover > .detail_realisations{
+	margin-left: 0;
+}
 /**************ACCUEIL INFORMATIONS**************/
 .informations{
 	padding:80px 0;

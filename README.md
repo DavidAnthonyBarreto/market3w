@@ -1,7 +1,7 @@
 Projet market3w
 ========================
 
-Ce projet est réaliser dans le cadres de la formation concepteur-web de l'institut
+Ce projet est réaliser dans le cadre de la formation concepteur-web de l'institut
 f2i
 
 ### Installation du projet

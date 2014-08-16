@@ -351,10 +351,6 @@ footer ul li a, footer ul li{
 		top:-15px;
 		height:60px;
 	}
-	.contact_button a{
-		height:60px;
-		line-height: 60px;
-	}
 	/*****Accueil Expertise*****/
 	.all_bloc_content{
 		width:520px;
@@ -434,7 +430,6 @@ footer ul li a, footer ul li{
 		text-align: center;
 	}
 	.contact_button a{
-		width:200px;
 		margin: auto;
 		padding-right: 12px;
 		padding-left: 12px;
@@ -543,7 +538,7 @@ footer ul li a, footer ul li{
 	}
 	/*****Page Show Client*****/
 	.info_client_bloc{
-		width:100%;
+		width:90%!important;
 		margin: 0;
 	}
 	/*****Footer*****/

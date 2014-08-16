@@ -19,7 +19,7 @@ body{
 	font-size: 36px;
 	color: #FFF;
 	text-align: center;
-	padding-top:100px;
+	padding-top:150px;
 	margin-top:0;
 }
 
@@ -33,11 +33,33 @@ body{
 /**************SLIDER**************/
 
 .slider{
-	height:520px;
+	height:500px;
 	width: 100%;
 	background-color: #1abc9c;
 	position: relative;
 	overflow: hidden;
+}
+
+.expertise_content .slider {
+	background: url("../images/expertise/expertise_background.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.realisations_content .slider {
+	background: url("../images/realisation/realisations_background.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.societe_content .accroche {
+	position: absolute;
+	width: inherit;
+	z-index: 100;
 }
 /**************VIDEO**************/
 .video_content{
@@ -208,6 +230,55 @@ video#bgvid {
 	color: #1abc9c;
 }
 
+.slide1{
+	background: url("../images/societe/societe_background1.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: inherit;
+	width: inherit;
+}
+
+.slide2{
+	background: url("../images/societe/societe_background2.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: inherit;
+	width: inherit;
+}
+
+.slide3{
+	background: url("../images/societe/societe_background3.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: inherit;
+	width: inherit;
+}
+
+.slide4{
+	background: url("../images/societe/societe_background4.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: inherit;
+	width: inherit;
+}
+
+.slide5{
+	background: url("../images/societe/societe_background5.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: inherit;
+	width: inherit;
+}
 
 
 /**************CONTACT**************/

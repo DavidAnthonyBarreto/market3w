@@ -36,15 +36,71 @@
             {% endblock fos_user_content %}
         {% endblock %}
         
-        <!-- <footer>
+        <footer>
             <div class="fixed_content">
                 <h2>Plan du site</h2>
-                <ul>
+                <!-- <ul>
                     <li><a href="{{ path('market3w_site_legalinfo_legalnotice') }}">Mentions légales</a></li>
                     <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
-                </ul>
+                </ul> -->
+                <div class="bloc_footer_content">
+                    <div class="bloc_footer">
+                        <h3>Société</h3>
+                        <ul>
+                            <li><a href="{{ path('market3w_site_us_index') }}#about">Présentation</a></li>
+                            <li><a href="{{ path('market3w_site_us_index') }}#equipe">Equipe</a></li>
+                            <li><a href="{{ path('market3w_site_ourwork_index') }}">Réalisations</a></li>
+                            <li><a href="{{ path('market3w_site_legalinfo_legalnotice') }}">Mentions Légales</a></li>
+                            <li><a href="{{ path('market3w_site_legalinfo_cgu') }}">CGU</a></li>
+                        </ul>
+                    </div>
+                    <div class="bloc_footer">
+                        <h3>Expertise</h3>
+                        <ul>
+                            <li><a href="{{ path('market3w_site_skill_index') }}#referencement">Référencement naturel</a></li>
+                            <li><a href="{{ path('market3w_site_skill_index') }}#etude_marketing">Etude marketing</a></li>
+                            <li><a href="{{ path('market3w_site_skill_index') }}#ecommerce">Spécialiste e-commerce</a></li>
+                            <li><a href="{{ path('market3w_site_skill_index') }}#marketing_mobile">Marketng mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="bloc_footer">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="{{ path('market3w_site_contact_index') }}">Prendre un rendez-vous</a></li>
+                            <li>
+                                Où nous trouver :<br>
+                                <em>Market3W<br>
+                                12 rue Rambouillet<br>
+                                75012 Paris<br></em>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bloc_footer">
+                        <h3>Notre application</h3>
+                        <ul>
+                            <li>
+                                <a href="https://itunes.apple.com/fr/genre/ios/id36?mt=8">
+                                    <img style="margin:5px;"alt="Télécharger sur l'appstore" src="{{ asset('bundles/market3wsite/images/applis/appstore.svg') }}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://play.google.com/store/search?q=pub:Market3W">
+                                    <img style="width:140px;" alt="Disponible sur Google Play" src="{{ asset('bundles/market3wsite/images/applis/googleplay.svg') }}" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="follow_content">
+                    <ul>
+                        <li><a href="https://fr-fr.facebook.com/" target="_blank" class="facebook"></a></li>
+                        <li><a href="https://twitter.com/" target="_blank" class="twitter"></a></li>
+                        <li><a href="https://plus.google.com/" target="_blank" class="googleplus"></a></li>
+                        <li><a href="https://fr.linkedin.com/" target="_blank" class="linkedin"></a></li>
+                    </ul>
+                </div>
             </div>
-        </footer> -->
+        </footer>
 
 
         {% block javascripts %}

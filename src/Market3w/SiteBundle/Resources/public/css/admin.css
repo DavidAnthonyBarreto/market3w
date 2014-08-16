@@ -112,19 +112,61 @@ tr:nth-of-type(2n+1) {
 	margin: 20px;
 }
 
-
+/**************ADMIN footer**************/
+footer{
+	background: #18836E;
+	margin-top: 200px;
+	border-top: 2px solid #1abc9c;
+}
+.follow{
+	display: inline-block;
+	width:40%;
+	vertical-align: top;
+}
+.follow_content{
+	text-align: center;
+	width: 100%;
+}
+.follow_content ul{
+	padding:0;
+}
+.follow_content ul li{
+	display: inline-block;
+	list-style-type: none;
+	margin: 5px 5px;
+}
+.follow_content a{
+	display: inline-block;
+	height:50px;
+	width:50px;
+	border-radius: 10px;
+	transition:all 0.3s;
+}
+.follow_content a:hover{
+	border-radius: 25px;
+}
+.facebook{
+	background: url("../images/facebook.png")no-repeat;
+}
+.twitter{
+	background: url("../images/twitter.png")no-repeat;
+}
+.googleplus{
+	background: url("../images/googleplus.png")no-repeat;
+}
+.linkedin{
+	background: url("../images/linkedin.png")no-repeat;
+}
 /**************ADMIN Copyright**************/
 .copyright {
 	background: #FFF;
-	height: 30px;
-	line-height: 30px;
+	height: 40px;
+	/*line-height: 30px;
 	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
 	font-size: 11px;
 	color: #1abc9c;
 	text-align: center;
 	width: 100%;
 	margin: 0;
-	/*position: absolute;
-	bottom: 0;*/
-	margin-top: 100px;
+	margin-top: 100px;*/
 }

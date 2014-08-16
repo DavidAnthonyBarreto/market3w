@@ -2,35 +2,36 @@
 
 {% block content %}
     <div class="fixed_content">
-    {{ form_start(form) }}
-    
-    <div id="lines" data-prototype="{{ form_widget(form.lines.vars.prototype)|e }}">
-        {% for line in form.lines %}
-            <div class="line">
+        <div class="admin_form">
+            {{ form_start(form) }}
+            
+            <div id="lines" data-prototype="{{ form_widget(form.lines.vars.prototype)|e }}">
+                {% for line in form.lines %}
+                    <div class="line">
+                    <div>
+                        {{ form_label(line.service)  }}
+                        {{ form_errors(line.service) }}
+                        {{ form_widget(line.service) }}
+                    </div>
+                    <div>
+                        {{ form_label(line.nbHours)  }}
+                        {{ form_errors(line.nbHours) }}
+                        {{ form_widget(line.nbHours) }}h
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+                
             <div>
-                {{ form_label(line.service)  }}
-                {{ form_errors(line.service) }}
-                {{ form_widget(line.service) }}
+                {{ form_label(form.discount)  }}
+                {{ form_errors(form.discount) }}
+                {{ form_widget(form.discount) }}%
             </div>
-            <div>
-                {{ form_label(line.nbHours)  }}
-                {{ form_errors(line.nbHours) }}
-                {{ form_widget(line.nbHours) }}h
-            </div>
-            </div>
-        {% endfor %}
+            
+            {{ form_row(form._token) }}
+            
+            <input class="submit" type="submit" />
     </div>
-        
-    <div>
-        {{ form_label(form.discount)  }}
-        {{ form_errors(form.discount) }}
-        {{ form_widget(form.discount) }}%
-    </div>
-    
-    {{ form_row(form._token) }}
-    
-    <input type="submit" />
-
 </div>
 {% endblock %}
 

@@ -111,6 +111,64 @@ tr:nth-of-type(2n+1) {
 	vertical-align: top;
 	margin: 20px;
 }
+/**************ADMIN form**************/
+.admin_form{
+	width: 500px;
+	margin:auto;
+	padding: 15px;
+	background: #1abc9c;
+	border-radius: 10px;
+}
+.admin_form a{
+	color:#18836E;
+}
+.admin_form .line{
+	margin-bottom: 20px;
+}
+.admin_form .submit{
+	margin-top: 20px;
+	background: #FFF;
+	height:40px;
+	color: #18836e;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-top: 10px;
+}
+.admin_form .submit:hover{
+	background: #18836e;
+	color: #FFF;
+}
+
+.admin_form .contact_element {
+	margin-bottom: 10px;
+}
+
+.admin_form .contact_form input[type=text] {
+	display: block;
+}
+
+.ui-datepicker-calendar{
+	background: #FFF;
+}
+
+#ui-datepicker-div{
+	background: #18836E;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+.ui-datepicker-next, .ui-datepicker-prev{
+	background: #1abc9c;
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px;
+	cursor:pointer;
+}
+
+.ui-datepicker-title{
+	margin-top: 20px;
+}
 
 /**************ADMIN footer**************/
 footer{
@@ -161,12 +219,4 @@ footer{
 .copyright {
 	background: #FFF;
 	height: 40px;
-	/*line-height: 30px;
-	font-family: allerbold,"Arial Black",Helvetica,sans-serif;
-	font-size: 11px;
-	color: #1abc9c;
-	text-align: center;
-	width: 100%;
-	margin: 0;
-	margin-top: 100px;*/
 }

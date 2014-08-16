@@ -541,6 +541,9 @@ footer ul li a, footer ul li{
 		width:90%!important;
 		margin: 0;
 	}
+	.admin_form{
+		width: 250px!important;
+	}
 	/*****Footer*****/
 	.copyright{
 		margin-bottom: 75px;

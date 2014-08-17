@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class SeoEditStatisticsType extends AbstractType
+class SeoStatisticsType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,9 +16,7 @@ class SeoEditStatisticsType extends AbstractType
     {
         $builder
             ->add('createdAt', 'date', array(
-                'label' => 'Date du rdv',
-                //'data' => '01/01/1990',
-                'read_only' => true,
+                'label' => 'Date de la statistique',
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
                 'attr' => array('class' => 'datepicker'),

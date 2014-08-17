@@ -3,6 +3,9 @@
 {% block content %}
 <div class="show_client_container">
     <div class="fixed_content">
+        
+        <a href="{{ path('clients_index') }}"> Retour </a>
+        
         <div class="info_client_container">
             <div class="info_client_bloc">
                 <h1>Client</h1>
@@ -26,8 +29,10 @@
                         <span>Pseudo Skype : </span><span class="skypePseudo"> {{ client.skypePseudo }} </span>
                     </p>
                 {% endif %}
-                <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}">Modifer les informations</a>
-                <a href="{{ path('client_show_statitics', {'id': client.id}) }}">Voir les statistiques</a>
+                
+                <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}"> Modifer les informations </a>
+                <a href="{{ path('client_show_statistics', {'id': client.id}) }}">     Voir les statistiques    </a>
+                <a href="{{ path('client_add_statistics', {'id': client.id}) }}">     Ajouter une statistique  </a>
             </div>
             <div class="info_client_bloc">
                 <h1>Société</h1>

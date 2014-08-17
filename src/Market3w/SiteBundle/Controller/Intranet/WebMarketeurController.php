@@ -9,6 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 use Market3w\SiteBundle\Form\Type\Intranet\ClientInfoType;
+use Market3w\SiteBundle\Form\Type\Intranet\ClientType;
+use Market3w\SiteBundle\Entity\User;
+
 
 /**
  * WebMarketeur  controller.
@@ -71,37 +74,71 @@ class WebMarketeurController extends Controller
             $em->persist($client);
             $em->flush();
             
-            
-            
+            return $this->redirect($this->generateUrl( 'client_show', array('id' => $client->getId() )));
         }
         
         return array('form' => $form->createView());
     }
     
-//     /**
-//     * Billing client
-//     *
-//     * @Route("/{id}/billing", name="web_marketeur_edit_client", requirements={"id" = "\d+"})
-//     * @Template()
-//     */
-//    public function editAction(Request $request, $id)
-//    {
-//        $wm = $this->getUser();
-//        
-//        $em     = $this->getDoctrine()->getManager();
-//        $client = $em->getRepository('Market3wSiteBundle:User')->find($id);
-//
-//        $form = $this->createForm(new ClientInfoType(), $client);
-//        $form->handleRequest($request);
-//        
-//        if ($form->isValid()) {
-//            $em->persist($client);
-//            $em->flush();
-//            
-//            
-//            
-//        }
-//        
-//        return array('form' => $form->createView());
-//    }
+     /**
+     * Billing client
+     *
+     * @Route("/{id}/billing", name="web_marketeur_billing_client", requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function billingAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $client    = $em->getRepository('Market3wSiteBundle:User')->find($id);
+        $bills     = $em->getRepository("Market3wSiteBundle:Bill")->findBillForClient($client->getId());
+        $estimates = $em->getRepository("Market3wSiteBundle:Bill")->findEstimateForClient($client->getId());
+        
+        return array( 
+            'client'    => $client,            
+            'bills'     => $bills, 
+            'estimates' => $estimates 
+        );    
+    }
+
+    /**
+     * Billing client
+     *
+     * @Route("/add", name="web_marketeur_add_client")
+     * @Template()
+     */
+    public function addClientAction(Request $request)
+    {
+        $client = new User();
+        $form   = $this->createForm(new ClientType(), $client);
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) {
+            $password = uniqid();
+            
+            $client->setUsername($client->getEmail());
+            $client->setPassword($password);
+            $client->setEnabled(true);
+            $client->setWebMarketeur($this->getUser());
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($client);
+            $em->flush();
+            
+            if( $form->get('type')->getData('') == 'ROLE_CLIENT' ){
+                $fosUserManipulator = $this->container->get('fos_user.util.user_manipulator');
+                $fosUserManipulator->removeRole($client->getUsername(), 'ROLE_PROSPECT');
+                $fosUserManipulator->addRole($client->getUsername(), 'ROLE_CLIENT');
+            }
+            
+            $em->flush();
+            
+            return $this->redirect($this->generateUrl( 'client_show', array('id' => $client->getId() )));
+
+        }
+        
+        
+        return array('form' => $form->createView());    
+    }
+        
 }

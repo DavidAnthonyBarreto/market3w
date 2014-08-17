@@ -4,6 +4,8 @@
     <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics', {'id':clientId}) }}"></input>
     
     {% if is_granted('ROLE_WEB_MARKETEUR') %}
+        <a href="{{ path('client_show', {'id': clientId}) }}"> Retour  </a>
+        <a href="{{ path('client_add_statistics', {'id': clientId}) }}"> Ajouter une statistique  </a>
         {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
     {% endif %}
     

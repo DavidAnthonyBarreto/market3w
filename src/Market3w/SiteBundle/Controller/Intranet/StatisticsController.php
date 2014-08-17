@@ -25,7 +25,7 @@ class StatisticsController extends Controller
     /**
      * My clients.
      *
-     * @Route("/", name="client_show_statitics")
+     * @Route("/", name="client_show_statistics")
      * @Template()
      */
     public function indexAction($id)
@@ -82,7 +82,7 @@ class StatisticsController extends Controller
                 $em->persist($history);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('client_show', array('id' => $id)));
+                return $this->redirect($this->generateUrl('client_show_statistics', array('id' => $id)));
             }
             else{
                 $form->get('createdAt')->addError(new FormError('Une statistique à déjà été ajouté pour cette date, pour l\'éditer rendez vous sur la page "modifier une statistique"'));
@@ -126,7 +126,7 @@ class StatisticsController extends Controller
             $em->persist($seoStatistics);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('client_show_statitics', array('id' => $id)));
+            return $this->redirect($this->generateUrl('client_show_statistics', array('id' => $id)));
         }
         return array('form' => $form->createView(),'id' => $id);
     }

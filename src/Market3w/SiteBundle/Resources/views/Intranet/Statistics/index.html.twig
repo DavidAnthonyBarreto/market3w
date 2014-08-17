@@ -3,7 +3,7 @@
 {% block content %}
     <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics', {'id':clientId}) }}"></input>
     
-    {% if is_granted('ROLE_MARKETEUR') %}
+    {% if is_granted('ROLE_WEB_MARKETEUR') %}
         {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
     {% endif %}
     
@@ -34,7 +34,7 @@
         </div>
     </div>
     
-    {% if is_granted('ROLE_MARKETEUR') %}
+    {% if is_granted('ROLE_WEB_MARKETEUR') %}
         {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
     {% endif %}
 

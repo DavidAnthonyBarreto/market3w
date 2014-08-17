@@ -12,8 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Market3w\SiteBundle\Entity\History;
 use Market3w\SiteBundle\Entity\SeoStatistics;
-use Market3w\SiteBundle\Form\Type\Intranet\SeoAddStatisticsType;
-use Market3w\SiteBundle\Form\Type\Intranet\SeoEditStatisticsType;
+use Market3w\SiteBundle\Form\Type\Intranet\SeoStatisticsType;
 
 /**
  * Agenda  controller.
@@ -56,7 +55,7 @@ class StatisticsController extends Controller
         $client = $em->getRepository('Market3wSiteBundle:User')->find($id); 
                 
         $seoStatistics = new SeoStatistics();        
-        $form = $this->createForm(new SeoAddStatisticsType(), $seoStatistics);
+        $form = $this->createForm(new SeoStatisticsType(), $seoStatistics);
 
         $form->handleRequest($request);
         
@@ -116,7 +115,7 @@ class StatisticsController extends Controller
         }
         $seoStatistics = $em->getRepository('Market3wSiteBundle:SeoStatistics')->find($seoExists[0]->getSeoStatistic());
         $client = $em->getRepository('Market3wSiteBundle:User')->find($seoExists[0]->getClient());
-        $form = $this->createForm(new SeoEditStatisticsType(), $seoStatistics);
+        $form = $this->createForm(new SeoStatisticsType(), $seoStatistics);
         $form->handleRequest($request);
 
         if ($form->isValid()) {     

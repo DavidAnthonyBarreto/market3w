@@ -127,7 +127,8 @@ class StatisticsController extends Controller
 
             return $this->redirect($this->generateUrl('client_show_statitics', array('id' => $id)));
         }
-        return array('form' => $form->createView(),'id' => $id);
+        
+        return $this->render('Market3wSiteBundle:Intranet/Statistics:add.html.twig', array('form' => $form->createView(),'id' => $id));
     }
     
     /**

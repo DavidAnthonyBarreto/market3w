@@ -140,8 +140,20 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.show_client_container a{
-	color:#1abc9c;
+.show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
+	color: #fff;
+	padding: 10px;
+	background: #1abc9c;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 10px;
+	text-decoration: none;
+	transition:all 0.3s;
+}
+
+.table_client a{
+	display: block;
+	text-align: center;
 }
 .info_client_container{
 	text-align: center;
@@ -152,6 +164,30 @@ tr:nth-of-type(2n+1) {
 	display: inline-block;
 	vertical-align: top;
 	margin: 20px;
+}
+.edit-date-container{
+	color: #fff;
+	padding: 0 10px;
+	background: #1abc9c;
+	border-radius: 10px;
+	display: inline-block;
+	transition:all 0.3s;
+	margin: 10px;
+}
+
+.show_client_container a:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, .table_client a:hover{
+	color: #1abc9c;
+	background: #FFF;
+	border-radius: 20px;
+}
+.edit-date-container:hover > a{
+	color: #1abc9c;
+	background: #FFF;
+	border-radius: 20px;
+}
+.edit-date-container a{
+	margin: 0;
+	margin-right: -25px;
 }
 /**************ADMIN form**************/
 .admin_form{

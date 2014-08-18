@@ -1,0 +1,91 @@
+{% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
+
+{% block content %}
+<div class="inscription_field">
+    <div class="fixed_content">
+       {{ form_start(form) }}
+                <div id="client_info">
+                    <h1>Client</h1>
+                    <div class="inscription_item">
+                        {{ form_label(form.type)  }}
+                        {{ form_errors(form.type) }}
+                        {{ form_widget(form.type) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.firstName)  }}
+                        {{ form_errors(form.firstName) }}
+                        {{ form_widget(form.firstName) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.lastName)  }}
+                        {{ form_errors(form.lastName) }}
+                        {{ form_widget(form.lastName) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.email) }}
+                        {{ form_errors(form.email) }}
+                        {{ form_widget(form.email) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.phoneNumber)  }}
+                        {{ form_errors(form.phoneNumber) }}
+                        {{ form_widget(form.phoneNumber) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.mobilePhoneNumber)  }}
+                        {{ form_errors(form.mobilePhoneNumber) }}
+                        {{ form_widget(form.mobilePhoneNumber) }}
+                    </div>
+                </div>
+                <div id="company_info">
+                    <h1>Entreprise</h1>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.name)  }}
+                        {{ form_errors(form.company.name) }}
+                        {{ form_widget(form.company.name) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.siret)  }}
+                        {{ form_errors(form.company.siret) }}
+                        {{ form_widget(form.company.siret) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.firstLine)  }}
+                        {{ form_errors(form.company.address.firstLine) }}
+                        {{ form_widget(form.company.address.firstLine) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.secondLine)  }}
+                        {{ form_errors(form.company.address.secondLine) }}
+                        {{ form_widget(form.company.address.secondLine) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.thirdLine)  }}
+                        {{ form_errors(form.company.address.thirdLine) }}
+                        {{ form_widget(form.company.address.thirdLine) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.zipcode)  }}
+                        {{ form_errors(form.company.address.zipcode) }}
+                        {{ form_widget(form.company.address.zipcode) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.city)  }}
+                        {{ form_errors(form.company.address.city) }}
+                        {{ form_widget(form.company.address.city) }}
+                    </div>
+                    <div class="inscription_item">
+                        {{ form_label(form.company.address.country)  }}
+                        {{ form_errors(form.company.address.country) }}
+                        {{ form_widget(form.company.address.country) }}
+                    </div>
+                </div>
+                    
+                    {{ form_row(form._token) }}
+                <div>
+                    <input class="submit" type="submit" value="Valider" />
+                </div>
+            </form>
+    </div>
+</div>
+{% endblock %}

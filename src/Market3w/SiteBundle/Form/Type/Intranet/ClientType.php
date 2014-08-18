@@ -8,46 +8,56 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Market3w\SiteBundle\Form\Type\CompanyType;
 
-class ClientInfoType extends AbstractType
+class ClientType extends AbstractType
 {
-        /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName', null, array(
-                'label'              => 'form.firstName', 
-                'translation_domain' => 'FOSUserBundle',
-                'required'           => true
+        $builder->add('type', 'choice', array(
+            'label'    => 'Type', 
+            'choices'  => array('ROLE_PROSPECT' => 'Prospect', 'ROLE_CLIENT' => 'Client'),
+            'expanded' => true,
+            'multiple' => false,
+            'mapped'   => false,
+            'required' => true
         ));
         
-        $builder->add('lastName', null, array(
+        $builder->add('lastName', 'text', array(
             'label'              => 'form.lastName', 
             'translation_domain' => 'FOSUserBundle',
             'required'           => true
         ));
         
-        $builder->add('phoneNumber', null, array(
+        $builder->add('firstName', 'text', array(
+            'label'              => 'form.firstName', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
+        $builder->add('email', 'email', array(
+            'label'              => 'form.email', 
+            'translation_domain' => 'FOSUserBundle',
+            'required'           => true
+        ));
+        
+        $builder->add('phoneNumber', 'text', array(
             'label'              => 'form.phoneNumber', 
             'translation_domain' => 'FOSUserBundle',
             'required'           => true
         ));
         
-        $builder->add('mobilePhoneNumber', null, array(
+        $builder->add('mobilePhoneNumber', 'text', array(
             'label'              => 'form.mobilePhoneNumber', 
             'translation_domain' => 'FOSUserBundle',
             'required'           => true
         ));
         
         $builder->add('company', new CompanyType(), array(
-            'label' => 'form.company',
+            'label'              => 'form.company',
             'translation_domain' => 'FOSUserBundle',
-            'required' => true,
-        ));
-        
+            'required'           => true,
+        ));           
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -57,12 +67,9 @@ class ClientInfoType extends AbstractType
             'data_class' => 'Market3w\SiteBundle\Entity\User'
         ));
     }
-
-    /**
-     * @return string
-     */
+    
     public function getName()
     {
-        return 'market3w_sitebundle_client_info';
+        return 'new_client';
     }
 }

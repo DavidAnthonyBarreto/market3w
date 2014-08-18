@@ -1,0 +1,23 @@
+{% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
+
+{% block content %}
+<div class="billing_field">
+    <div class="fixed_content">
+        <a href="{{ path( 'client_show', {'id':client.id} ) }}">Retour</a>
+        <h1>Client</h1>
+        <p>
+            <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>
+        </p>
+        <p>
+            <span>Nom : </span><span class="lastName"> {{ client.lastName }} </span>
+        </p>
+        <p> Société : {{ client.company.name }}     </p>
+        
+        <h1>Devis</h1>
+	{% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'wm' } %}
+
+        <h1>Factures</h1>
+        {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'wm' } %}
+    </div>
+</div>
+{% endblock %}

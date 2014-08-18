@@ -156,7 +156,7 @@ nav ul li a{
 	width:120px;
 	height: 100px;
 	display: block;
-	transition: background 0.3s;
+	transition: all 0.3s;
 }
 
 nav ul li a:hover{

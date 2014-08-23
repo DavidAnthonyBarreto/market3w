@@ -37,7 +37,7 @@ h2{
 ul li {
 	color:#1abc9c;
 }
-ul li a{
+ul li a, a{
 	color:#18836e;
 }
 
@@ -156,7 +156,7 @@ nav ul li a{
 	width:120px;
 	height: 100px;
 	display: block;
-	transition: background 0.3s;
+	transition: all 0.3s;
 }
 
 nav ul li a:hover{

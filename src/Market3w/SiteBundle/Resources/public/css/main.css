@@ -122,6 +122,12 @@ video#bgvid {
 	margin-top: -20px;
 	font-size: 16px;
 }
+.tutoriel_video_content{
+	margin-bottom: 200px;
+}
+.video_player{
+	width:inherit;
+}
 /*********media queries slider*********/
 /*****écrans inférieur à 1300px*****/
 @media screen and (max-width: 1300px) {

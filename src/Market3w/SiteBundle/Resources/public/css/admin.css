@@ -31,6 +31,48 @@ header {
 	color:#FFF;
 }
 
+nav ul{
+	padding: 0;
+	margin: 0;
+}
+nav ul li{
+	display: inline-block;
+	list-style-type:none;
+	width:120px;
+	height: 100px;
+	text-align: center;
+	margin-left:-4px;
+	
+}
+
+nav ul li a{
+	text-decoration: none;
+	font-family: allerregular,Arial,Helvetica,sans-serif;
+	font-size: 18px;
+	color:#FFF;
+	width:110px;
+	height: 90px;
+	display: table-cell;
+	padding: 5px;
+	line-height: normal;
+	vertical-align: middle;
+	transition: all 0.3s;
+}
+
+nav ul li a:hover{
+	background: #1abc9c;
+	color:#FFF;
+	height: 80px;
+	border-bottom: 10px solid #c6f5ec;
+}
+
+.current{
+	background: #1abc9c;
+	color:#FFF;
+	height: 90px;
+	border-bottom: 10px solid #c6f5ec;
+}
+
 /**************Table**************/
 table {
     border-collapse: collapse;
@@ -98,8 +140,20 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.show_client_container a{
-	color:#1abc9c;
+.show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
+	color: #fff;
+	padding: 10px;
+	background: #1abc9c;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 10px;
+	text-decoration: none;
+	transition:all 0.3s;
+}
+
+.table_client a{
+	display: block;
+	text-align: center;
 }
 .info_client_container{
 	text-align: center;
@@ -111,6 +165,40 @@ tr:nth-of-type(2n+1) {
 	vertical-align: top;
 	margin: 20px;
 }
+.edit-date-container{
+	color: #fff;
+	padding: 0 10px;
+	background: #1abc9c;
+	border-radius: 10px;
+	display: inline-block;
+	transition:all 0.3s;
+	margin: 10px;
+}
+
+.show_client_container a:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, .table_client a:hover{
+	color: #1abc9c;
+	background: #FFF;
+	border-radius: 20px;
+}
+.edit-date-container:hover > a{
+	color: #1abc9c;
+	background: #FFF;
+	border-radius: 20px;
+}
+.edit-date-container a{
+	margin: 0;
+	margin-right: -25px;
+}
+#client_info .inscription_item:nth-of-type(1)
+{
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+} 
+#client_info .inscription_item:nth-of-type(1) #new_client_type
+{
+    text-align: center;
+} 
 /**************ADMIN form**************/
 .admin_form{
 	width: 500px;
@@ -219,4 +307,59 @@ footer{
 .copyright {
 	background: #FFF;
 	height: 40px;
+}
+/*****écrans inférieur à 760px*****/
+@media screen and (max-width: 760px) {
+
+	/*****Menu*****/
+	.nav_content, nav ul li, nav ul li a{
+		height: 100px;
+		line-height: normal;
+		font-size: 14px;
+	}
+	nav ul li a:hover{
+		height: 90px;
+	}
+	.nav_content{
+		text-align: center;
+	}
+	nav {
+		border-top: 2px solid #1abc9c;
+		background: #18836e;
+		position: fixed;
+		bottom:0;
+		z-index: 100;
+		width:100%;
+	}
+	.copyright {
+		margin-bottom: 100px;
+	}
+}
+
+/*****écrans inférieur à 560px*****/
+@media screen and (max-width: 560px) {
+	/*****Menu*****/
+	.nav_content, nav ul li, nav ul li a{
+		height: 80px;
+		line-height: normal;
+	}
+	nav ul li:first-child{
+		display: block;
+	}
+	nav ul li, nav ul li a{
+		width: 80px;
+		margin: auto;
+		margin-top: 0;
+		margin-bottom: 0;
+
+	}
+	nav ul li a:hover{
+		height: 70px;
+	}
+	.nav_content{
+		text-align: center;
+	}
+	.copyright {
+		margin-bottom: 80px;
+	}
 }

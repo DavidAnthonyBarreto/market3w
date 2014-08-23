@@ -1,135 +1,136 @@
 {% extends 'Market3wSiteBundle::layout.html.twig' %}
 {% block content %}
-    <div class="video_content">
-        <div class="fixed_content">
-            <div class="video_bouton">
-                <p class="video_accroche">Découvrez notre tutoriel video sur le Web Marketing</p>
-                <p class="sub_video_accroche">Nos spécialistes de chez Market3W vous proposent différentes videos pour vous aider dans vos démarches Web Marketing</p>
-                <br>
-                <a href="#">Voir notre vidéo</a>
-            </div>
-            <video class="video_back" autoplay loop poster="{{ asset('bundles/market3wsite/images/video/static_background.jpg') }}" id="bgvid">
-                <source src="{{ asset('bundles/market3wsite/images/video/office.webm') }}" type="video/webm">
-                <source src="{{ asset('bundles/market3wsite/images/video/office.mp4') }}" type="video/mp4">
-            </video>
-            <div class="image_back"></div>
+<div class="video_content">
+    <div class="fixed_content">
+        <div class="video_bouton">
+            <p class="video_accroche">Découvrez notre tutoriel video sur le Web Marketing</p>
+            <p class="sub_video_accroche">Nos spécialistes de chez Market3W vous proposent différentes videos pour vous aider dans vos démarches Web Marketing</p>
+            <br>
+            <a href="{{ path('market3w_site_video_index') }}">Voir notre vidéo</a>
+        </div>
+        <video class="video_back" autoplay loop poster="{{ asset('bundles/market3wsite/images/video/static_background.jpg') }}" id="bgvid">
+            <source src="{{ asset('bundles/market3wsite/images/video/office.webm') }}" type="video/webm"/>
+            <source src="{{ asset('bundles/market3wsite/images/video/office.mp4') }}" type="video/mp4"/>
+            <source src="{{ asset('bundles/market3wsite/images/video/office.ogv') }}" type="video/ogg"/>
+        </video>
+        <div class="image_back"></div>
             <!-- <ul class="rslides">
               <li><p class="accroche">L'expert en <strong>Web Marketing</strong></p>
                 <p class="sub_accroche">Notre agence est spécialisé dans le conseil et l'étude marketing de sites E-commerce</p></li>
               <li><p class="accroche">Contactez nous pour <strong>une expertise personnalisée</strong></p></li>
               <li><p class="accroche">Découvrez <strong>notre équipe</strong></p></li>
-            </ul> -->
-        </div>
-    </div>
+          </ul> -->
+      </div>
+  </div>
 
-    <div class="contact_field">
-        <div class="fixed_content">
-            <p>
-                Besoin d'un conseil ?
-                Vous voulez nous parler de votre projet ?
-                Vous avez une autre question ? Contactez nous !
-            </p>
-            <div class="contact_button"><a href="">Nous contacter</a></div>
-        </div>
+  <div class="contact_field">
+    <div class="fixed_content">
+        <p>
+            Besoin d'un conseil ?
+            Vous voulez nous parler de votre projet ?
+            Vous avez une autre question ? Contactez nous !
+        </p>
+        <div class="contact_button"><a href="">Nous contacter</a></div>
     </div>
-    
-    <div class="expertise">
-        <div class="fixed_content">
-            <h1>Notre expertise</h1>
-            <p>Notre agence réunis des personnes de talents qui lui offre des compétences et domaines d’expertise au service de notre clientèle</p>
-            <div class="all_bloc_content">
-                <div class="bloc_content">
-                    <div class="blocE">
-                        <img src="{{ asset('bundles/market3wsite/images/expertise/seo.png') }}" alt="Expert en Référencement Naturel">
-                    </div>
-                    <p>Référencement naturel</p>
+</div>
+
+<div class="expertise">
+    <div class="fixed_content">
+        <h1>Notre expertise</h1>
+        <p>Notre agence réunis des personnes de talents qui lui offre des compétences et domaines d’expertise au service de notre clientèle</p>
+        <div class="all_bloc_content">
+            <div class="bloc_content">
+                <div class="blocE">
+                    <img src="{{ asset('bundles/market3wsite/images/expertise/seo.png') }}" alt="Expert en Référencement Naturel">
                 </div>
-                <div class="bloc_content">
-                    <div class="blocE">
-                        <img src="{{ asset('bundles/market3wsite/images/expertise/etude_marketing.png') }}" alt="Expert en étude marketing">
-                    </div>
-                    <p>Etude marketing</p>
+                <p>Référencement naturel</p>
+            </div>
+            <div class="bloc_content">
+                <div class="blocE">
+                    <img src="{{ asset('bundles/market3wsite/images/expertise/etude_marketing.png') }}" alt="Expert en étude marketing">
                 </div>
-                <div class="bloc_content">
-                    <div class="blocE">
-                        <img src="{{ asset('bundles/market3wsite/images/expertise/ecommerce.png') }}" alt="Expert en e-commerce">
-                    </div>
-                    <p>Spécialiste e-commerce</p>
+                <p>Etude marketing</p>
+            </div>
+            <div class="bloc_content">
+                <div class="blocE">
+                    <img src="{{ asset('bundles/market3wsite/images/expertise/ecommerce.png') }}" alt="Expert en e-commerce">
                 </div>
-                <div class="bloc_content">
-                    <div class="blocE">
-                        <img src="{{ asset('bundles/market3wsite/images/expertise/marketing_mobile.png') }}" alt="Expert en Marketing mobile">
-                    </div>
-                    <p>Marketing mobile</p>
+                <p>Spécialiste e-commerce</p>
+            </div>
+            <div class="bloc_content">
+                <div class="blocE">
+                    <img src="{{ asset('bundles/market3wsite/images/expertise/marketing_mobile.png') }}" alt="Expert en Marketing mobile">
                 </div>
+                <p>Marketing mobile</p>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="realisations">
-        <div class="fixed_content">
-            <h1>Nos dernières réalisations</h1>
-            <p>Voici un aperçu des derniers projets sur lesquels notre agence a travaillée :</p>
-            <div class="all_bloc_content">
-                {% for project in projects %}
-                <a href="{{ path('market3w_site_ourwork_index') }}" class="blocR">
-                    <span class="bloc_content">
-                        <span class="detail_realisations">
+<div class="realisations">
+    <div class="fixed_content">
+        <h1>Nos dernières réalisations</h1>
+        <p>Voici un aperçu des derniers projets sur lesquels notre agence a travaillée :</p>
+        <div class="all_bloc_content">
+            {% for project in projects %}
+            <a href="{{ path('market3w_site_ourwork_index') }}" class="blocR">
+                <span class="bloc_content">
+                    <span class="detail_realisations">
                         {{ project.name }}<br>
                         <hr noshade class="detail_separator">
                         <em>En savoir plus</em>
                     </span>
-                    </span>
-                </a>
-                {% endfor %}
-            </div>
+                </span>
+            </a>
+            {% endfor %}
         </div>
     </div>
+</div>
 
-    <div class="informations">
-        <div class="fixed_content">
-            <div class="about">
-                <h1>Qui sommes-nous ?</h1>
-                <h2>Market3w</h2>
-                <p>
-                    Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
-                    Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
-                    du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
-                </p> 
-                <p>
-                    Hopla vous savez que la mamsell Huguette, la miss Miss Dahlias du messt
-                    de Bischheim était au Christkindelsmärik en compagnie de Richard 
-                    Schirmeck (celui qui a un blottkopf), le mari de Chulia Roberstau, qui 
-                    lui trempait sa Nüdle dans sa Schneck ! Yo dû, Pfourtz ! Ch'espère 
-                    qu'ils avaient du Kabinetpapier, Gal !
-                </p>
-            </div>
-            <div class="follow">
-                <h1>Nous suivre</h1>
-                <p>
-                    Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
-                    Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
-                    du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
-                </p>
-                <div class="follow_content">
-                    <ul>
-                        <li><a href="https://fr-fr.facebook.com/" target="_blank" class="facebook"></a></li>
-                        <li><a href="https://twitter.com/" target="_blank" class="twitter"></a></li>
-                        <li><a href="https://plus.google.com/" target="_blank" class="googleplus"></a></li>
-                        <li><a href="https://fr.linkedin.com/" target="_blank" class="linkedin"></a></li>
-                    </ul>
-                </div>
+<div class="informations">
+    <div class="fixed_content">
+        <div class="about">
+            <h1>Qui sommes-nous ?</h1>
+            <h2>Market3w</h2>
+            <p>
+                Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
+                Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
+                du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
+            </p> 
+            <p>
+                Hopla vous savez que la mamsell Huguette, la miss Miss Dahlias du messt
+                de Bischheim était au Christkindelsmärik en compagnie de Richard 
+                Schirmeck (celui qui a un blottkopf), le mari de Chulia Roberstau, qui 
+                lui trempait sa Nüdle dans sa Schneck ! Yo dû, Pfourtz ! Ch'espère 
+                qu'ils avaient du Kabinetpapier, Gal !
+            </p>
+        </div>
+        <div class="follow">
+            <h1>Nous suivre</h1>
+            <p>
+                Lorem Salu bissame ! Wie geht's les samis ? Hans apporte moi une 
+                Wurschtsalad avec un picon bitte, s'il te plaît. Voss ? Une Carola et 
+                du Melfor ? Yo dû, espèce de Knäckes, ch'ai dit un picon !
+            </p>
+            <div class="follow_content">
+                <ul>
+                    <li><a href="https://fr-fr.facebook.com/" target="_blank" class="facebook"></a></li>
+                    <li><a href="https://twitter.com/" target="_blank" class="twitter"></a></li>
+                    <li><a href="https://plus.google.com/" target="_blank" class="googleplus"></a></li>
+                    <li><a href="https://fr.linkedin.com/" target="_blank" class="linkedin"></a></li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 {% block javascripts %}
-    {{ parent() }}
-    {% javascripts 
-        'bundles/market3wsite/js/responsiveslides.min.js'
-        'bundles/market3wsite/js/homepage_slider.js'
-        output='homepage.js'
+{{ parent() }}
+{% javascripts 
+    'bundles/market3wsite/js/responsiveslides.min.js'
+    'bundles/market3wsite/js/homepage_slider.js'
+    output='homepage.js'
     %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-{% endblock %}
+    {% endblock %}

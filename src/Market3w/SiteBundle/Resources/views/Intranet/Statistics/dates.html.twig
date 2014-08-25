@@ -1,10 +1,9 @@
 <div class="edit-date-container">
 	<select id="edit-date" name="date">
-	    <option value="0">Choisissez une date</option>
 	    {% for string, date in dates %}
 	        <option value="{{string}}">{{date}}</option>
 	    {% endfor %}
 	</select>
-	    <a id="edit-submit" href="{{ path('client_edit_statistics', {'id': clientId, 'date': '0'}) }}">Modifer</a>
+	    <a id="edit-submit" href="{{ path('client_edit_statistics', {'id': clientId, 'date': 'dates[0].string'}) }}">Modifer</a>
 	</form>
 </div>

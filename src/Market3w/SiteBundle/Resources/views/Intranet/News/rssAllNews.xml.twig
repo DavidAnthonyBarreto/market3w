@@ -6,9 +6,10 @@
         <title>Les dernières news de Market3W</title>
         {% for oneNews in news %}
             <item>
+                <id>{{oneNews.id}}</id>
                 <title>{{oneNews.title}}</title>
                 <description>{{oneNews.description|slice(0, 120)}}...</description>
-                <pubDate>{{oneNews.pubDate|date('d/m/Y')}}</pubDate>
+                <pubDate>{{oneNews.pubDate|date('D, d M Y h:i:s O')}}</pubDate>
             </item>
         {% endfor %}
     </channel>

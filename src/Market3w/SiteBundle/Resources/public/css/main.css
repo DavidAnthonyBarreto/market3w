@@ -1,10 +1,3 @@
-/*Faire un pull avant chaque modif > clic droit Git > Remote > Pull*/
-/*lancer netbeans > clic droit Symphony2 > run command > doctrine:schema:update -- force*/
-/*lancer netbeans > clic droit Symphony2 > clear cache*/
-/*lancer netbeans > clic droit Symphony2 > run command > assetic:install --symlink*/
-/*lancer netbeans > clic droit Symphony2 > run command > assetic:dump*/
-/*lancer netbeans > clic droit Symphony2 > run command > assetic:dump --watch*/
-
 body{
 	margin:0;
 	padding:0;
@@ -63,7 +56,7 @@ body{
 }
 /**************VIDEO**************/
 .video_content{
-	height:700px;
+	height:500px;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.4);
 	position: relative;
@@ -601,3 +594,23 @@ video#bgvid {
 	transition:all 0.3s;
 }
 
+/**************PAGE INFOS CLIENT**************/
+.profile_button{
+	color: #fff;
+	padding: 10px;
+	background: #1abc9c;
+	border-radius: 10px;
+	display: inline-block;
+	margin: 5px;
+	text-decoration: none;
+	transition:all 0.3s;
+}
+.profile_button:hover{
+	color: #FFF;
+	background: #18836e;
+	border-radius: 20px;
+}
+.inscription_content{
+	width: 310px;
+	margin:auto;
+}

@@ -21,6 +21,7 @@
                     <label for="password">{{ 'security.login.password'|trans }}</label>
                     <input type="password" id="password" name="_password" required="required" />
                 </div>
+                <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
                 <br>
                 <input class="submit"type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
             </form>

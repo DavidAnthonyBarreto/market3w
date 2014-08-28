@@ -2,8 +2,8 @@ Bonjour {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }}
 
 Je suis {{ wm.firstName }} {{ wm.lastName }}, votre conseiller web-marketing chez Market3w.
 
-Je vous confirme notre rendez-vous du {{ appointment.date.date|date("m/d/Y") }} 
-à {{ appointment.hour.startTime|date("H:i") }}. 
+Je vous confirme notre rendez-vous du {{ appointment.date|date("m/d/Y") }} 
+à {{ appointment.hour|date("H:i") }}. 
 
 {% if appointment.type.name == "Skype" %}
         Vous avez souhaité être contacté via Skype avec le pseudo : {{ appointment.prospect.skypePseudo }}.

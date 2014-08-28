@@ -6,7 +6,7 @@
     <h1>Rendez-vous à venir</h1>
     <ul>
         {% for appointment in appointments %}
-            <li><a href="{{ path('agenda_show_appointment', {'id':appointment.id}) }}">{{ appointment.date.date|date("m/d/Y") }}</a> à {{ appointment.hour.startTime|date("H:i") }}</li>
+            <li><a href="{{ path('agenda_show_appointment', {'id':appointment.id}) }}">{{ appointment.date|date("m/d/Y") }}</a> à {{ appointment.hour|date("H:i") }}</li>
         {% endfor %}
     </ul>
      </div>

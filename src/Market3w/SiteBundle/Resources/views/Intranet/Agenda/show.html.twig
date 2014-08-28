@@ -3,6 +3,8 @@
 {% block content %}
 <div class="show_agenda_content">
     <div class="fixed_content">
+        <a href="{{ path( 'agenda_index') }}">Retour</a>
+
         <h1>Identité du prospect</h1>
         <p>Le rendez-vous a été pris par : {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }}</p>
         <p>De la société : {{ appointment.prospect.company }}</p>
@@ -15,7 +17,7 @@
         {% endif %}
         
         <h1>Modalité du rendez-vous</h1>
-        <p>Le {{ appointment.date.date|date("m/d/Y") }} à {{ appointment.hour.startTime|date("H:i") }}</p>
+        <p>Le {{ appointment.date|date("m/d/Y") }} à {{ appointment.hour|date("H:i") }}</p>
         
         {% if appointment.type.name == "Skype" %}
             <p>Par Skype, pseudo du prospect : {{ appointment.prospect.skypePseudo }}</p>
@@ -35,7 +37,9 @@
             <p>Vidéoconférence via le site</p>
         {% endif %}
         
-        <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
+        {% if appointment.confirmed == false %}
+            <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
+        {% endif %}
         <a href="{{ path('agenda_edit_appointment', {'id':appointment.id}) }}">Modifer</a>
     </div>
 </div>

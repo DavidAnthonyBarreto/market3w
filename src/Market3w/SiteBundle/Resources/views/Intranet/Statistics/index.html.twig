@@ -39,15 +39,6 @@
             <div id="topViewedPage"></div>
         </div>
     </div>
-    
-    {% if is_granted('ROLE_WEB_MARKETEUR') %}
-    <div class="fixed_content">
-        <div class="edit_info_client">
-            {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
-        </div>
-    </div>
-    {% endif %}
-
 {% endblock %}
 
 {% block javascripts %}

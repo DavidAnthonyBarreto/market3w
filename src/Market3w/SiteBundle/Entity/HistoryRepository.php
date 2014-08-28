@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class HistoryRepository extends EntityRepository
 {
+    public function findHistoryForDate($clientId, $date)
+    {
+        $qb = $this->createQueryBuilder('h')
+            ->where('h.client = :clientId')
+            ->andWhere('h.date LIKE :date')
+            ->setParameter('clientId', $clientId)
+            ->setParameter('date', '%'.$date.'%');
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

@@ -43,28 +43,31 @@ class AppointmentType extends AbstractType
             'mapped'   => false,
         ));
         
-        $builder->add('date', new DateForAppointmentType(), array(
-            'required' => true
+        $builder->add('date', 'date', array(
+            'label'  => 'Quel jour souhaitez-vous rencontrer le conseiller ? ',
+            'widget' => 'single_text',
+            'format' => 'dd/MM/yyyy',
         ));
         
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'));
+        $builder->add('hour', 'choice', array(
+            'label'     => "A quelle heure souhaitez-vous rencontrer le conseiller ? ",
+            'choices'   => array('10:00' => '10:00', '11:00' => '11:00', '15:00' => '15:00', '16:00' => '16:00' ),
+            'expanded'  => true,
+            'multiple'  => false,
+            'required'  => true,
+        ));
+        
+        $builder->addEventListener(FormEvents::POST_SUBMIT, array($this, 'onPostSubmitData'));
     }
-    
-    public function onPreSetData(FormEvent $event)
+        
+    public function onPostSubmitData(FormEvent $event)
     {
         $appointment = $event->getData();
         $form        = $event->getForm();
         
-        if( !is_null($appointment->getHour()) ) {
-            $form->add('hour', new HourForEditAppointmentType(), array(
-                'required' => true
-            ));
-        }
-        else {
-             $form->add('hour', new HourForAppointmentType(), array(
-                'required' => true
-            ));
-        }
+        $hourString   = $appointment->getHour();
+        $hourDatetime = date_create_from_format('H:i', $hourString);
+        $appointment->setHour($hourDatetime);
     }
     
     /**

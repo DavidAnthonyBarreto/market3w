@@ -33,6 +33,7 @@ class ContactController extends Controller
             
             // assigne web marketeur
             $wmList  = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
+            // celui qui a le moins de rdv ce mois-ci
             $wmIndex = array_rand($wmList, 1);
             $wm = $wmList[$wmIndex];
             

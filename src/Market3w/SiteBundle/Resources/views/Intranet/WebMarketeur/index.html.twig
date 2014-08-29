@@ -15,10 +15,10 @@
         <tbody>
             {% for client in clients %}
                 <tr>
-                    <td> {{ client.readableRoles[0] }}                             </td>
-                    <td> {{ client.company.name }}                                 </td>
-                    <td> {{ client.firstName }} {{ client.lastName }}              </td>
-                    <td> {{ client.email }}                                        </td>
+                    <td> {{ client.readableRoles[0] }}                </td>
+                    <td> {{ client.company.name }}                    </td>
+                    <td> {{ client.firstName }} {{ client.lastName }} </td>
+                    <td> {{ client.email }}                           </td>
                     <td> 
                         <span class="telephone"> Tél: {{ client.phoneNumber }}          </span>
                         {% if client.mobilePhoneNumber is not null %}
@@ -29,7 +29,6 @@
                         <a href="{{ path( 'client_show', {'id':client.id} ) }}">          Détail          </a>
                         <a href="{{ path('client_show_statistics', {'id': client.id}) }}"> Suivi marketing </a>
                         <a href="{{ path('web_marketeur_billing_client', {'id': client.id}) }}"> Suivi commercial </a>
-
                     </td>
                 </tr>
             {% endfor %}

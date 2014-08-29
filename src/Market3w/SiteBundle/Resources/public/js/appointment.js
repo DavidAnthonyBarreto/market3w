@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-    $('#market3w_sitebundle_appointment_date_date').datepicker({
+    $('#market3w_sitebundle_appointment_date').datepicker({
         beforeShowDay: $.datepicker.noWeekends,
         minDate: '0d',
         maxDate: '2w',

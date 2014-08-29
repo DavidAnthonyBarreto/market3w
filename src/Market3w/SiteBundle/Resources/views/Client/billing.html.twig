@@ -3,6 +3,8 @@
 {% block content %}
 <div class="billing_field">
     <div class="fixed_content">
+        <a href="{{ path('fos_user_profile_show') }}">Retour</a>
+        
         <h1>Vos devis</h1>
 	{% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'client' } %}
 

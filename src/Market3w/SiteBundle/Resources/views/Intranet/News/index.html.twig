@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="fixed_content">
-    <ul>
+    {#<ul>
     {% for oneNews in news %}
         <a href="{{ path( 'news_show',{"id":oneNews.id} ) }}">
             <li class="news">
@@ -12,6 +12,27 @@
             </li>
         </a>
     {% endfor %}
-    </ul>
+    </ul>#}
+    <h1>Liste des News</h1>
+    <table>
+        <thead>
+            <th> Date de publication</th>
+            <th> Titre de la News</th>
+            <th> Aperçu du contenu</th>
+            <th> Voir la news</th>
+        </thead>
+        <tbody>
+            {% for oneNews in news %}
+                <tr>
+                    <td> {{oneNews.pubDate|date('d/m/Y')}} </td>
+                    <td> {{oneNews.title}} </td>
+                    <td> {{oneNews.description|slice(0, 120)}}...</td>
+                    <td> 
+                        <a href="{{ path( 'news_show',{"id":oneNews.id} ) }}"> Voir </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

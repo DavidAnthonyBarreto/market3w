@@ -27,6 +27,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        support: %support%
 
 # Assetic Configuration
 assetic:
@@ -90,3 +92,14 @@ fos_user:
                 sender_name: Market3w - Réinitialiser votre mot de passe
     service:
         mailer: fos_user.mailer.default
+
+knp_paginator:
+    page_range: 1                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template

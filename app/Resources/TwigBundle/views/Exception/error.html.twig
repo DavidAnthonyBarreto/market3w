@@ -1,0 +1,14 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+        <h1>Une Erreur est survenue !</h1>
+        <h2>Le serveur à retourné l'erreur "{{ status_code }} {{ status_text }}".</h2>
+
+        <p>
+            Envoyez nous un <a href="mailto:{{ support }}">email</a> et laissez 
+            nous savoir quelle action a engendré cette erreur.
+        </p>
+        <p>
+            Nous nous excusons pour la gêne occasionnée.
+        </p>
+{% endblock %}

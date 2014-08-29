@@ -101,7 +101,6 @@ tr:nth-of-type(2n+1) {
 .admin_content ul li a{
 	background: #1abc9c;
 	color:#FFF;
-	/*border: 3px solid #18836e;*/
 	height:40px;
 	line-height: 40px;
 	padding: 5px;
@@ -140,7 +139,7 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
+.intranet_button a, .show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
 	color: #fff;
 	padding: 10px;
 	background: #1abc9c;
@@ -344,7 +343,7 @@ footer{
 		line-height: normal;
 	}
 	nav ul li:first-child{
-		display: block;
+		display: inline-block;
 	}
 	nav ul li, nav ul li a{
 		width: 80px;

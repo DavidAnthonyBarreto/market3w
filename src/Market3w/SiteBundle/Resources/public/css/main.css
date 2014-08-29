@@ -508,7 +508,6 @@ video#bgvid {
 }
 .contact_form .submit{
 	background: #FFF;
-	/*border: 3px solid #18836e;*/
 	height:40px;
 	color: #18836e;
 	font-weight: bold;
@@ -524,9 +523,6 @@ video#bgvid {
 	display: block;
 }
 /**************PAGE EXPERTISE**************/
-.expertise_content{
-	margin-bottom: 100px;
-}
 .expertise_detail_content{
 	margin-bottom: 30px;
 }
@@ -547,9 +543,6 @@ video#bgvid {
 }
 
 /**************PAGE REALISATIONS**************/
-.realisations_content{
-	margin-bottom: 100px;
-}
 .realisation_apercu_content, .realisation_apercu{
 	height: 800px;
 	width: 800px;
@@ -557,6 +550,9 @@ video#bgvid {
 }
 
 /**************PAGE SOCIETE**************/
+.societe_content{
+	margin-bottom: -100px;
+}
 .overlay {
     background:transparent; 
     position:relative; 

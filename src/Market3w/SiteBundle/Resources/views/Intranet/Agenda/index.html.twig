@@ -2,6 +2,14 @@
 
 {% block content %}
     <div class="fixed_content">
+        <a href="{{ path( 'clients_index') }}" class="profile_button">Retour</a>
+
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
         <h1>Rendez-vous à venir</h1>
         <table>
             <thead>
@@ -31,13 +39,15 @@
                         <td> {{ appointment.prospect.company.name }}                                  </td>
                         <td> {{ appointment.subject | slice(0, 150) }}...                             </td>
                         <td> 
-                            <a href="{{ path('agenda_show_appointment', {'id':appointment.id}) }}"> Détail </a>
-                            <a href="">Modifier</a>
+                            <a href="{{ path('agenda_show_appointment', {'id':appointment.id}) }}"> Détail   </a>
+                            <a href="{{ path('agenda_edit_appointment', {'id':appointment.id}) }}"> Modifier </a>
                             {% if appointment.confirmed == false  %}
-                                <a href="">Confirmer</a>
+                                <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
                             {% endif %}
                             {% if appointment.type.id == 2 and appointment.confirmed == true  %}
                                 {% include 'Market3wSiteBundle:Intranet/Agenda:_skypeCallButton.html.twig' with {'pseudo' : appointment.prospect.skypePseudo} %}
+                            {% elseif  appointment.type.id == 1 and appointment.confirmed == true %}
+                                {% include 'Market3wSiteBundle:Intranet/Agenda:_mapDirectionLink.html.twig' with {'address' : appointment.address} %}
                             {% endif %}
                         </td>
                     </tr>

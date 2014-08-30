@@ -9,3 +9,8 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: market3w_user_profile }
+    form.type.appointment:
+        class: Market3w\SiteBundle\Form\Type\AppointmentType
+        arguments: ["@security.context"]
+        tags:
+            - { name: form.type, alias: appointment_type }

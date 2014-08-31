@@ -6,8 +6,8 @@
     <table class="table_client">
         <thead>
             <th> Type  </th>
-            <th> Société  </th>
-            <th> Identité </th>
+            <th> {{ knp_pagination_sortable(clients, 'Société', 'c.company') }}Société  </th>
+            <th> {{ knp_pagination_sortable(clients, 'Identité', 'c.lastName') }}Identité </th>
             <th> Email    </th>
             <th> Numéros de téléphone  </th>
             <th> Actions  </th>
@@ -15,10 +15,10 @@
         <tbody>
             {% for client in clients %}
                 <tr>
-                    <td> {{ client.readableRoles[0] }}                             </td>
-                    <td> {{ client.company.name }}                                 </td>
-                    <td> {{ client.firstName }} {{ client.lastName }}              </td>
-                    <td> {{ client.email }}                                        </td>
+                    <td> {{ client.readableRoles[0] }}                </td>
+                    <td> {{ client.company.name }}                    </td>
+                    <td> {{ client.firstName }} {{ client.lastName }} </td>
+                    <td> {{ client.email }}                           </td>
                     <td> 
                         <span class="telephone"> Tél: {{ client.phoneNumber }}          </span>
                         {% if client.mobilePhoneNumber is not null %}
@@ -26,14 +26,17 @@
                         {% endif %}
                     </td>
                     <td> 
-                        <a href="{{ path( 'client_show', {'id':client.id} ) }}">          Détail          </a>
-                        <a href="{{ path('client_show_statistics', {'id': client.id}) }}"> Suivi marketing </a>
+                        <a href="{{ path( 'client_show', {'id':client.id} ) }}">                 Détail           </a>
+                        <a href="{{ path('client_show_statistics', {'id': client.id}) }}">       Suivi marketing  </a>
                         <a href="{{ path('web_marketeur_billing_client', {'id': client.id}) }}"> Suivi commercial </a>
-
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    
+    <div class="navigation">
+        {{ knp_pagination_render(clients) }}
+    </div>
 </div>
 {% endblock %}

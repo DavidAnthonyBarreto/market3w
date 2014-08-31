@@ -1,14 +1,58 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block content %}
-<div class="agenda_content">
     <div class="fixed_content">
-    <h1>Rendez-vous à venir</h1>
-    <ul>
-        {% for appointment in appointments %}
-            <li><a href="{{ path('agenda_show_appointment', {'id':appointment.id}) }}">{{ appointment.date.date|date("m/d/Y") }}</a> à {{ appointment.hour.startTime|date("H:i") }}</li>
+        <a href="{{ path( 'clients_index') }}" class="profile_button">Retour</a>
+
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
         {% endfor %}
-    </ul>
-     </div>
-</div>
+        
+        <h1>Rendez-vous à venir</h1>
+        <table>
+            <thead>
+                <th> Etat    </th>
+                <th> Date    </th>
+                <th> Heure   </th>
+                <th> Type    </th>
+                <th> Client  </th>
+                <th> Société </th>
+                <th> Sujet   </th>
+                <th> Actions </th>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td> 
+                            {% if appointment.confirmed == false  %}
+                                En attente de confirmation
+                            {% else %}
+                                Confirmé
+                            {% endif %}
+                        </td>
+                        <td> {{ appointment.date|date("d/m/Y") }}                                     </td>
+                        <td> {{ appointment.hour|date("H:i") }}                                       </td>
+                        <td> {{ appointment.type.name }}                                              </td>
+                        <td> {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }} </td>
+                        <td> {{ appointment.prospect.company.name }}                                  </td>
+                        <td> {{ appointment.subject | slice(0, 150) }}...                             </td>
+                        <td> 
+                            <a href="{{ path('agenda_show_appointment', {'id':appointment.id}) }}"> Détail   </a>
+                            <a href="{{ path('agenda_edit_appointment', {'id':appointment.id}) }}"> Modifier </a>
+                            {% if appointment.confirmed == false  %}
+                                <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
+                            {% endif %}
+                            {% if appointment.type.id == 2 and appointment.confirmed == true  %}
+                                {% include 'Market3wSiteBundle:Intranet/Agenda:_skypeCallButton.html.twig' with {'pseudo' : appointment.prospect.skypePseudo} %}
+                            {% elseif  appointment.type.id == 1 and appointment.confirmed == true %}
+                                {% include 'Market3wSiteBundle:Intranet/Agenda:_mapDirectionLink.html.twig' with {'address' : appointment.address} %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

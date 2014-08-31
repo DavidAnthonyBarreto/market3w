@@ -15,7 +15,7 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('firstLine', 'text', array(
-            'label' => 'Adresse',
+            'label' => 'Adresse *',
             'required' => true
         ));
         $builder->add('secondLine', 'text', array(
@@ -27,16 +27,16 @@ class AddressType extends AbstractType
             'required' => false
         ));
         $builder->add('zipcode', 'text', array(
-            'label' => 'Code postal',
+            'label' => 'Code postal *',
             'required' => true,
         ));
         $builder->add('city', 'text', array(
-            'label' => 'Ville',
+            'label' => 'Ville *',
             'required' => true
         ));
         
         $builder->add('country', 'text', array(
-            'label' => 'Pays',
+            'label' => 'Pays *',
             'required' => true,
         ));
     }

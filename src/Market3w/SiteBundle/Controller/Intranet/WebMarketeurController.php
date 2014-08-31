@@ -33,7 +33,14 @@ class WebMarketeurController extends Controller
         $em      = $this->getDoctrine()->getManager();
         $clients = $wm->getClients();
         
-        return array('clients' => $clients);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $clients,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+        
+        return array('clients' => $pagination);
     }
     
     /**

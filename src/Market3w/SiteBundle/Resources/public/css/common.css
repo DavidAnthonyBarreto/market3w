@@ -74,7 +74,6 @@ table a{
 .submit, #form_submit{
 	background: #1abc9c;
 	color:#FFF;
-	/*border: 3px solid #18836e;*/
 	border:none;
 	height:40px;
 	font-weight: bold;
@@ -153,23 +152,26 @@ nav ul li a{
 	font-family: allerregular,Arial,Helvetica,sans-serif;
 	font-size: 18px;
 	color:#1abc9c;
-	width:120px;
-	height: 100px;
-	display: block;
+	width:110px;
+	height: 90px;
+	display: table-cell;
+	padding: 5px;
+	line-height: normal;
+	vertical-align: middle;
 	transition: all 0.3s;
 }
 
 nav ul li a:hover{
 	background: #1abc9c;
 	color:#FFF;
-	height: 90px;
+	height: 80px;
 	border-bottom: 10px solid #c6f5ec;
 }
 
 .current{
 	background: #1abc9c;
 	color:#FFF;
-	height: 90px;
+	height: 80px;
 	border-bottom: 10px solid #c6f5ec;
 }
 
@@ -187,7 +189,6 @@ nav ul li a:hover{
 	background: #1abc9c;
 	padding:20px;
 	margin:20px auto;
-	/*border: 5px solid #18836e;*/
 	border-radius: 10px;
 }
 
@@ -200,7 +201,6 @@ nav ul li a:hover{
 }
 .connexion_field .submit{
 	background: #FFF;
-	/*border: 3px solid #18836e;*/
 	border: none;
 	height:40px;
 	color: #18836e;
@@ -232,7 +232,6 @@ nav ul li a:hover{
 	background: #1abc9c;
 	padding:20px;
 	margin:20px auto;
-	/*border: 5px solid #18836e;*/
 	border-radius: 10px;
 }
 
@@ -245,7 +244,6 @@ nav ul li a:hover{
 }
 .inscription_field .submit{
 	background: #FFF;
-	/*border: 3px solid #18836e;*/
 	border:none;
 	height:40px;
 	color: #18836e;
@@ -280,6 +278,7 @@ nav ul li a:hover{
 
 /**************FOOTER**************/
 footer{
+	margin-top: 100px;
 	border-top: 2px solid #a7a7a7;
 	padding:15px 0 80px 0;
 	height:100%;
@@ -383,7 +382,7 @@ footer ul li a, footer ul li{
 	/*****Menu*****/
 	.nav_content, nav ul li, nav ul li a{
 		height: 100px;
-		line-height: 100px;
+		line-height: normal;
 		font-size: 14px;
 	}
 	nav ul li a:hover{
@@ -485,19 +484,19 @@ footer ul li a, footer ul li{
 	}
 	/*****Menu*****/
 	.nav_content, nav ul li, nav ul li a{
-		height: 60px;
-		line-height: 60px;
+		height: 80px;
+		line-height: normal;
 	}
 	nav ul li:first-child{
 		display: none;
 	}
 	nav ul li, nav ul li a{
-		width: 80px;
+		width: 90px;
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 	nav ul li a:hover{
-		height: 50px;
+		height: 70px;
 	}
 	.nav_content{
 		text-align: center;
@@ -554,7 +553,7 @@ footer ul li a, footer ul li{
 	}
 	/*****Footer*****/
 	.copyright{
-		margin-bottom: 75px;
+		margin-bottom: 80px;
 	}
 
 

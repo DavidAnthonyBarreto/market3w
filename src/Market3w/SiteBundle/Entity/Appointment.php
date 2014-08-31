@@ -47,21 +47,22 @@ class Appointment
     protected $prospect;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\Address", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="address_id", referencedColumnName="id", nullable=true)
+     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\Address", cascade={"remove", "persist"})
      **/
     protected $address;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\Date", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="date_id", referencedColumnName="id", nullable=false)
-     **/
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
     protected $date;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Market3w\SiteBundle\Entity\Hour", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="hour_id", referencedColumnName="id", nullable=false)
-     **/
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hour", type="time", nullable=false)
+     */
     protected $hour;
     
     /**
@@ -199,10 +200,10 @@ class Appointment
     /**
      * Set date
      *
-     * @param \Market3w\SiteBundle\Entity\Date $date
+     * @param \DateTime $date
      * @return Appointment
      */
-    public function setDate(\Market3w\SiteBundle\Entity\Date $date = null)
+    public function setDate($date)
     {
         $this->date = $date;
 
@@ -212,7 +213,7 @@ class Appointment
     /**
      * Get date
      *
-     * @return \Market3w\SiteBundle\Entity\Date 
+     * @return \DateTime 
      */
     public function getDate()
     {
@@ -222,10 +223,10 @@ class Appointment
     /**
      * Set hour
      *
-     * @param \Market3w\SiteBundle\Entity\Hour $hour
+     * @param \DateTime $hour
      * @return Appointment
      */
-    public function setHour(\Market3w\SiteBundle\Entity\Hour $hour = null)
+    public function setHour($hour)
     {
         $this->hour = $hour;
 
@@ -235,15 +236,13 @@ class Appointment
     /**
      * Get hour
      *
-     * @return \Market3w\SiteBundle\Entity\Hour 
+     * @return \DateTime 
      */
     public function getHour()
     {
         return $this->hour;
     }
-
     
-
     /**
      * Set confirmed
      *

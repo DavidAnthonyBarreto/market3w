@@ -2,6 +2,7 @@
 
 {% block content %}
 <div id="statistics-add" class="fixed_content">
+    <a href="{{ path( 'client_show_statistics', {'id':id} ) }}">Retour</a>
     <h1>Edition des statistiques</h1>
     <div class="admin_form">
         {{ form_start(form) }}

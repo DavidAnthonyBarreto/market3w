@@ -5,35 +5,26 @@
     <div class="fixed_content">
         
         <a href="{{ path('clients_index') }}"> Retour </a>
+        <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}"> Modifer les informations </a>
+        <a href="{{ path('client_show_statistics', {'id': client.id}) }}"> Voir les statistiques </a>
+        <a href="{{ path('client_add_statistics', {'id': client.id}) }}"> Ajouter une statistique </a>
+        <a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis </a>
         
         <div class="info_client_container">
             <div class="info_client_bloc">
                 <h1>Client</h1>
-                <p>
-                    <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>
-                </p>
-                <p>
-                    <span>Nom : </span><span class="lastName"> {{ client.lastName }} </span>
-                </p>
-                <p>
-                    <span>Email : </span><span class="email"> {{ client.email }} </span>
-                </p>
-                <p>
-                    <span>Téléphone : </span><span class="phone-number"> {{ client.phoneNumber }} </span>
-                </p>    
-                <p>
-                    <span>Portable : </span><span class="mobile-phone-number"> {{ client.mobilePhoneNumber }} </span>
-                </p>
+                <p> <span>Prénom :    </span> <span class="firstName">           {{ client.firstName }}         </span> </p>
+                <p> <span>Nom :       </span> <span class="lastName">            {{ client.lastName }}          </span> </p>
+                <p> <span>Email :     </span> <span class="email">               {{ client.email }}             </span> </p>
+                <p> <span>Téléphone : </span> <span class="phone-number">        {{ client.phoneNumber }}       </span> </p>    
+                <p> <span>Portable : </span>  <span class="mobile-phone-number"> {{ client.mobilePhoneNumber }} </span> </p>
                 {% if client.skypePseudo != false %}
                     <p>
                         <span>Pseudo Skype : </span><span class="skypePseudo"> {{ client.skypePseudo }} </span>
                     </p>
                 {% endif %}
                 
-                <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}"> Modifer les informations </a>
-                <a href="{{ path('client_show_statistics', {'id': client.id}) }}">     Voir les statistiques    </a>
-                <a href="{{ path('client_add_statistics', {'id': client.id}) }}">     Ajouter une statistique  </a>
-            </div>
+               </div>
             <div class="info_client_bloc">
                 <h1>Société</h1>
                 <p> Nom : {{ client.company.name }}     </p>
@@ -52,11 +43,9 @@
             </div>
         </div>
         <h1>Devis</h1>
-        <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis</a><p>
         {% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'wm' } %}
         
         <h1>Facture</h1>
-        <p><a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'bill' } ) }}">Nouvelle facture</a><p>
         {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'wm' } %}
     </div>
 </div>

@@ -24,8 +24,9 @@ class ContactController extends Controller
         $appointment = new Appointment();
         $appointment->setProspect($user);
         
-        $form = $this->createForm(new AppointmentType(), $appointment);
-        
+        // appointment type is a service in order to inject security context in it
+        $form = $this->createForm($this->get('form.type.appointment'), $appointment);
+
         $form->handleRequest($request);
         
         if ($form->isValid()) {
@@ -33,6 +34,7 @@ class ContactController extends Controller
             
             // assigne web marketeur
             $wmList  = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
+            // celui qui a le moins de rdv ce mois-ci
             $wmIndex = array_rand($wmList, 1);
             $wm = $wmList[$wmIndex];
             

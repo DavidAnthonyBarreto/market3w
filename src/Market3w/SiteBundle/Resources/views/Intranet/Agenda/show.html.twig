@@ -3,6 +3,15 @@
 {% block content %}
 <div class="show_agenda_content">
     <div class="fixed_content">
+        <a href="{{ path( 'agenda_index') }}" class="profile_button">Retour</a>
+        <a href="{{ path('agenda_edit_appointment', {'id':appointment.id}) }}">Modifer</a>
+        {% if appointment.confirmed == false %}
+            <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
+        {% endif %}
+
+        <h1>Objet du rendez-vous</h1>
+        <p>{{ appointment.subject }}</p>
+        
         <h1>Identité du prospect</h1>
         <p>Le rendez-vous a été pris par : {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }}</p>
         <p>De la société : {{ appointment.prospect.company }}</p>
@@ -15,11 +24,12 @@
         {% endif %}
         
         <h1>Modalité du rendez-vous</h1>
-        <p>Le {{ appointment.date.date|date("m/d/Y") }} à {{ appointment.hour.startTime|date("H:i") }}</p>
+        <p>Le {{ appointment.date|date("m/d/Y") }} à {{ appointment.hour|date("H:i") }}</p>
         
-        {% if appointment.type.name == "Skype" %}
-            <p>Par Skype, pseudo du prospect : {{ appointment.prospect.skypePseudo }}</p>
-        {% elseif  appointment.type.name == "Physiquement" %}
+        {% if appointment.type.id == 2 %}
+            <p>Pseudo skype du prospect : {{ appointment.prospect.skypePseudo }}</p>
+            {% include 'Market3wSiteBundle:Intranet/Agenda:_skypeCallButton.html.twig' with {'pseudo' : appointment.prospect.skypePseudo} %}
+        {% elseif  appointment.type.id == 1 %}
             <p>Sur place : 
                 {{ appointment.address.firstLine }}
                 {% if appointment.address.secondLine is not null %}
@@ -31,12 +41,8 @@
                 <p>{{ appointment.address.city }} {{ appointment.address.zipcode }}</p>
                 <p>{{ appointment.address.country }}</p>
             </p>
-        {% elseif appointment.type.name == "Videoconférence" %}
-            <p>Vidéoconférence via le site</p>
+            {% include 'Market3wSiteBundle:Intranet/Agenda:_mapDirectionLink.html.twig' with {'address' : appointment.address} %}
         {% endif %}
-        
-        <a href="{{ path('agenda_confirm_appointment', {'id':appointment.id}) }}">Confirmer</a>
-        <a href="{{ path('agenda_edit_appointment', {'id':appointment.id}) }}">Modifer</a>
     </div>
 </div>
 

@@ -26,9 +26,9 @@
                         {% endif %}
                     </td>
                     <td> 
-                        <a href="{{ path( 'client_show', {'id':client.id} ) }}">                 Détail           </a>
-                        <a href="{{ path('client_show_statistics', {'id': client.id}) }}">       Suivi marketing  </a>
-                        <a href="{{ path('web_marketeur_billing_client', {'id': client.id}) }}"> Suivi commercial </a>
+                        <a class="intranet_button" href="{{ path( 'client_show', {'id':client.id} ) }}">                 Détail           </a>
+                        <a class="intranet_button" href="{{ path('client_show_statistics', {'id': client.id}) }}">       Suivi marketing  </a>
+                        <a class="intranet_button" href="{{ path('web_marketeur_billing_client', {'id': client.id}) }}"> Suivi commercial </a>
                     </td>
                 </tr>
             {% endfor %}

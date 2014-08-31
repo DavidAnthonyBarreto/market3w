@@ -4,11 +4,11 @@
 <div class="show_client_container">
     <div class="fixed_content">
         
-        <a href="{{ path('clients_index') }}"> Retour </a>
-        <a href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}"> Modifer les informations </a>
-        <a href="{{ path('client_show_statistics', {'id': client.id}) }}"> Voir les statistiques </a>
-        <a href="{{ path('client_add_statistics', {'id': client.id}) }}"> Ajouter une statistique </a>
-        <a href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis </a>
+        <a class="intranet_button" href="{{ path('clients_index') }}"> Retour </a>
+        <a class="intranet_button" href="{{ path('web_marketeur_edit_client', {'id': client.id}) }}"> Modifer les informations </a>
+        <a class="intranet_button" href="{{ path('client_show_statistics', {'id': client.id}) }}"> Voir les statistiques </a>
+        <a class="intranet_button" href="{{ path('client_add_statistics', {'id': client.id}) }}"> Ajouter une statistique </a>
+        <a class="intranet_button" href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis </a>
         
         <div class="info_client_container">
             <div class="info_client_bloc">

@@ -141,18 +141,18 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.intranet_button, .show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
+.intranet_button, .edit_info_client a, .billing_field a, #dropdown_SkypeButtonCall li a{
 	color: #fff;
 	padding: 10px;
 	background: #1abc9c;
 	border-radius: 10px;
 	display: inline-block;
-	margin: 10px;
+	margin: 10px 5px;
 	text-decoration: none;
 	transition:all 0.3s;
 }
 
-.table_client a{
+table .intranet_button{
 	display: block;
 	text-align: center;
 }
@@ -176,7 +176,7 @@ tr:nth-of-type(2n+1) {
 	margin: 10px;
 }
 
-.intranet_button:hover,.show_client_container a:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, .table_client a:hover{
+.intranet_button:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, #dropdown_SkypeButtonCall li a:hover{
 	color: #1abc9c;
 	background: #FFF;
 	border-radius: 20px;
@@ -260,6 +260,25 @@ tr:nth-of-type(2n+1) {
 }
 #SkypeButtonCall_paraElement{
 	margin:10px 0 10px 10px;
+	text-align: center;
+}
+#dropdown_SkypeButtonCall{
+	margin-top: 0px!important;
+	margin-left: 0px!important;
+	padding-left:0!important;
+	padding-right:0!important;
+	width: 135px!important;
+	border: 2px solid #1abc9c!important;
+	color: #1abc9c!important;
+	line-height: 20px!important;
+	background-color: #4B4B4B!important;
+}
+#dropdown_SkypeButtonCall li a{
+	color: #FFF!important;
+	width: 70%!important;
+}
+#dropdown_SkypeButtonCall li a:hover{
+	color: #18836E!important;
 }
 #SkypeButtonCall_paraElement img{
 	margin:0!important;
@@ -354,6 +373,9 @@ footer{
 	}
 	nav ul li:first-child{
 		display: inline-block;
+	}
+	nav ul{
+		height: 90px;
 	}
 	nav ul li, nav ul li a{
 		width: 80px;

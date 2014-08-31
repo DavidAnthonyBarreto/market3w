@@ -139,7 +139,7 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.intranet_button a, .show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
+.intranet_button, .show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
 	color: #fff;
 	padding: 10px;
 	background: #1abc9c;
@@ -174,7 +174,7 @@ tr:nth-of-type(2n+1) {
 	margin: 10px;
 }
 
-.show_client_container a:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, .table_client a:hover{
+.intranet_button:hover,.show_client_container a:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, .table_client a:hover{
 	color: #1abc9c;
 	background: #FFF;
 	border-radius: 20px;
@@ -255,6 +255,14 @@ tr:nth-of-type(2n+1) {
 
 .ui-datepicker-title{
 	margin-top: 20px;
+}
+#SkypeButtonCall_paraElement{
+	margin:10px 0 10px 10px;
+}
+#SkypeButtonCall_paraElement img{
+	margin:0!important;
+	padding:0!important;
+	vertical-align: 0!important;
 }
 
 /**************ADMIN footer**************/

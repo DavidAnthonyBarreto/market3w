@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-    $('#market3w_sitebundle_appointment_date').datepicker({
+    $('#appointment_date').datepicker({
         beforeShowDay: $.datepicker.noWeekends,
         minDate: '0d',
         maxDate: '2w',
@@ -7,7 +7,7 @@ $( document ).ready(function(){
         monthNames: [ "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" ],
         dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ],
         dateformat: 'dd/mm/yy',
-        altField: '#market3w_sitebundle_appointment_date_date',
+        altField: '#appointment_date',
         altFormat: 'dd/mm/yy'
     });
     

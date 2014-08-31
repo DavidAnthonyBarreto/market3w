@@ -1,0 +1,28 @@
+
+{% set firstLine  = address.firstLine|replace({' ': '+'})  %}
+{% if  address.secondLine is not null %}
+    {% set secondLine = address.secondLine|replace({' ': '+'}) %}
+{% endif %}
+{% if address.thirdLine is not null %}
+    {% set thirdLine  = address.thirdLine|replace({' ': '+'})  %}
+{% endif %}
+{% set zipcode    = address.zipcode|replace({' ': '+'})    %}
+{% set city       = address.city|replace({' ': '+'})       %}
+{% set country    = address.country|replace({' ': '+'})    %}
+
+
+{% set destination = firstLine %}
+
+{% if secondLine is defined %}
+    {% set destination = destination~',+'~secondLine %}
+{% endif %}
+{% if thirdLine is defined %}
+    {% set destination = destination~',+'~thirdLine %}
+{% endif %}
+
+{% set destination = destination~',+'~zipcode~',+'~city~',+'~country %}
+
+
+<a href='https://www.google.fr/maps?saddr=&daddr={{ destination}}&directionsmode=transit' target="_blank">
+    <img style="margin:5px;"alt="Itinéraire" src="{{ asset('bundles/market3wsite/images/google-map-logo.png') }}" />
+</a>

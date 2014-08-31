@@ -64,12 +64,6 @@ class Project
     private $work;
 
     /**
-     * @ORM\OneToOne(targetEntity="Market3w\SiteBundle\Entity\File", cascade={"persist"})
-     */
-    private $screenshot;
-
-    
-    /**
      * Get id
      *
      * @return integer 
@@ -192,29 +186,6 @@ class Project
     public function getWork()
     {
         return $this->work;
-    }
-
-    /**
-     * Set screenshot
-     *
-     * @param \Market3w\SiteBundle\Entity\File $screenshot
-     * @return Project
-     */
-    public function setScreenshot(\Market3w\SiteBundle\Entity\File $screenshot = null)
-    {
-        $this->screenshot = $screenshot;
-
-        return $this;
-    }
-
-    /**
-     * Get screenshot
-     *
-     * @return \Market3w\SiteBundle\Entity\File 
-     */
-    public function getScreenshot()
-    {
-        return $this->screenshot;
     }
 
     /**

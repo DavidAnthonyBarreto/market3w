@@ -24,8 +24,9 @@ class ContactController extends Controller
         $appointment = new Appointment();
         $appointment->setProspect($user);
         
-        $form = $this->createForm(new AppointmentType(), $appointment);
-        
+        // appointment type is a service in order to inject security context in it
+        $form = $this->createForm($this->get('form.type.appointment'), $appointment);
+
         $form->handleRequest($request);
         
         if ($form->isValid()) {

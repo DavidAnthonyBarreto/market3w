@@ -67,7 +67,8 @@ class AgendaController extends Controller
         $em = $this->getDoctrine()->getManager();
         $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->find($id);
 
-        $form = $this->createForm(new AppointmentType(), $appointment);
+        // appointment type is a service in order to inject security context in it
+        $form = $this->createForm($this->get('form.type.appointment'), $appointment);
         $form->handleRequest($request);
         
         if ($form->isValid()) {
@@ -107,6 +108,11 @@ class AgendaController extends Controller
         $em->persist($appointment);
         $em->flush();
         
-        return array();
+         $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Le rendez-vous est confirmé. Un email a été envoyé au prospect.'
+        );
+        
+        return $this->redirect($this->generateUrl('agenda_index'));
     }
 }

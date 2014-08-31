@@ -1,68 +1,71 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets 
-        'bundles/market3wsite/css/jquery-ui.min.css'
-        'bundles/market3wsite/css/jquery-ui.structure.min.css' 
-        output='jquery-ui.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{{ parent() }}
+{% stylesheets 
+    'bundles/market3wsite/css/jquery-ui.min.css'
+    'bundles/market3wsite/css/jquery-ui.structure.min.css' 
+    output='jquery-ui.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
-{% endblock %}
+    {% endblock %}
 
-{% block javascripts %}
+    {% block javascripts %}
     {{ parent() }}
     {% javascripts 
-        'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
-        'bundles/market3wsite/js/appointment.js'
-        output='appointment.js'
+    'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
+    'bundles/market3wsite/js/appointment.js'
+    output='appointment.js'
     %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-{% endblock %}
+    {% endblock %}
 
-{% block content %}
-<div class="agenda_content">
-    <div class="fixed_content">
-        {{ form_start(form) }}
-            {{ form_errors(form) }}
+    {% block content %}
+    <div class="agenda_content">
+        <div class="inscription_field">
+            <div class="fixed_content">
+                <h1>Modification de l'agenda</h1>
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
 
-            <div>
-                {{ form_label(form.subject) }}
-                {{ form_errors(form.subject) }}
-                {{ form_widget(form.subject) }}
+                <div class="inscription_item form_type">
+                    {{ form_label(form.subject) }}
+                    {{ form_errors(form.subject) }}
+                    {{ form_widget(form.subject) }}
+                </div>
+                <br>
+                <div class="inscription_item form_type">
+                    {{ form_label(form.type) }}
+                    {{ form_errors(form.type) }}
+                    {{ form_widget(form.type) }}
+                </div>
+                <br>
+                <div class="inscription_item">
+                    {{ form_errors(form.address) }}
+                    {{ form_widget(form.address) }}
+                </div>
+
+                <div class="inscription_item" id="skype">
+                    {{ form_label(form.skype) }}
+                    {{ form_errors(form.skype) }}
+                    {{ form_widget(form.skype) }}
+                </div>
+                <br>
+                <div class="inscription_item">
+                    {{ form_errors(form.date) }}
+                    {{ form_widget(form.date) }}
+                </div>
+
+                <div class="inscription_item">
+                    {{ form_errors(form.hour) }}
+                    {{ form_widget(form.hour) }}
+                </div>
+                <br>
+                <input class="submit" type="submit" />
             </div>
-
-            <div>
-                {{ form_label(form.type) }}
-                {{ form_errors(form.type) }}
-                {{ form_widget(form.type) }}
-            </div>
-
-            <div>
-                {{ form_errors(form.address) }}
-                {{ form_widget(form.address) }}
-            </div>
-
-            <div id="skype">
-                {{ form_label(form.skype) }}
-                {{ form_errors(form.skype) }}
-                {{ form_widget(form.skype) }}
-            </div>
-
-            <div>
-                {{ form_errors(form.date) }}
-                {{ form_widget(form.date) }}
-            </div>
-
-            <div>
-                {{ form_errors(form.hour) }}
-                {{ form_widget(form.hour) }}
-            </div>
-
-            <input type="submit" />
+        </div>
     </div>
-</div>
 
     {{ form_end(form) }}
-{% endblock %}
+    {% endblock %}

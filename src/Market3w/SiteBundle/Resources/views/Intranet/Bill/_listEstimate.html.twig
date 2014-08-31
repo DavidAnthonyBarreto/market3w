@@ -15,13 +15,13 @@
                 <td> {{ estimate.status }}                    </td>
                 <td> 
                     {% if view != 'client' %}
-                        <a href="{{ path( 'bill_show', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Voir </a>
+                        <a  class="intranet_button" href="{{ path( 'bill_show', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Voir </a>
                     {% else %}
-                        <a href="{{ path( 'client_billing_show', {'id': estimate.id} ) }}"> Voir </a>
+                        <a  class="intranet_button" href="{{ path( 'client_billing_show', {'id': estimate.id} ) }}"> Voir </a>
                     {% endif %}
                     {% if view != 'client' %}
-                        <a href="{{ path( 'bill_edit',     {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Modifer </a>
-                        <a href="{{ path( 'bill_validate_estimate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
+                        <a  class="intranet_button" href="{{ path( 'bill_edit',     {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Modifer </a>
+                        <a  class="intranet_button" href="{{ path( 'bill_validate_estimate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
                     {% endif %}
                 </td>
             </tr>

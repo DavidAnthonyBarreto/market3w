@@ -7,10 +7,10 @@
     <div class="fixed_content">
         <div class="edit_info_client">
             {% if is_granted('ROLE_CLIENT') %}
-                <a href="{{ path('fos_user_profile_show') }}"> Retour  </a>
+                <a class="intranet_button" href="{{ path('fos_user_profile_show') }}"> Retour  </a>
             {% elseif is_granted('ROLE_WEB_MARKETEUR') %}
-                <a href="{{ path('client_show', {'id': clientId}) }}"> Retour  </a>
-                <a href="{{ path('client_add_statistics', {'id': clientId}) }}"> Ajouter une statistique  </a>
+                <a class="intranet_button" href="{{ path('client_show', {'id': clientId}) }}"> Retour  </a>
+                <a class="intranet_button" href="{{ path('client_add_statistics', {'id': clientId}) }}"> Ajouter une statistique  </a>
                 {{ include('Market3wSiteBundle:Intranet/Statistics:dates.html.twig', {'dates': dates}) }}
             {% endif %}
         </div>

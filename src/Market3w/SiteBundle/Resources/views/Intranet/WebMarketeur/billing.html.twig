@@ -3,7 +3,7 @@
 {% block content %}
 <div class="billing_field">
     <div class="fixed_content">
-        <a href="{{ path( 'client_show', {'id':client.id} ) }}">Retour</a>
+        <a class="intranet_button" href="{{ path( 'client_show', {'id':client.id} ) }}">Retour</a>
         <h1>Client</h1>
         <p>
             <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>

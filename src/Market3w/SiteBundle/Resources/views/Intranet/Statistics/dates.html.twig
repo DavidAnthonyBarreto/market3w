@@ -6,7 +6,7 @@
 	    {% endfor %}
 	</select>
         
-        <a id="edit-submit" href="{{ path('client_edit_statistics', {'id': clientId, 'date': '0'}) }}">Modifer</a>
+        <a class="intranet_button" id="edit-submit" href="{{ path('client_edit_statistics', {'id': clientId, 'date': '0'}) }}">Modifer</a>
 </div>
  
 {% for flashMessage in app.session.flashbag.get('notice') %}

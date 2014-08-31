@@ -14,10 +14,10 @@
                 <td> {{ bill.calculateTotalTTC }} €       </td>
                 <td> {{ bill.status }}                    </td>
                 <td> 
-                    <a href="{{ path('bill_show', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Voir </a>
+                    <a  class="intranet_button" href="{{ path('bill_show', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Voir </a>
                     
                     {% if view != 'client' %}
-                        <a href="{{ path('bill_edit', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Modifer </a>
+                        <a  class="intranet_button" href="{{ path('bill_edit', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Modifer </a>
                     {% endif %}
                 </td>
             </tr>

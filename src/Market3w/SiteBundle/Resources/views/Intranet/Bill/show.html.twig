@@ -33,11 +33,11 @@
         {% if bill.type.name == 'Devis' and  bill.status.name == 'En attente de réponse' or 
               bill.type.name == 'Facture' and  bill.status.name != 'Payée'
         %}
-            <a href="{{ path('bill_edit', {'idClient': idClient, 'idBill' : bill.id}) }}">Editer</a>
+            <a class="intranet_button" href="{{ path('bill_edit', {'idClient': idClient, 'idBill' : bill.id}) }}">Editer</a>
         {% endif %}
         
         {% if bill.type.name == 'Devis' and bill.status.name == 'Accepté' %}
-            <a href="{{ path('bill_estimate_to_bill', {'idClient': idClient, 'idBill' : bill.id}) }}">Générer la facture</a>
+            <a class="intranet_button" href="{{ path('bill_estimate_to_bill', {'idClient': idClient, 'idBill' : bill.id}) }}">Générer la facture</a>
         {% endif %}
     </div> 
 {% endblock %}

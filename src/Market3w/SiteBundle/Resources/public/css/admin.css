@@ -141,7 +141,7 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.intranet_button, .edit_info_client a, .billing_field a, #dropdown_SkypeButtonCall li a{
+.intranet_button, #dropdown_SkypeButtonCall li a{
 	color: #fff;
 	padding: 10px;
 	background: #1abc9c;
@@ -176,7 +176,7 @@ table .intranet_button{
 	margin: 10px;
 }
 
-.intranet_button:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, #dropdown_SkypeButtonCall li a:hover{
+.intranet_button:hover, .edit-date-container:hover, #dropdown_SkypeButtonCall li a:hover{
 	color: #1abc9c;
 	background: #FFF;
 	border-radius: 20px;
@@ -262,6 +262,10 @@ table .intranet_button{
 	margin:10px 0 10px 10px;
 	text-align: center;
 }
+.show_agenda_content #SkypeButtonCall_paraElement{
+	margin:10px 0 10px 10px;
+	text-align: left;
+}
 #dropdown_SkypeButtonCall{
 	margin-top: 0px!important;
 	margin-left: 0px!important;
@@ -272,6 +276,7 @@ table .intranet_button{
 	color: #1abc9c!important;
 	line-height: 20px!important;
 	background-color: #4B4B4B!important;
+	text-align: center;
 }
 #dropdown_SkypeButtonCall li a{
 	color: #FFF!important;
@@ -284,6 +289,14 @@ table .intranet_button{
 	margin:0!important;
 	padding:0!important;
 	vertical-align: 0!important;
+}
+
+.agenda_content .inscription_item {
+	text-align: left;
+}
+.agenda_content #appointment_address input{
+	display: block;
+
 }
 
 /**************ADMIN footer**************/

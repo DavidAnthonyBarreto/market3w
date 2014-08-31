@@ -136,6 +136,7 @@ nav {
 nav ul{
 	padding: 0;
 	margin: 0;
+	height: 100px;
 }
 nav ul li{
 	display: inline-block;
@@ -158,7 +159,9 @@ nav ul li a{
 	padding: 5px;
 	line-height: normal;
 	vertical-align: middle;
+	border-bottom: 0px solid #c6f5ec;
 	transition: all 0.3s;
+
 }
 
 nav ul li a:hover{
@@ -302,6 +305,9 @@ footer h2{
 
 footer ul li a, footer ul li{
 	color:#FFF;
+}
+footer ul li em{
+	color:#1abc9c;
 }
 .bloc_footer_content{
 	width:100%;

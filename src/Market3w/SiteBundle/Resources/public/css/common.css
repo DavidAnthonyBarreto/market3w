@@ -269,6 +269,14 @@ nav ul li a:hover{
 .record_actions{
 	padding: 0;
 }
+.erreur li{
+	list-style-type: none;
+	color:#2c3e50;
+	text-align: left;
+}
+.erreur ul{
+	margin-top: 5px;
+}
 
 /**************FOOTER**************/
 footer{

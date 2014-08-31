@@ -1,30 +1,31 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <div class="fixed_content">
+    <br>
         <div>
-            <a href="{{ path('fos_user_profile_edit') }}">Modifier vos informations</a>
+            <a class="profile_button" href="{{ path('fos_user_profile_edit') }}">Modifier vos informations</a>
         </div>
         
         <div>
-            <a href="{{ path('market3w_site_client_seo') }}">Suivre mon référencement</a>
+            <a class="profile_button" href="{{ path('market3w_site_client_seo') }}">Suivre mon référencement</a>
         </div>
         <div>
-            <a href="{{ path('market3w_site_client_billing') }}">Mes factures</a>
+            <a class="profile_button" href="{{ path('market3w_site_client_billing') }}">Mes factures</a>
         </div>
         
 	<div class="fos_user_user_show">
             <h1>Moi</h1>
-	    <p> {{ 'profile.show.username'|trans          }} : {{ user.username          }} </p>
-	    <p> {{ 'profile.show.email'|trans             }} : {{ user.email             }} </p>
-	    <p> {{ 'profile.show.firstName'|trans         }} : {{ user.firstName         }} </p>
-	    <p> {{ 'profile.show.lastName'|trans          }} : {{ user.lastName          }} </p>
-	    <p> {{ 'profile.show.phoneNumber'|trans       }} : {{ user.phoneNumber       }} </p>
-	    <p> {{ 'profile.show.mobilePhoneNumber'|trans }} : {{ user.mobilePhoneNumber }} </p>
+	    <p> <strong>{{ 'profile.show.username'|trans          }} :</strong> {{ user.username          }} </p>
+	    <p> <strong>{{ 'profile.show.email'|trans             }} :</strong> {{ user.email             }} </p>
+	    <p> <strong>{{ 'profile.show.firstName'|trans         }} :</strong> {{ user.firstName         }} </p>
+	    <p> <strong>{{ 'profile.show.lastName'|trans          }} :</strong> {{ user.lastName          }} </p>
+	    <p> <strong>{{ 'profile.show.phoneNumber'|trans       }} :</strong> {{ user.phoneNumber       }} </p>
+	    <p> <strong>{{ 'profile.show.mobilePhoneNumber'|trans }} :</strong> {{ user.mobilePhoneNumber }} </p>
 	</div>
         <div class="user_company_show">
             <h1>Ma société</h1>
-            <p> Nom :   {{ user.company.name }}  </p>
-            <p> SIRET : {{ user.company.siret }} </p>
-            <p> Adresse : 
+            <p> <strong>Nom :</strong>   {{ user.company.name }}  </p>
+            <p> <strong>SIRET :</strong> {{ user.company.siret }} </p>
+            <p> <strong>Adresse : </strong>
                 {{ user.company.address.firstLine  }}
                 {% if user.company.address.secondLine is not null %}
                     {{ user.company.address.secondLine }}
@@ -36,4 +37,5 @@
                 {{ user.company.address.country    }}
             </p>
         </div>
+        <br>
 </div>

@@ -9,87 +9,87 @@
                     <h1>Vous</h1>
                     <div class="inscription_item">
                         {{ form_label(form.username) }}
-                        {{ form_errors(form.username) }}
                         {{ form_widget(form.username) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.username) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.email) }}
-                        {{ form_errors(form.email) }}
                         {{ form_widget(form.email) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.email) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.plainPassword.first) }}
-                        {{ form_errors(form.plainPassword.first) }}
                         {{ form_widget(form.plainPassword.first) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.plainPassword.first) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.plainPassword.second) }}
-                        {{ form_errors(form.plainPassword.second) }}
                         {{ form_widget(form.plainPassword.second) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.plainPassword.second) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.lastName) }}
-                        {{ form_errors(form.lastName) }}
                         {{ form_widget(form.lastName) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.lastName) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.firstName) }}
-                        {{ form_errors(form.firstName) }}
                         {{ form_widget(form.firstName) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.firstName) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.phoneNumber) }}
-                        {{ form_errors(form.phoneNumber) }}
                         {{ form_widget(form.phoneNumber) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.phoneNumber) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.mobilePhoneNumber) }}
-                        {{ form_errors(form.mobilePhoneNumber) }}
                         {{ form_widget(form.mobilePhoneNumber) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.mobilePhoneNumber) }}</span>
                 </div>
                 <div class="company-info">
                     <h1>Votre société</h1>
                     <div class="inscription_item">
                         {{ form_label(form.company.name)  }}
-                        {{ form_errors(form.company.name) }}
                         {{ form_widget(form.company.name) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.name) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.siret)  }}
-                        {{ form_errors(form.company.siret) }}
                         {{ form_widget(form.company.siret) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.siret) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.address.firstLine)  }}
-                        {{ form_errors(form.company.address.firstLine) }}
                         {{ form_widget(form.company.address.firstLine) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.address.firstLine) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.address.secondLine)  }}
-                        {{ form_errors(form.company.address.secondLine) }}
                         {{ form_widget(form.company.address.secondLine) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.address.secondLine) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.address.thirdLine)  }}
-                        {{ form_errors(form.company.address.thirdLine) }}
                         {{ form_widget(form.company.address.thirdLine) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.address.thirdLine) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.address.city)  }}
-                        {{ form_errors(form.company.address.city) }}
                         {{ form_widget(form.company.address.city) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.address.city) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.address.zipcode)  }}
-                        {{ form_errors(form.company.address.zipcode) }}
                         {{ form_widget(form.company.address.zipcode) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.address.zipcode) }}</span>
                     <div class="inscription_item">
                         {{ form_label(form.company.address.country)  }}
-                        {{ form_errors(form.company.address.country) }}
                         {{ form_widget(form.company.address.country) }}
                     </div>
+                    <span class="erreur">{{ form_errors(form.company.address.country) }}</span>
                 </div>
                 
                     {{ form_row(form._token) }}

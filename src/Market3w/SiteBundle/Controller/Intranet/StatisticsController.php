@@ -59,24 +59,18 @@ class StatisticsController extends Controller
 
         $form->handleRequest($request);
         
-        if ($form->isValid()) {       
-            $str = $seoStatistics->getCreatedAt()->format('Y-m-d');
-            $seoStatistics->setUpdatedAt($seoStatistics->getCreatedAt());
-            $repo = $em->getRepository('Market3wSiteBundle:History');
-            $query = $em->createQuery(
-                "SELECT h
-                FROM Market3wSiteBundle:History h
-                WHERE h.client = $id
-                AND h.date LIKE '%$str%'"
-            );
-
-            $dateExists = $query->getResult();
-            if(!$dateExists){
+        if ($form->isValid()) {              
+            $wishedDate     = $seoStatistics->getCreatedAt()->format('Y-m-d');                        
+            $historyForDate = $em->getRepository('Market3wSiteBundle:History')->findHistoryForDate($id, $wishedDate);
+     
+            if( is_null($historyForDate) ) {
                 $history = new History();
                 $history->setSeoStatistic($seoStatistics);
                 $history->setClient($client);
                 $history->setDate($seoStatistics->getCreatedAt());
 
+                $seoStatistics->setUpdatedAt($seoStatistics->getCreatedAt());
+                
                 $em->persist($seoStatistics);
                 $em->persist($history);
                 $em->flush();
@@ -101,20 +95,29 @@ class StatisticsController extends Controller
     public function editAction($id, $date, Request $request)
     {        
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('Market3wSiteBundle:History');
-        $query = $em->createQuery(
-            "SELECT h
-            FROM Market3wSiteBundle:History h
-            WHERE h.client = $id
-            AND h.date LIKE '%$date%'"
-        );
-        $seoExists = $query->getResult();
         
-        if(!$seoExists){
-            var_dump('erreur history not found');die;
+        if ( $date == 0 ){
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'Veuillez saisir une date.'
+            );
+            
+            return $this->redirect($this->generateUrl('client_show_statistics', array('id' => $id)));
         }
-        $seoStatistics = $em->getRepository('Market3wSiteBundle:SeoStatistics')->find($seoExists[0]->getSeoStatistic());
-        $client = $em->getRepository('Market3wSiteBundle:User')->find($seoExists[0]->getClient());
+                
+        $history    = $em->getRepository('Market3wSiteBundle:History')->findHistoryForDate($id, $date);
+     
+        if( is_null($history) ) {
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'La date ne correspond à aucune données.'
+            );
+            
+            return $this->redirect($this->generateUrl('client_show_statistics', array('id' => $id)));
+        }
+        
+        $seoStatistics = $history->getSeoStatistic();
+       
         $form = $this->createForm(new SeoStatisticsType(), $seoStatistics);
         $form->handleRequest($request);
 

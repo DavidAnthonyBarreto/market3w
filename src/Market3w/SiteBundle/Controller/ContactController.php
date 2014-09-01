@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\FormError;
 
 use Market3w\SiteBundle\Entity\Appointment;
 use Market3w\SiteBundle\Form\Type\AppointmentType;
@@ -32,15 +33,14 @@ class ContactController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             
-            // assigne web marketeur
-            $wmList  = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
-            // celui qui a le moins de rdv ce mois-ci
-            $wmIndex = array_rand($wmList, 1);
-            $wm = $wmList[$wmIndex];
+            $wm = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
             
-            $appointment->setWebMarketeur($wm);
+            if(is_null($wm) ){
+                $form->get('date')->addError(new FormError('Aucun web-marketeur n\'est disponible veuillez changer de date et/ou d\'heure'));
+            }
             
-            // set skype pseudo
+            $appointment->setWebMarketeur($wm[0]);
+            
             if( !is_null($form['skype']->getData()) ){
                 $user->setSkypePseudo($form['skype']->getData());
             }

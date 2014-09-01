@@ -14,11 +14,25 @@ class UserRepository extends EntityRepository
 {
     public function findAvailableWebMarketeur()
     {
-        $qb = $this->createQueryBuilder('u')
-                ->where('u.roles LIKE :roles')
-                ->setParameter('roles', '%"ROLE_WEB_MARKETEUR"%');
+        $qb = $this->getEntityManager()->createQuery(
+             'SELECT u, 
+                (
+                    SELECT COUNT( u2.id ) AS nb_rdv2
+                    FROM Market3wSiteBundle:User u2
+                    INNER JOIN Market3wSiteBundle:Appointment a2 WITH u2.id = a2.webMarketeur
+                    WHERE u2.roles LIKE  \'%ROLE_WEB_MARKETEUR%\'
+                    AND u2.id = u.id
+                ) AS nb_rdv  
+            FROM Market3wSiteBundle:User u
+            INNER JOIN Market3wSiteBundle:Appointment a WITH u.id = a.webMarketeur
+            WHERE u.roles like \'%ROLE_WEB_MARKETEUR%\'
+            AND (a.date != \'2014-08-11\')
+            AND a.hour NOT BETWEEN \'9:00:00\' AND \'11:00:00\'
+            ORDER BY nb_rdv ASC'   
+        )
+        ->setMaxResults(1);
         
-        return $qb->getQuery()->getResult();
+        return $qb->getOneOrNullResult();
     }
     
 }

@@ -10,7 +10,7 @@
         {% for bill in bills %}
             <tr>
                 <td> {{ bill.id }}                        </td>
-                <td> {{ bill.dateBilling|date("m/d/Y") }} </td>
+                <td> {{ bill.dateBilling|date("d/m/Y") }} </td>
                 <td> {{ bill.calculateTotalTTC }} €       </td>
                 <td> {{ bill.status }}                    </td>
                 <td> 

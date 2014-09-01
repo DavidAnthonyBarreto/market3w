@@ -30,7 +30,7 @@ class AppointmentType extends AbstractType
     {
         $builder->add('subject', 'textarea', array(
             'label'    => 'Décrivez votre demande : *',
-            'attr'     => array('rows' => 4),
+            'attr'     => array('rows' => 10),
             'required' => true
         ));
         

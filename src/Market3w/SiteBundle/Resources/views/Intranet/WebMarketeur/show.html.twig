@@ -9,6 +9,8 @@
         <a class="intranet_button" href="{{ path('client_show_statistics', {'id': client.id}) }}"> Voir les statistiques </a>
         <a class="intranet_button" href="{{ path('client_add_statistics', {'id': client.id}) }}"> Ajouter une statistique </a>
         <a class="intranet_button" href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis </a>
+        <a class="intranet_button" href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'bill' } ) }}">Nouvelle facture</a>
+
         
         <div class="info_client_container">
             <div class="info_client_bloc">
@@ -44,9 +46,20 @@
         </div>
         <h1>Devis</h1>
         {% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'wm' } %}
-        
+        <div class="navigation">
+            <div class="count">
+                {{ bills.getTotalItemCount }} résultats
+            </div>
+            {{ knp_pagination_render(bills) }}
+        </div>
         <h1>Facture</h1>
         {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'wm' } %}
+        <div class="navigation">
+            <div class="count">
+                {{ estimates.getTotalItemCount }} résultats
+            </div>
+            {{ knp_pagination_render(estimates) }}
+        </div>
     </div>
 </div>
 {% endblock %}

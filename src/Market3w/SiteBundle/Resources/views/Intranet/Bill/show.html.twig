@@ -2,34 +2,8 @@
 
 {% block content %}
     <div class="fixed_content">
-        {% for flashMessage in app.session.flashbag.get('notice') %}
-            <div class="flash-notice">
-                {{ flashMessage }}
-            </div>
-        {% endfor %}
-        
-        <p>Référence : {{ bill.id }}</p>
-        <p>Etat : {{ bill.status }}</p>
-        {% for line in bill.lines %}
-            <div class="line">
-                <div class="service">{{ line.service }}</div>
-                <div class="hours">{{ line.nbHours }}h</div>
-                <div class="price">{{ line.price }}€/h</div>
-            </div>
-        {% endfor %}
-        
-        <div class="totalHt">
-            Total HT{{ bill.calculateTotalHT }}€
-        </div>
-        
-        <div class="tva">
-            TVA {{ bill.tva }}% 
-        </div>
-        
-        <div class="totalTtc">
-            Total TTC {{ bill.calculateTotalTtc }}€
-        </div>
-        
+        <a class="intranet_button" href="{{ path( 'client_show', {'id':idClient} ) }}">Retour</a>
+
         {% if bill.type.name == 'Devis' and  bill.status.name == 'En attente de réponse' or 
               bill.type.name == 'Facture' and  bill.status.name != 'Payée'
         %}
@@ -39,5 +13,15 @@
         {% if bill.type.name == 'Devis' and bill.status.name == 'Accepté' %}
             <a class="intranet_button" href="{{ path('bill_estimate_to_bill', {'idClient': idClient, 'idBill' : bill.id}) }}">Générer la facture</a>
         {% endif %}
+        
+        
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        {% include 'Market3wSiteBundle:Intranet/Bill:_billDetail.html.twig' with { 'bill': bill } %}
+        
     </div> 
 {% endblock %}

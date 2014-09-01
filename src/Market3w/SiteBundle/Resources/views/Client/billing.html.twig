@@ -7,9 +7,10 @@
         
         <h1>Vos devis</h1>
 	{% include 'Market3wSiteBundle:Intranet/Bill:_listEstimate.html.twig' with { 'view': 'client' } %}
-
+        {# TODO PAGINATION #}
         <h1>Vos factures</h1>
         {% include 'Market3wSiteBundle:Intranet/Bill:_listBill.html.twig' with { 'view': 'client' } %}
+        {# TODO PAGINATION #}
     </div>
 </div>
 {% endblock %}

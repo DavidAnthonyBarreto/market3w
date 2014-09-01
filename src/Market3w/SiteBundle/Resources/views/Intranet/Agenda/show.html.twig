@@ -24,7 +24,7 @@
         {% endif %}
         
         <h1>Modalité du rendez-vous</h1>
-        <p>Le {{ appointment.date|date("m/d/Y") }} à {{ appointment.hour|date("H:i") }}</p>
+        <p>Le {{ appointment.date|date("d/m/Y") }} à {{ appointment.hour|date("H:i") }}</p>
         
         {% if appointment.type.id == 2 %}
             <p>Pseudo skype du prospect : {{ appointment.prospect.skypePseudo }}</p>

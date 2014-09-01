@@ -31,7 +31,14 @@ class AgendaController extends Controller
         $wm           = $this->getUser();
         $appointments = $wm->getAppointments();
   
-        return array('appointments' => $appointments);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $appointments,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+        
+        return array('appointments' => $pagination);
     }
     
     /**

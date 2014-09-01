@@ -4,41 +4,7 @@
     <div class="fixed_content">
         <a class="profile_button" href="{{ path('market3w_site_client_billing') }}">Retour</a>
 
-        <p>Référence : {{ bill.id }}</p>
-        <p>Etat : {{ bill.status }}</p>
-        
-        <table>
-            <thead>
-                <th> Service         </th>
-                <th> Nombre d'heures </th>
-                <th> Prix horaire    </th>
-                <th> Total           </th>
-            </thead>
-            <tbody>
-                {% for line in bill.lines %}
-                    <tr>
-                        <td> {{ line.service }}   </td>
-                        <td> {{ line.nbHours }} h </td>
-                        <td> {{ line.price }} €/h </td>
-                        <td> {{ line.nbHours * line.price }} € </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-            
-        <table>
-            <tr>
-                <th>Total HT</th>
-                <td>{{ bill.calculateTotalHT }} €</td>
-            </tr>
-            <tr>
-                <th>TVA</th>
-                <td>{{ bill.tva }} % </td>
-            </tr>
-            <tr>
-                <th>Total TTC</th>
-                <td>{{ bill.calculateTotalTtc }} €</td>
-            </tr>
-        </table>
+        {% include 'Market3wSiteBundle:Intranet/Bill:_billDetail.html.twig' with { 'bill': bill } %}
+
     </div>
 {% endblock %}

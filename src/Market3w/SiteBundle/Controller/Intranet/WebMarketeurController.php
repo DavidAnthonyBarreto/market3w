@@ -27,7 +27,7 @@ class WebMarketeurController extends Controller
      * @Template()
      */
     public function indexAction()
-    {
+    {       
         $wm = $this->getUser();
         
         $em      = $this->getDoctrine()->getManager();
@@ -57,8 +57,21 @@ class WebMarketeurController extends Controller
         $client    = $em->getRepository('Market3wSiteBundle:User')->find($id);
         $bills     = $em->getRepository("Market3wSiteBundle:Bill")->findBillForClient($client->getId());
         $estimates = $em->getRepository("Market3wSiteBundle:Bill")->findEstimateForClient($client->getId());
-                       
-        return array('client' => $client, 'bills' => $bills, 'estimates' => $estimates);
+        
+        $paginator  = $this->get('knp_paginator');
+        $paginationBills = $paginator->paginate(
+            $bills,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            3/*limit per page*/
+        );
+        
+        $paginationEstimates = $paginator->paginate(
+            $estimates,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            3/*limit per page*/
+        );
+        
+        return array('client' => $client, 'bills' => $paginationBills, 'estimates' => $paginationEstimates);
     }
     
     /**

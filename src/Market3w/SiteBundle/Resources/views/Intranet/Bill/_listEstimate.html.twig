@@ -10,7 +10,7 @@
         {% for estimate in estimates %}
             <tr>
                 <td> {{ estimate.id }}                        </td>
-                <td> {{ estimate.dateBilling|date("m/d/Y") }} </td>
+                <td> {{ estimate.dateBilling|date("d/m/Y") }} </td>
                 <td> {{ estimate.calculateTotalTTC }} €       </td>
                 <td> {{ estimate.status }}                    </td>
                 <td> 
@@ -20,8 +20,10 @@
                         <a  class="intranet_button" href="{{ path( 'client_billing_show', {'id': estimate.id} ) }}"> Voir </a>
                     {% endif %}
                     {% if view != 'client' %}
-                        <a  class="intranet_button" href="{{ path( 'bill_edit',     {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Modifer </a>
-                        <a  class="intranet_button" href="{{ path( 'bill_validate_estimate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
+                        <a class="intranet_button" href="{{ path( 'bill_edit',     {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Modifer </a>
+                        {% if estimate.accepted == false %}
+                            <a class="intranet_button" href="{{ path( 'bill_validate_estimate', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Valider </a>
+                        {% endif %}
                     {% endif %}
                 </td>
             </tr>

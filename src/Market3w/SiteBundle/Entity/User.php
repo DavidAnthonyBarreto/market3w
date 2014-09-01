@@ -73,12 +73,6 @@ class User extends BaseUser
      */
     protected $mobilePhoneNumber;
     
-//    /**
-//     * @var string
-//     * @ORM\Column(name="company", type="string", length=75, nullable=true)
-//     */
-//    protected $company;
-    
     /**
      * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\Appointment", mappedBy="webMarketeur")
      */

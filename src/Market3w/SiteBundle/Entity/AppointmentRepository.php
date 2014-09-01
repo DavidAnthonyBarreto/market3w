@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class AppointmentRepository extends EntityRepository
 {
+    public function findAppointmentForProspect($prospectId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.prospect = :prospectId')
+            ->setParameter('prospectId', $prospectId);
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    
 }

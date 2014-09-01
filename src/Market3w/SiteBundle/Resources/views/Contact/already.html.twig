@@ -1,0 +1,32 @@
+{% extends 'Market3wSiteBundle::layout.html.twig' %}
+
+{% block content %}
+	<div class="fixed_content">
+            <h1>Votre rendez-vous</h1>
+	    <p>
+                Vous avez déjà rendez-vous le {{ appointment.date | date('d/m/Y') }} à {{ appointment.hour|date("H:i") }}
+            </p>
+            <p>
+                {% if appointment.type.id == 2 %}
+                    Via Skype.
+                {% elseif  appointment.type.id == 1 %}
+                    A l'adresse : 
+                    {{ appointment.address.firstLine }}
+                    {% if appointment.address.secondLine is not null %}
+                       {{ appointment.address.secondLine }}
+                    {% endif %}
+                     {% if appointment.address.thirdLine is not null %}
+                        {{ appointment.address.thirdLine }}
+                     {% endif %}
+                    - {{ appointment.address.city }} {{ appointment.address.zipcode }}
+                    - {{ appointment.address.country }}
+                {% endif %}
+            </p>
+            <p>
+                Votre conseillé est : {{ appointment.webMarketeur.firstName }} {{ appointment.webMarketeur.lastName }}.
+            </p>
+            <p>
+                Pour modifier les modalités de votre rendez-vous : <a href="mailto:{{ appointment.webMarketeur.email }}">envoyer un email</a> 
+            </p>
+	</div>
+{% endblock %}

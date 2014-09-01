@@ -20,7 +20,14 @@ class ContactController extends Controller
     public function indexAction(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-                
+        
+        $em = $this->getDoctrine()->getManager();
+        $appoitment = $em->getRepository('Market3wSiteBundle:Appointment')->findAppointmentForProspect($user->getId());
+        
+        if ( !is_null($appoitment) ) {
+            return $this->render('Market3wSiteBundle:Contact:already.html.twig', array('appointment' => $appoitment));
+        }
+        
         // form
         $appointment = new Appointment();
         $appointment->setProspect($user);
@@ -31,7 +38,7 @@ class ContactController extends Controller
         $form->handleRequest($request);
         
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            
             
             $wm = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
             
@@ -63,5 +70,4 @@ class ContactController extends Controller
     {
         return array();
     }
-    
 }

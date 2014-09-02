@@ -306,6 +306,22 @@ table .intranet_button{
 	margin: auto;
 }
 
+.pagination, .count{
+	display: inline-block;
+	margin:20px 20px 20px 0;
+}
+
+.pagination{
+	text-decoration: underline;
+}
+
+.pagination .current{
+	background: none;
+	color: #18836e;
+	height: 80px;
+	border-bottom: 0;
+}
+
 /**************ADMIN footer**************/
 footer{
 	background: #18836E;

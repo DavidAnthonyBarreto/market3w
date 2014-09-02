@@ -299,6 +299,13 @@ table .intranet_button{
 
 }
 
+.map_image{
+	height: 40px;
+	width: 40px;
+	display: block;
+	margin: auto;
+}
+
 /**************ADMIN footer**************/
 footer{
 	background: #18836E;

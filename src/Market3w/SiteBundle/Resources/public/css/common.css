@@ -228,7 +228,7 @@ nav ul li a:hover{
 }
 .inscription_field form{
 	margin: auto;
-	width: 310px;
+	width: 340px;
 }
 
 .inscription_field .fixed_content{
@@ -538,6 +538,18 @@ footer ul li em{
 		height: 250px;
 		width: 250px;
 		margin: auto;
+	}
+	/*****Formulaire d'inscription*****/
+	.inscription_field form{
+		text-align: left;
+		width: 300px;
+	}
+	.inscription_item{
+		text-align: left;
+		margin-bottom: 10px;
+	}
+	.inscription_field form input{
+		display:block;
 	}
 	/*****Contact*****/
 	.contact_form{

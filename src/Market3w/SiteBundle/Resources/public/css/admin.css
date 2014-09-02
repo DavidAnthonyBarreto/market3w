@@ -308,18 +308,26 @@ table .intranet_button{
 
 .pagination, .count{
 	display: inline-block;
-	margin:20px 20px 20px 0;
+	margin:20px 0;
 }
 
+.count{
+	text-align: left;
+	width:10%;
+}
 .pagination{
-	text-decoration: underline;
+	color: #18836e;
+	text-align: center;
+	margin: auto;
+	width: 80%;
 }
 
 .pagination .current{
 	background: none;
-	color: #18836e;
+	color: #FFF;
 	height: 80px;
 	border-bottom: 0;
+	text-decoration: none!important;
 }
 
 /**************ADMIN footer**************/

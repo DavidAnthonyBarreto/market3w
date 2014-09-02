@@ -27,7 +27,7 @@
                         {% if is_granted("ROLE_WEB_MARKETEUR") %}
                             {% include 'Market3wSiteBundle:Intranet/WebMarketeur:_wmMenu.html.twig' %}
                         {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
-                            {% set intranet_home =  path('intranet_news_index') %}
+                            {% include 'Market3wSiteBundle:Intranet/News:_cmMenu.html.twig' %}
                         {% endif %} 
                     {% endblock %}
                 </div>

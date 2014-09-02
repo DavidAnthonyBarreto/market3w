@@ -20,14 +20,22 @@ $( document ).ready(function(){
             $('#appointment_skype').val('');
             $('#appointment_address').show();
         }
-        else {
+        else if($('#appointment_type_2').is(':checked')) {
             $('#skype').removeClass('contact_hidden');
             $('#appointment_address').hide();
             $('#appointment_address').find('input').each(function(){
                 $(this).val('');
             });
             $('#skype').show();
-        }   
-    });
+        }
+        else {
+            $('#skype').hide();
+            $('#appointment_skype').val('');
+            $('#appointment_address').hide();
+            $('#appointment_address').find('input').each(function(){
+                $(this).val('');
+            });
+        }
+    }).change();
   
 });

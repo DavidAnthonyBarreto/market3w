@@ -1,16 +1,17 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block stylesheets %}
-{{ parent() }}
-{% stylesheets 
-    'bundles/market3wsite/css/jquery-ui.min.css'
-    'bundles/market3wsite/css/jquery-ui.structure.min.css' 
-    output='jquery-ui.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-    {% endstylesheets %}
-    {% endblock %}
+    {{ parent() }}
+    {% stylesheets 
+        'bundles/market3wsite/js/appointment.js'
+        'bundles/market3wsite/css/jquery-ui.min.css'
+        'bundles/market3wsite/css/jquery-ui.structure.min.css' 
+        output='jquery-ui.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+{% endblock %}
 
-    {% block javascripts %}
+{% block javascripts %}
     {{ parent() }}
     {% javascripts 
     'bundles/market3wsite/js/jquery-ui-1.11.0-custom.min.js'
@@ -19,9 +20,9 @@
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-    {% endblock %}
+{% endblock %}
 
-    {% block content %}
+{% block content %}
     <div class="agenda_content">
         <div class="inscription_field">
             <div class="fixed_content">
@@ -41,7 +42,7 @@
                     {{ form_widget(form.type) }}
                 </div>
                 <br>
-                <div class="inscription_item">
+                <div class="inscription_item" id="address">
                     {{ form_errors(form.address) }}
                     {{ form_widget(form.address) }}
                 </div>
@@ -68,4 +69,4 @@
     </div>
 
     {{ form_end(form) }}
-    {% endblock %}
+{% endblock %}

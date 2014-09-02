@@ -31,13 +31,13 @@ class ClientInfoType extends AbstractType
         $builder->add('phoneNumber', null, array(
             'label'              => 'form.phoneNumber', 
             'translation_domain' => 'FOSUserBundle',
-            'required'           => true
+            'required'           => false
         ));
         
         $builder->add('mobilePhoneNumber', null, array(
             'label'              => 'form.mobilePhoneNumber', 
             'translation_domain' => 'FOSUserBundle',
-            'required'           => true
+            'required'           => false
         ));
         
         $builder->add('company', new CompanyType(), array(

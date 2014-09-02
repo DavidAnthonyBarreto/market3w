@@ -13,7 +13,7 @@ class ClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('type', 'choice', array(
-            'label'    => 'Type', 
+            'label'    => 'Type *', 
             'choices'  => array('ROLE_PROSPECT' => 'Prospect', 'ROLE_CLIENT' => 'Client'),
             'expanded' => true,
             'multiple' => false,
@@ -42,13 +42,13 @@ class ClientType extends AbstractType
         $builder->add('phoneNumber', 'text', array(
             'label'              => 'form.phoneNumber', 
             'translation_domain' => 'FOSUserBundle',
-            'required'           => true
+            'required'           => false
         ));
         
         $builder->add('mobilePhoneNumber', 'text', array(
             'label'              => 'form.mobilePhoneNumber', 
             'translation_domain' => 'FOSUserBundle',
-            'required'           => true
+            'required'           => false
         ));
         
         $builder->add('company', new CompanyType(), array(

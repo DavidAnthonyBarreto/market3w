@@ -5,7 +5,7 @@
     
     
     <div class="fixed_content">
-        <div class="edit_info_client">
+        <div id='top' class="edit_info_client">
             {% if is_granted('ROLE_CLIENT') %}
                 <a class="intranet_button" href="{{ path('fos_user_profile_show') }}"> Retour  </a>
             {% elseif is_granted('ROLE_WEB_MARKETEUR') %}
@@ -42,6 +42,9 @@
             <h1>Top pages</h1>
             <div id="topViewedPage"></div>
         </div>
+
+        <a class="intranet_button" href="{{ app.request.uri }}#top"> Haut de page  </a>
+
     </div>
 {% endblock %}
 

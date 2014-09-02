@@ -2,9 +2,13 @@
 
 {% block content %}
     <div class="fixed_content">
-{#        <a class="intranet_button" href="{{ path( 'client_show', {'id':idClient} ) }}">Retour</a>
-#}
-        <h1>Nouvelle facture / Nouveau devis</h1>
+        <a class="intranet_button" href="{{ path( 'client_show', { 'id':app.request.get('idClient') } ) }}">Retour</a>
+
+        {% if  app.request.get('type') == 'bill' %}
+            <h1>Nouvelle facture</h1>
+        {% else %}
+            <h1>Nouveau devis</h1>
+        {% endif %}
         <div class="admin_form">
             {{ form_start(form) }}
 

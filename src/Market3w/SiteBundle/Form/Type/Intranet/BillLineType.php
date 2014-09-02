@@ -18,14 +18,14 @@ class BillLineType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
          $builder->add('service', 'entity', array(
-            'label'    => 'Service', 
+            'label'    => 'Service *', 
             'class'    => 'Market3wSiteBundle:Service',
             'expanded' => false,
             'multiple' => false,    
         ));
          
         $builder->add('nbHours', 'integer', array(
-            'label'    => "Temps passé",
+            'label'    => "Temps passé *",
             'required' => true
         ));
         

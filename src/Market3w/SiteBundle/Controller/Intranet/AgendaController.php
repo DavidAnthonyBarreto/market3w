@@ -26,19 +26,27 @@ class AgendaController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction($id=null)
     {
-        $wm           = $this->getUser();
-        $appointments = $wm->getAppointments();
-  
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $appointments,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            10/*limit per page*/
-        );
-        
-        return array('appointments' => $pagination);
+        if ($this->container->get('request')->get('_route') == 'api_get_appointments' ){
+            $em = $this->getDoctrine()->getManager();
+            $appointments = $em->getRepository("Market3wSiteBundle:Appointment")->getAppointments($id);
+            
+            return new Response(json_encode($appointments));
+        }
+        else {
+            $wm = $this->getUser();
+            $appointments = $wm->getAppointments();
+            
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $appointments,
+                $this->get('request')->query->get('page', 1)/*page number*/,
+                10/*limit per page*/
+            );
+            
+            return array('appointments' => $pagination);
+        }
     }
     
     /**
@@ -52,13 +60,22 @@ class AgendaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->find($id);
-
-        if (!$appointment) {
-            throw $this->createNotFoundException('Impossible de trouver le rendez-vous.');
+        if ($this->container->get('request')->get('_route') == 'api_get_appointment' ){
+            
+            $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->getDetail($id);
+            
+            return new Response(json_encode($appointment));
+            
         }
-               
-        return array('appointment' => $appointment);
+        else {
+            $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->find($id);
+
+            if (!$appointment) {
+                throw $this->createNotFoundException('Impossible de trouver le rendez-vous.');
+            }
+            
+            return array('appointment' => $appointment);
+        }
     }
     
     /**
@@ -86,6 +103,8 @@ class AgendaController extends Controller
             
             $em->persist($appointment);
             $em->flush();
+            
+            return $this->redirect($this->generateUrl('agenda_show_appointment', array('id' => $appointment->getId())));
         }
         
         return array('form' => $form->createView());

@@ -26,6 +26,9 @@
     <div class="agenda_content">
         <div class="inscription_field">
             <div class="fixed_content">
+                <a class="intranet_button" href="{{ path( 'agenda_show_appointment', {'id':app.request.get('id')}) }}">Retour</a>
+
+                
                 <h1>Modification de l'agenda</h1>
                 {{ form_start(form) }}
                 {{ form_errors(form) }}

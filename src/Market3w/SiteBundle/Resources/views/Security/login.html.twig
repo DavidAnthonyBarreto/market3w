@@ -20,14 +20,15 @@
                 <div class="connexion_item">
                     <label for="password">{{ 'security.login.password'|trans }}</label>
                     <input type="password" id="password" name="_password" required="required" />
-                </div>
-                <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié</a>
-                <br>
+                </div><br>
                 <input class="submit"type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-            </form>
+            </form><br>
             <p>
                 Pas encore de compte ?
                 <a href="{{ path('fos_user_registration_register') }}">Inscrivez-vous !</a>
+            </p>
+            <p>Vous avez oublié votre mot de passe ?
+                <a href="{{ path('fos_user_resetting_request') }}">Cliquez ici</a>
             </p>
         </div>
     </div>

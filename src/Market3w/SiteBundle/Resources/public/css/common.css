@@ -46,6 +46,27 @@ a, input
 	outline:none; 
 } 
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px white inset;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px #b6fcee inset;
+    -webkit-text-fill-color: #333;
+} 
+
+input {
+	padding: 10px;
+	border: 0;
+	border-radius: 10px;
+	background-color: #FFF;
+	transition:all 0.3s;
+}
+
+input:focus { 
+    background: #b6fcee;
+}
+
 /**************Table**************/
 table {
     border-collapse: collapse;

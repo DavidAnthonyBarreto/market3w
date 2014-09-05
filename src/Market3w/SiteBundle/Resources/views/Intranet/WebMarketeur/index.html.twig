@@ -3,7 +3,7 @@
 {% block content %}
 <div class="fixed_content">
     <h1>Liste des clients</h1>
-    <table class="table_client">
+    <table class="table_client table_info">
         <thead>
             <th> Type  </th>
             <th> Société  </th>
@@ -15,17 +15,17 @@
         <tbody>
             {% for client in clients %}
                 <tr>
-                    <td> {{ client.readableRoles[0] }}                </td>
-                    <td> {{ client.company.name }}                    </td>
-                    <td> {{ client.firstName }} {{ client.lastName }} </td>
-                    <td> {{ client.email }}                           </td>
-                    <td> 
+                    <td><span class="libelle_table">Type : </span> {{ client.readableRoles[0] }}                </td>
+                    <td><span class="libelle_table">Société : </span> {{ client.company.name }}                    </td>
+                    <td><span class="libelle_table">Identité : </span> {{ client.firstName }} {{ client.lastName }} </td>
+                    <td><span class="libelle_table">Email : </span> {{ client.email }}                           </td>
+                    <td><span class="libelle_table">Numéros de téléphone : </span>
                         <span class="telephone"> Tél: {{ client.phoneNumber }}          </span>
                         {% if client.mobilePhoneNumber is not null %}
                             <br><br><span class="telephone"> Mobile: {{ client.mobilePhoneNumber }} </span>
                         {% endif %}
                     </td>
-                    <td> 
+                    <td> <span class="libelle_table">Actions : </span>
                         <a class="intranet_button" href="{{ path( 'client_show', {'id':client.id} ) }}">                 Détail           </a>
                         <a class="intranet_button" href="{{ path('client_show_statistics', {'id': client.id}) }}">       Suivi marketing  </a>
                         <a class="intranet_button" href="{{ path('web_marketeur_billing_client', {'id': client.id}) }}"> Suivi commercial </a>

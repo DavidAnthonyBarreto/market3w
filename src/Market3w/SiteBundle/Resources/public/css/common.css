@@ -91,6 +91,9 @@ table a{
    	font-weight: bold;
 }
 
+.libelle_table{
+		display: none;
+}
 /**************Submit**************/
 .submit, #form_submit{
 	background: #1abc9c;
@@ -426,6 +429,25 @@ footer ul li em{
 		z-index: 100;
 		width:100%;
 	}
+
+	/*****Table*****/
+	.table_info th, .table_info td {
+		display: block;
+	}
+	.table_info thead{
+		display: none;
+	}
+	.table_info tr{
+		margin: 20px 0;
+		display: block;
+		border: 3px solid #1abc9c;
+	}
+	.libelle_table{
+		display: inline;
+		color: #1abc9c;
+		font-weight: bold;
+	}
+	
 	/*****Formulaire de connexion*****/
 	.connexion_field .fixed_content{
 		padding:5px;
@@ -525,6 +547,7 @@ footer ul li em{
 	.nav_content{
 		text-align: center;
 	}
+
 	/*****Video accueil*****/
 	.video_content{
 		height:500px;

@@ -1,4 +1,4 @@
-<table>
+<table class="table_info">
     <thead>
         <th> Numéro      </th>
         <th> Date        </th>
@@ -9,11 +9,11 @@
     <tbody>
         {% for estimate in estimates %}
             <tr>
-                <td> {{ estimate.id }}                        </td>
-                <td> {{ estimate.dateBilling|date("d/m/Y") }} </td>
-                <td> {{ estimate.calculateTotalTTC }} €       </td>
-                <td> {{ estimate.status }}                    </td>
-                <td> 
+                <td><span class="libelle_table">Numéro : </span> {{ estimate.id }}                        </td>
+                <td><span class="libelle_table">Date : </span> {{ estimate.dateBilling|date("d/m/Y") }} </td>
+                <td><span class="libelle_table">Montant TTC : </span> {{ estimate.calculateTotalTTC }} €       </td>
+                <td><span class="libelle_table">Etat : </span> {{ estimate.status }}                    </td>
+                <td><span class="libelle_table">Action : </span>
                     {% if view != 'client' %}
                         <a  class="intranet_button" href="{{ path( 'bill_show', {'idClient': estimate.client.id, 'idBill': estimate.id} ) }}"> Voir </a>
                     {% else %}

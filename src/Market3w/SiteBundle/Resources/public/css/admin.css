@@ -268,10 +268,10 @@ table .intranet_button{
 }
 #dropdown_SkypeButtonCall{
 	margin-top: 0px!important;
-	margin-left: 0px!important;
+	margin-left: -14px!important;
 	padding-left:0!important;
 	padding-right:0!important;
-	width: 135px!important;
+	width: 105px!important;
 	border: 2px solid #1abc9c!important;
 	color: #1abc9c!important;
 	line-height: 20px!important;
@@ -313,13 +313,13 @@ table .intranet_button{
 
 .count{
 	text-align: left;
-	width:10%;
+	width:30%;
 }
 .pagination{
 	color: #18836e;
 	text-align: center;
 	margin: auto;
-	width: 80%;
+	width: 38%;
 }
 
 .pagination .current{
@@ -406,6 +406,11 @@ footer{
 	.copyright {
 		margin-bottom: 100px;
 	}
+	/*****Table*****/
+	#dropdown_SkypeButtonCall {
+		margin-left: 100px!important;
+		width: 265px!important;
+	}
 }
 
 /*****écrans inférieur à 560px*****/
@@ -436,5 +441,9 @@ footer{
 	}
 	.copyright {
 		margin-bottom: 80px;
+	}
+	/*****Table*****/
+	#dropdown_SkypeButtonCall {
+		margin-left: -15px!important;
 	}
 }

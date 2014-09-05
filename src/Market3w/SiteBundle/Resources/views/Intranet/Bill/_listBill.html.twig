@@ -1,4 +1,4 @@
-<table>
+<table class="table_info">
     <thead>
         <th> Numéro      </th>
         <th> Date        </th>
@@ -9,11 +9,11 @@
     <tbody>
         {% for bill in bills %}
             <tr>
-                <td> {{ bill.id }}                        </td>
-                <td> {{ bill.dateBilling|date("d/m/Y") }} </td>
-                <td> {{ bill.calculateTotalTTC }} €       </td>
-                <td> {{ bill.status }}                    </td>
-                <td> 
+                <td><span class="libelle_table">Numéro : </span> {{ bill.id }}                        </td>
+                <td><span class="libelle_table">Date : </span> {{ bill.dateBilling|date("d/m/Y") }} </td>
+                <td><span class="libelle_table">Montant TTC : </span> {{ bill.calculateTotalTTC }} €       </td>
+                <td><span class="libelle_table">Etat : </span> {{ bill.status }}                    </td>
+                <td> <span class="libelle_table">Action : </span>
                     <a  class="intranet_button" href="{{ path('bill_show', {'idClient': bill.client.id, 'idBill': bill.id}) }}"> Voir </a>
                     
                     {% if view != 'client' %}

@@ -2,7 +2,7 @@
 <p>Etat : {{ bill.status }}</p>
 <p>Date : {{ bill.dateBilling | date('d/m/Y') }} </p>
 
-<table>
+<table class="table_info">
     <thead>
         <th> Service         </th>
         <th> Nombre d'heures </th>
@@ -12,26 +12,26 @@
     <tbody>
         {% for line in bill.lines %}
             <tr>
-                <td> {{ line.service }}   </td>
-                <td> {{ line.nbHours }} h </td>
-                <td> {{ line.price }} €/h </td>
-                <td> {{ line.nbHours * line.price }} € </td>
+                <td><span class="libelle_table">Service : </span> {{ line.service }}   </td>
+                <td><span class="libelle_table">Nombre d'heures : </span> {{ line.nbHours }} h </td>
+                <td><span class="libelle_table">Prix horaire : </span> {{ line.price }} €/h </td>
+                <td><span class="libelle_table">Total : </span> {{ line.nbHours * line.price }} € </td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
 
-<table>
+<table class="table_info">
     <tr>
         <th>Total HT</th>
-        <td>{{ bill.calculateTotalHT }} €</td>
+        <td><span class="libelle_table">Total HT : </span>{{ bill.calculateTotalHT }} €</td>
     </tr>
     <tr>
         <th>TVA</th>
-        <td>{{ bill.tva }} % </td>
+        <td><span class="libelle_table">TVA : </span>{{ bill.tva }} % </td>
     </tr>
     <tr>
         <th>Total TTC</th>
-        <td>{{ bill.calculateTotalTtc }} €</td>
+        <td><span class="libelle_table">Total TTC : </span>{{ bill.calculateTotalTtc }} €</td>
     </tr>
 </table>

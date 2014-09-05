@@ -19,7 +19,7 @@
                     <td><span class="libelle_table">Société : </span> {{ client.company.name }}                    </td>
                     <td><span class="libelle_table">Identité : </span> {{ client.firstName }} {{ client.lastName }} </td>
                     <td><span class="libelle_table">Email : </span> {{ client.email }}                           </td>
-                    <td><span class="libelle_table">Numéros de téléphone : </span>
+                    <td><span class="libelle_table">Numéros de téléphone : <br></span>
                         <span class="telephone"> Tél: {{ client.phoneNumber }}          </span>
                         {% if client.mobilePhoneNumber is not null %}
                             <br><br><span class="telephone"> Mobile: {{ client.mobilePhoneNumber }} </span>

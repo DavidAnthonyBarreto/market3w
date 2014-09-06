@@ -3,10 +3,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block content %}
+    <div class="fixed_content">
+        <a class="intranet_button" href="{{ path('client_show', {'id': app.request.get('id') }) }}"> Retour </a>
+    </div>
     <div class="inscription_field">
         <div class="fixed_content">
-            <a class="intranet_button" href="{{ path('client_show', {'id': app.request.get('id') }) }}"> Retour </a>
-
             <h1>Edition des informations du client</h1>
             <div class="admin_form">
                 {{ form_start(form) }}

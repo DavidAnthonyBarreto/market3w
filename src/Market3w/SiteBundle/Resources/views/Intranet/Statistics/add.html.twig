@@ -3,6 +3,9 @@
 {% block content %}
 <div id="statistics-add" class="fixed_content">
     <a class="intranet_button" href="{{ path( 'client_show_statistics', {'id':id} ) }}">Retour</a>
+</div>
+<div class="inscription_field">
+    <div class="fixed_content">
     <h1>Edition des statistiques</h1>
     <div class="admin_form">
         {{ form_start(form) }}
@@ -55,6 +58,7 @@
             </div>
 
         {{ form_end(form) }}
+        </div>
     </div>
 </div>
 {% endblock %}

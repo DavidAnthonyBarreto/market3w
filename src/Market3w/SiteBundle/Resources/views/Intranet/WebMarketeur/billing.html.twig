@@ -1,9 +1,11 @@
 {% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
 
 {% block content %}
+<div class="fixed_content">
+    <a class="intranet_button" href="{{ path( 'client_show', {'id':client.id} ) }}">Retour</a>
+</div>
 <div class="billing_field">
     <div class="fixed_content">
-        <a class="intranet_button" href="{{ path( 'client_show', {'id':client.id} ) }}">Retour</a>
         <h1>Client</h1>
         <p>
             <span>Prénom : </span><span class="firstName"> {{ client.firstName }} </span>

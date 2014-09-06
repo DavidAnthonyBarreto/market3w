@@ -190,6 +190,9 @@ table .intranet_button{
 	margin: 0;
 	margin-right: -25px;
 }
+#edit-date{
+	padding:2px;
+}
 #client_info .inscription_item:nth-of-type(1)
 {
     text-align: center;
@@ -201,6 +204,9 @@ table .intranet_button{
     text-align: center;
 } 
 /**************ADMIN form**************/
+.inscription_field .admin_form, .bill_content .admin_form .inscription_item{
+	text-align: left;
+}
 .admin_form{
 	width: 500px;
 	margin:auto;

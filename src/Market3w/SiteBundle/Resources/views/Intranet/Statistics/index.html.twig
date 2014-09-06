@@ -1,5 +1,8 @@
-{% extends 'Market3wSiteBundle::backendLayout.html.twig' %}
-
+{% extends is_granted("ROLE_CLIENT") 
+    ? 'Market3wSiteBundle::layout.html.twig' 
+    :  'Market3wSiteBundle::backendLayout.html.twig' %}
+    
+    
 {% block content %}
     <input id="ajax_url" type="hidden" value="{{ path('client_get_statistics', {'id':clientId}) }}"></input>
     

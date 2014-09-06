@@ -17,7 +17,7 @@
                     <td><span class="libelle_table">Titre de la News : </span> {{oneNews.title}} </td>
                     <td><span class="libelle_table">Aperçu du contenu : </span> {{oneNews.description|slice(0, 120)}}...</td>
                     <td><span class="libelle_table">Voir la news : </span>
-                        <a href="{{ path( 'news_show',{"id":oneNews.id} ) }}"> Voir </a>
+                        <a class="intranet_button" href="{{ path( 'news_show',{"id":oneNews.id} ) }}"> Voir </a>
                     </td>
                 </tr>
             {% endfor %}

@@ -336,6 +336,11 @@ table .intranet_button{
 	text-decoration: none!important;
 }
 
+/**************NEWS**************/
+#market3w_sitebundle_news_description{
+	height:200px;
+}
+
 /**************ADMIN footer**************/
 footer{
 	background: #18836E;

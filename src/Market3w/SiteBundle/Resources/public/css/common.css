@@ -316,6 +316,12 @@ nav ul li a:hover{
 	margin-top: 5px;
 }
 
+/**************Interface Client**************/
+.company-info .inscription_content {
+	width: 360px;
+	margin: auto;
+}
+
 /**************FOOTER**************/
 footer{
 	margin-top: 100px;
@@ -602,8 +608,13 @@ footer ul li em{
 		text-align: left;
 		margin-bottom: 10px;
 	}
-	.inscription_field form input{
+	.inscription_field form input, .company-info .inscription_item input{
 		display:block;
+	}
+
+	.company-info .inscription_content {
+		width: 250px;
+		margin: auto;
 	}
 	/*****Contact*****/
 	.contact_form{

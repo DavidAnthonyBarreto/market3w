@@ -43,4 +43,35 @@ class UserRepository extends EntityRepository
         return $qb->getOneOrNullResult();
     }
     
+    public function getClientsForWm($webMarketeurId)
+    {
+        $fields = 'u.id as client_id, u.firstName, u.lastName, c.name as company';
+                
+        $qb = $this->createQueryBuilder('u')
+            ->select($fields)
+            ->leftJoin('u.company', 'c')
+            ->where('u.webMarketeur = :webMarketeurId')
+            ->setParameter('webMarketeurId', $webMarketeurId)
+            ->orderBy('u.lastName', 'asc');
+                
+        return $qb->getQuery()->getArrayResult();
+    }
+    
+    public function getDetail($id)
+    {
+        $fields = 'u.id as client_id, u.firstName, u.lastName, u.phoneNumber,'
+                . 'u.mobilePhoneNumber, u.skypePseudo, u.email, c.name as company,'
+                . 'c.siret as siret, a.firstLine, a.secondLine, a.thirdLine,'
+                . 'a.zipcode, a.city, a.country';
+                
+        $qb = $this->createQueryBuilder('u')
+            ->select($fields)
+            ->leftJoin('u.company', 'c')
+            ->leftJoin('c.address', 'a')
+            ->where('u.id = :id')
+            ->setParameter('id', $id);
+                
+        return $qb->getQuery()->getArrayResult();
+    }
+    
 }

@@ -1,6 +1,6 @@
 Bonjour {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }},
 
-Je suis {{ wm.firstName }} {{ wm.lastName }}, votre conseiller web-marketing chez Market3w.
+Je suis {{ appointment.webMarketeur.firstName }} {{ appointment.webMarketeur.lastName }}, votre conseiller web-marketing chez Market3w.
 
 Je vous confirme notre rendez-vous du {{ appointment.date|date("m/d/Y") }} 
 à {{ appointment.hour|date("H:i") }}. 
@@ -29,4 +29,4 @@ Pour tout changement dans les modalités de notre rendez-vous, vous pouvez me co
 
 Cordialement,
 
-{{ wm.firstName }} {{ wm.lastName }}
+{{ appointment.webMarketeur.firstName }} {{ appointment.webMarketeur.lastName }}

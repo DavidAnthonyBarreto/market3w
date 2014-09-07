@@ -109,6 +109,42 @@ class AgendaController extends Controller
         
         return array('form' => $form->createView());
     }
+    /**
+     * API Edit appointment
+     */
+    public function putAction(Request $request)
+    {                
+        $em = $this->getDoctrine()->getManager();
+        $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->find($request->get('id'));
+
+        if ( $request->get('subject') ){
+            $appointment->setSubject($request->get('subject'));  
+        }
+        
+        if( $request->get('date') ){
+            $date = \DateTime::createFromFormat('j/m/Y', $request->get('date'));  
+            $appointment->setDate($date);
+        }
+        
+        if( $request->get('hour') ) {
+            $hour = \DateTime::createFromFormat('H:i', $request->get('hour'));
+            $appointment->setHour($hour);      
+        }
+        
+        if ( $request->get('type') ){
+            $appointmentType = $em->getRepository('Market3wSiteBundle:AppointmentType')->find($request->get('type'));
+            if( $appointmentType->getId() ==  1){
+                $prospect = $appointment->getProspect();
+                $prospect->setSkypePseudo($request);
+            }
+        }
+        
+        $em->persist($appointment);
+        $em->flush();
+        
+        return new Response();
+    }
+    
     
     /**
      * Confirm appointment to prospect
@@ -116,17 +152,21 @@ class AgendaController extends Controller
      * @Route("/{id}/confirm", name="agenda_confirm_appointment", requirements={"id" = "\d+"})
      * @Template()
      */
-    public function confirmAction($id)
+    public function confirmAction($id=null, Request $request)
     {
-        $em          = $this->getDoctrine()->getManager();
-        $wm          = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        
+        if ($this->container->get('request')->get('_route') == 'api_confirm_appointment' ){
+            $id = $request->get('id');
+        }
+        
         $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->find($id);
                 
         $message = \Swift_Message::newInstance()
             ->setSubject('Market3w - Confirmation de rendez-vous avec votre conseiller web-marketing')
-            ->setFrom($wm->getEmail())
+            ->setFrom($appointment->getWebMarketeur()->getEmail())
             ->setTo($appointment->getProspect()->getEmail())
-            ->setBody($this->renderView('Market3wSiteBundle:Email:confirmAppointment.txt.twig', array('wm' => $wm, 'appointment' => $appointment)))
+            ->setBody($this->renderView('Market3wSiteBundle:Email:confirmAppointment.txt.twig', array('appointment' => $appointment)))
         ;
         $this->get('mailer')->send($message);
         
@@ -139,6 +179,12 @@ class AgendaController extends Controller
             'Le rendez-vous est confirmé. Un email a été envoyé au prospect.'
         );
         
-        return $this->redirect($this->generateUrl('agenda_index'));
+        if ($this->container->get('request')->get('_route') == 'api_confirm_appointment' ){
+            return new Response();
+        }
+        else {
+            return $this->redirect($this->generateUrl('agenda_index'));
+        }
+        
     }
 }

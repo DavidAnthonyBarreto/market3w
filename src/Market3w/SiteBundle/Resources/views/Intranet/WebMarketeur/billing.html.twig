@@ -3,6 +3,9 @@
 {% block content %}
 <div class="fixed_content">
     <a class="intranet_button" href="{{ path( 'client_show', {'id':client.id} ) }}">Retour</a>
+    <a class="intranet_button" href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'estimate' } ) }}">Nouveau devis </a>
+    <a class="intranet_button" href="{{ path('intranet_client_bill_add', { 'idClient': client.id, 'type': 'bill' } ) }}">Nouvelle facture</a>
+
 </div>
 <div class="billing_field">
     <div class="fixed_content">

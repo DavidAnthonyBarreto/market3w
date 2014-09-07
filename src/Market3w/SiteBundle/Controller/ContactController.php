@@ -22,10 +22,10 @@ class ContactController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         
         $em = $this->getDoctrine()->getManager();
-        $appoitment = $em->getRepository('Market3wSiteBundle:Appointment')->findAppointmentForProspect($user->getId());
+        $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->findAppointmentForProspect($user->getId());
         
-        if ( !is_null($appoitment) ) {
-            return $this->render('Market3wSiteBundle:Contact:already.html.twig', array('appointment' => $appoitment));
+        if ( !is_null($appointment) ) {
+            return $this->render('Market3wSiteBundle:Contact:already.html.twig', array('appointment' => $appointment));
         }
         
         // form
@@ -40,7 +40,11 @@ class ContactController extends Controller
         if ($form->isValid()) {
             
             
-            $wm = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
+            $wm = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')
+                    ->findAvailableWebMarketeur(
+                            $appointment->getDate(),
+                            $appointment->getHour() 
+            );
             
             if(is_null($wm) ){
                 $form->get('date')->addError(new FormError('Aucun web-marketeur n\'est disponible veuillez changer de date et/ou d\'heure'));

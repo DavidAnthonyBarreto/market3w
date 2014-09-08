@@ -8,8 +8,10 @@
             <item>
                 <id>{{oneNews.id}}</id>
                 <title>{{oneNews.title}}</title>
-                <description>{{oneNews.description|slice(0, 120)}}...</description>
+                <description>{{oneNews.description}}</description>
                 <pubDate>{{oneNews.pubDate|date('D, d M Y h:i:s O')}}</pubDate>
+                <dateStyle>{{oneNews.pubDate|date('d/m/Y')}}</dateStyle>
+                <author>{{oneNews.author}}</author>
             </item>
         {% endfor %}
     </channel>

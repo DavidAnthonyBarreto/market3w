@@ -7,7 +7,7 @@ Je vous confirme notre rendez-vous du {{ appointment.date|date("m/d/Y") }}
 
 {% if appointment.type.name == "Skype" %}
         Vous avez souhaité être contacté via Skype avec le pseudo : {{ appointment.prospect.skypePseudo }}.
-        Mon pseudo Skype est le suivant : {{ wm.skypePseudo }}.
+        Mon pseudo Skype est le suivant : {{ appointment.webMarketeur.skypePseudo }}.
     {% elseif  appointment.type.name == "Physiquement" %}
         Nous nous rencontrerons à l'adresse suivante : 
             {{ appointment.address.firstLine }}

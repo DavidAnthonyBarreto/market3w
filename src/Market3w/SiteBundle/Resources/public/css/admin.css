@@ -34,6 +34,7 @@ header {
 nav ul{
 	padding: 0;
 	margin: 0;
+	height: 100px;
 }
 nav ul li{
 	display: inline-block;
@@ -56,6 +57,7 @@ nav ul li a{
 	padding: 5px;
 	line-height: normal;
 	vertical-align: middle;
+	border-bottom: 0px solid #c6f5ec;
 	transition: all 0.3s;
 }
 
@@ -69,7 +71,7 @@ nav ul li a:hover{
 .current{
 	background: #1abc9c;
 	color:#FFF;
-	height: 90px;
+	height: 80px;
 	border-bottom: 10px solid #c6f5ec;
 }
 
@@ -139,18 +141,18 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.intranet_button a, .show_client_container a, .edit_info_client a, .billing_field a, .table_client a{
+.intranet_button, #dropdown_SkypeButtonCall li a{
 	color: #fff;
 	padding: 10px;
 	background: #1abc9c;
 	border-radius: 10px;
 	display: inline-block;
-	margin: 10px;
+	margin: 10px 5px;
 	text-decoration: none;
 	transition:all 0.3s;
 }
 
-.table_client a{
+table .intranet_button{
 	display: block;
 	text-align: center;
 }
@@ -174,7 +176,7 @@ tr:nth-of-type(2n+1) {
 	margin: 10px;
 }
 
-.show_client_container a:hover, .edit_info_client a:hover, .billing_field a:hover, .edit-date-container:hover, .table_client a:hover{
+.intranet_button:hover, .edit-date-container:hover, #dropdown_SkypeButtonCall li a:hover{
 	color: #1abc9c;
 	background: #FFF;
 	border-radius: 20px;
@@ -188,6 +190,9 @@ tr:nth-of-type(2n+1) {
 	margin: 0;
 	margin-right: -25px;
 }
+#edit-date{
+	padding:2px;
+}
 #client_info .inscription_item:nth-of-type(1)
 {
     text-align: center;
@@ -199,6 +204,9 @@ tr:nth-of-type(2n+1) {
     text-align: center;
 } 
 /**************ADMIN form**************/
+.inscription_field .admin_form, .bill_content .admin_form .inscription_item{
+	text-align: left;
+}
 .admin_form{
 	width: 500px;
 	margin:auto;
@@ -255,6 +263,82 @@ tr:nth-of-type(2n+1) {
 
 .ui-datepicker-title{
 	margin-top: 20px;
+}
+#SkypeButtonCall_paraElement{
+	margin:10px 0 10px 10px;
+	text-align: center;
+}
+.show_agenda_content #SkypeButtonCall_paraElement{
+	margin:10px 0 10px 10px;
+	text-align: left;
+}
+#dropdown_SkypeButtonCall{
+	margin-top: 0px!important;
+	margin-left: -14px!important;
+	padding-left:0!important;
+	padding-right:0!important;
+	width: 105px!important;
+	border: 2px solid #1abc9c!important;
+	color: #1abc9c!important;
+	line-height: 20px!important;
+	background-color: #4B4B4B!important;
+	text-align: center;
+}
+#dropdown_SkypeButtonCall li a{
+	color: #FFF!important;
+	width: 70%!important;
+}
+#dropdown_SkypeButtonCall li a:hover{
+	color: #18836E!important;
+}
+#SkypeButtonCall_paraElement img{
+	margin:0!important;
+	padding:0!important;
+	vertical-align: 0!important;
+}
+
+.agenda_content .inscription_item {
+	text-align: left;
+}
+.agenda_content #appointment_address input{
+	display: block;
+
+}
+
+.map_image{
+	height: 40px;
+	width: 40px;
+	display: block;
+	margin: auto;
+}
+
+.pagination, .count{
+	display: inline-block;
+	margin:20px 0;
+}
+
+.count{
+	text-align: left;
+	width:30%;
+}
+.pagination{
+	color: #18836e;
+	text-align: center;
+	margin: auto;
+	width: 38%;
+}
+
+.pagination .current{
+	background: none;
+	color: #FFF;
+	height: 80px;
+	border-bottom: 0;
+	text-decoration: none!important;
+}
+
+/**************NEWS**************/
+#market3w_sitebundle_news_description{
+	height:200px;
 }
 
 /**************ADMIN footer**************/
@@ -333,6 +417,11 @@ footer{
 	.copyright {
 		margin-bottom: 100px;
 	}
+	/*****Table*****/
+	#dropdown_SkypeButtonCall {
+		margin-left: 100px!important;
+		width: 265px!important;
+	}
 }
 
 /*****écrans inférieur à 560px*****/
@@ -344,6 +433,9 @@ footer{
 	}
 	nav ul li:first-child{
 		display: inline-block;
+	}
+	nav ul{
+		height: 90px;
 	}
 	nav ul li, nav ul li a{
 		width: 80px;
@@ -360,5 +452,9 @@ footer{
 	}
 	.copyright {
 		margin-bottom: 80px;
+	}
+	/*****Table*****/
+	#dropdown_SkypeButtonCall {
+		margin-left: -15px!important;
 	}
 }

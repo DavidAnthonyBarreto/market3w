@@ -1,1 +1,6 @@
-{# empty Twig template #}
+<nav>
+    <ul>
+        <li> <a href="{{ path('intranet_news_index') }}" {% if app.request.attributes.get('_route') == 'intranet_news_index' %} class="current" {% endif %}> News</a> </li>
+        <li> <a href="{{ path('intranet_news_add') }}" {% if app.request.attributes.get('_route') == 'intranet_news_add' %} class="current" {% endif %}> Nouvelle news </a> </li>
+    </ul>
+</nav>

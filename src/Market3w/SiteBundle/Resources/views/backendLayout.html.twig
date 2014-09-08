@@ -2,6 +2,9 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
+        <meta name = "viewport" content = "width=device-width, minimum-scale=1, maximum-scale=1">
+        <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ asset('bundles/market3wsite/images/favicon.png') }}" />
         <title>{% block title %}Market3w{% endblock %}</title>
         {% block meta %}{% endblock %}
         
@@ -24,7 +27,7 @@
                         {% if is_granted("ROLE_WEB_MARKETEUR") %}
                             {% include 'Market3wSiteBundle:Intranet/WebMarketeur:_wmMenu.html.twig' %}
                         {% elseif is_granted("ROLE_COMMUNITY_MANAGER") %}
-                            {% set intranet_home =  path('intranet_news_index') %}
+                            {% include 'Market3wSiteBundle:Intranet/News:_cmMenu.html.twig' %}
                         {% endif %} 
                     {% endblock %}
                 </div>
@@ -67,11 +70,17 @@
                         <h3>Contact</h3>
                         <ul>
                             <li><a href="{{ path('market3w_site_contact_index') }}">Prendre un rendez-vous</a></li>
+                            <br>
                             <li>
                                 Où nous trouver :<br>
                                 <em>Market3W<br>
                                 12 rue Rambouillet<br>
                                 75012 Paris<br></em>
+                            </li>
+                            <br>
+                            <li>
+                                Nous écrire :<br>
+                                <em>contact@market3w.com</em>
                             </li>
                         </ul>
                     </div>

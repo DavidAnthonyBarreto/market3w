@@ -12,13 +12,66 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
-    public function findAvailableWebMarketeur()
+    public function findAvailableWebMarketeur($date, $hour)
     {
-        $qb = $this->createQueryBuilder('u')
-                ->where('u.roles LIKE :roles')
-                ->setParameter('roles', '%"ROLE_WEB_MARKETEUR"%');
+        $date = $date->format('Y-m-d');
         
-        return $qb->getQuery()->getResult();
+        $hourMin = clone $hour;
+        $hourMax = clone $hour;
+        
+        $hourMin = $hourMin->sub(new \DateInterval('PT1H'))->format('H:i:s');
+        $hourMax = $hourMax->add(new \DateInterval('PT1H'))->format('H:i:s');
+        
+        $qb = $this->getEntityManager()->createQuery(
+             "SELECT u, 
+                (
+                    SELECT COUNT( u2.id ) AS nb_rdv2
+                    FROM Market3wSiteBundle:User u2
+                    INNER JOIN Market3wSiteBundle:Appointment a2 WITH u2.id = a2.webMarketeur
+                    WHERE u2.roles LIKE  '%ROLE_WEB_MARKETEUR%'
+                    AND u2.id = u.id
+                ) AS nb_rdv  
+            FROM Market3wSiteBundle:User u
+            LEFT OUTER JOIN Market3wSiteBundle:Appointment a WITH u.id = a.webMarketeur
+            WHERE u.roles like '%ROLE_WEB_MARKETEUR%'
+            AND (a.date != '".$date."' OR a.date IS NULL)
+            AND (a.hour NOT BETWEEN '".$hourMin."' AND '".$hourMax."' OR a.hour IS NULL)
+            ORDER BY nb_rdv ASC"
+        )
+        ->setMaxResults(1);
+        
+        return $qb->getOneOrNullResult();
+    }
+    
+    public function getClientsForWm($webMarketeurId)
+    {
+        $fields = 'u.id as client_id, u.firstName, u.lastName, c.name as company';
+                
+        $qb = $this->createQueryBuilder('u')
+            ->select($fields)
+            ->leftJoin('u.company', 'c')
+            ->where('u.webMarketeur = :webMarketeurId')
+            ->setParameter('webMarketeurId', $webMarketeurId)
+            ->orderBy('u.lastName', 'asc');
+                
+        return $qb->getQuery()->getArrayResult();
+    }
+    
+    public function getDetail($id)
+    {
+        $fields = 'u.id as client_id, u.firstName, u.lastName, u.phoneNumber,'
+                . 'u.mobilePhoneNumber, u.skypePseudo, u.email, c.name as company,'
+                . 'c.siret as siret, a.firstLine, a.secondLine, a.thirdLine,'
+                . 'a.zipcode, a.city, a.country';
+                
+        $qb = $this->createQueryBuilder('u')
+            ->select($fields)
+            ->leftJoin('u.company', 'c')
+            ->leftJoin('c.address', 'a')
+            ->where('u.id = :id')
+            ->setParameter('id', $id);
+                
+        return $qb->getQuery()->getArrayResult();
     }
     
 }

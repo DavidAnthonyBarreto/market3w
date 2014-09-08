@@ -12,4 +12,47 @@ use Doctrine\ORM\EntityRepository;
  */
 class AppointmentRepository extends EntityRepository
 {
+    public function findAppointmentForProspect($prospectId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.prospect = :prospectId')
+            ->setParameter('prospectId', $prospectId);
+                
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    
+    public function getAppointments($webMarketeurId)
+    {
+        $fields = 'a.id as appointment_id, a.subject, a.hour, a.date, c.name as company';
+                
+        $qb = $this->createQueryBuilder('a')
+            ->select($fields)
+            ->leftJoin('a.prospect', 'u')
+            ->leftJoin('u.company', 'c')
+            ->where('a.webMarketeur = :webMarketeurId')
+            ->setParameter('webMarketeurId', $webMarketeurId)
+            ->orderBy('a.date', 'asc');
+                
+        return $qb->getQuery()->getArrayResult();
+    }
+    
+    public function getDetail($id)
+    {
+        $fields = 'a.id as appointment_id, a.subject, a.hour, a.date, t.name as type, '
+                . 'ad.firstLine, ad.secondLine, ad.thirdLine, ad.zipcode, ad.city, '
+                . 'ad.country, u.skypePseudo, a.confirmed, u.firstName, u.lastName, '
+                . 'u.phoneNumber, u.mobilePhoneNumber, c.name as company';
+                
+        $qb = $this->createQueryBuilder('a')
+            ->select($fields)
+            ->leftJoin('a.prospect', 'u')
+            ->leftJoin('a.type', 't')
+            ->leftJoin('a.address', 'ad')
+            ->leftJoin('u.company', 'c')
+            ->where('a.id = :id')
+            ->setParameter('id', $id);
+                
+        return $qb->getQuery()->getArrayResult();
+    }
+    
 }

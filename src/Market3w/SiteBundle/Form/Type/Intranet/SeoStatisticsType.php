@@ -16,34 +16,34 @@ class SeoStatisticsType extends AbstractType
     {
         $builder
             ->add('createdAt', 'date', array(
-                'label' => 'Date de la statistique',
-                'widget' => 'single_text',
-                'format' => 'dd/MM/yyyy',
-                'attr' => array('class' => 'datepicker'),
+                'label'    => 'Date de la statistique *',
+                'widget'   => 'single_text',
+                'format'   => 'dd/MM/yyyy',
+                'attr'     => array('class' => 'datepicker'),
                 'required' => true,
             ))
             ->add('uniqueVisitors', 'text', array(
-                'label' => 'Nombre de visiteurs uniques',
+                'label'    => 'Nombre de visiteurs uniques *',
                 'required' => true,
             ))
             ->add('rank', 'text', array(
-                'label' => 'Classement',
+                'label'    => 'Classement *',
                 'required' => true,
             ))
             ->add('nbViewedPages', 'text', array(
-                'label' => 'Nombre de pages vues',
+                'label'    => 'Nombre de pages vues *',
                 'required' => true,
             ))
             ->add('reboundTime', 'text', array(
-                'label' => 'Taux de rebond',
+                'label'    => 'Taux de rebond *',
                 'required' => true,
             ))
             ->add('keywords', 'text', array(
-                'label' => 'Mots clés',
+                'label'    => 'Mots clés *',
                 'required' => true,
             ))
             ->add('topViewed', 'text', array(
-                'label' => 'Pages les plus vues',
+                'label'    => 'Pages les plus vues *',
                 'required' => true,
             ))
         ;

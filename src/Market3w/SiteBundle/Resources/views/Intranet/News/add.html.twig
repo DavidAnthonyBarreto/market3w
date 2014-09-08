@@ -3,21 +3,24 @@
 {% block content %}
     {{ form_start(form) }}
         {{ form_errors(form) }}
+        <div class="fixed_content">
+            <h1>Ajouter une News</h1>
         <div class="contact_form">
             <div class="contact_element">
                 {{ form_label(form.title) }}
-                {{ form_errors(form.title) }}
+                {{ form_errors(form.title) }}<br>
                 {{ form_widget(form.title) }}
             </div>
-
+            <br>
             <div class="contact_element">
                 {{ form_label(form.description) }}
-                {{ form_errors(form.description) }}
+                {{ form_errors(form.description) }}<br>
                 {{ form_widget(form.description) }}
             </div>
 
 
             <input class="submit" type="submit" />
+        </div>
         </div>
 
     {{ form_end(form) }}

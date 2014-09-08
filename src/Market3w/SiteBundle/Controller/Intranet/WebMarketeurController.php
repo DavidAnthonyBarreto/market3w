@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 use Market3w\SiteBundle\Form\Type\Intranet\ClientInfoType;
 use Market3w\SiteBundle\Form\Type\Intranet\ClientType;
@@ -26,21 +27,26 @@ class WebMarketeurController extends Controller
      * @Route("/", name="clients_index")
      * @Template()
      */
-    public function indexAction()
-    {
-        $wm = $this->getUser();
-        
-        $em      = $this->getDoctrine()->getManager();
-        $clients = $wm->getClients();
-        
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $clients,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            10/*limit per page*/
-        );
-        
-        return array('clients' => $pagination);
+    public function indexAction($id=null)
+    {  
+        if ($this->container->get('request')->get('_route') == 'api_get_clients' ){
+            $em = $this->getDoctrine()->getManager();
+            $clients = $em->getRepository("Market3wSiteBundle:User")->getClientsForWM($id);
+            
+            return new Response(json_encode($clients));
+        }
+        else {
+            $wm = $this->getUser();
+            $clients = $wm->getClients();
+            
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $clients,
+                $this->get('request')->query->get('page', 1)/*page number*/,
+                10/*limit per page*/
+            );
+            return array('clients' => $pagination);
+        }   
     }
     
     /**
@@ -52,13 +58,32 @@ class WebMarketeurController extends Controller
      */
     public function showAction($id)
     {
-        $em       = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         
-        $client    = $em->getRepository('Market3wSiteBundle:User')->find($id);
-        $bills     = $em->getRepository("Market3wSiteBundle:Bill")->findBillForClient($client->getId());
-        $estimates = $em->getRepository("Market3wSiteBundle:Bill")->findEstimateForClient($client->getId());
-                       
-        return array('client' => $client, 'bills' => $bills, 'estimates' => $estimates);
+        if ($this->container->get('request')->get('_route') == 'api_get_client' ){
+            $client = $em->getRepository('Market3wSiteBundle:User')->getDetail($id);
+            return new Response(json_encode($client));
+        }
+        else {
+            $client    = $em->getRepository('Market3wSiteBundle:User')->find($id);
+            $bills     = $em->getRepository("Market3wSiteBundle:Bill")->findBillForClient($client->getId());
+            $estimates = $em->getRepository("Market3wSiteBundle:Bill")->findEstimateForClient($client->getId());
+
+            $paginator  = $this->get('knp_paginator');
+            $paginationBills = $paginator->paginate(
+                $bills,
+                $this->get('request')->query->get('page', 1)/*page number*/,
+                3/*limit per page*/
+            );
+
+            $paginationEstimates = $paginator->paginate(
+                $estimates,
+                $this->get('request')->query->get('page', 1)/*page number*/,
+                3/*limit per page*/
+            );
+
+            return array('client' => $client, 'bills' => $paginationBills, 'estimates' => $paginationEstimates);
+        } 
     }
     
     /**

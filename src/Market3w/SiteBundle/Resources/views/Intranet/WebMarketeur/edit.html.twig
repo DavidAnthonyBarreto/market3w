@@ -3,81 +3,87 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block content %}
+    <div class="fixed_content">
+        <a class="intranet_button" href="{{ path('client_show', {'id': app.request.get('id') }) }}"> Retour </a>
+    </div>
     <div class="inscription_field">
         <div class="fixed_content">
-            {{ form_start(form) }}
-                <div id="client_info_edit">
-                    <h1>Client</h1>
-                    <div class="inscription_item">
-                        {{ form_label(form.firstName)  }}
-                        {{ form_errors(form.firstName) }}
-                        {{ form_widget(form.firstName) }}
+            <h1>Edition des informations du client</h1>
+            <div class="admin_form">
+                {{ form_start(form) }}
+                    <div id="client_info_edit">
+                        <h1>Client</h1>
+                        <div class="inscription_item">
+                            {{ form_label(form.firstName)  }}
+                            {{ form_errors(form.firstName) }}
+                            {{ form_widget(form.firstName) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.lastName)  }}
+                            {{ form_errors(form.lastName) }}
+                            {{ form_widget(form.lastName) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.phoneNumber)  }}
+                            {{ form_errors(form.phoneNumber) }}
+                            {{ form_widget(form.phoneNumber) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.mobilePhoneNumber)  }}
+                            {{ form_errors(form.mobilePhoneNumber) }}
+                            {{ form_widget(form.mobilePhoneNumber) }}
+                        </div>
                     </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.lastName)  }}
-                        {{ form_errors(form.lastName) }}
-                        {{ form_widget(form.lastName) }}
+                    <div id="company_info">
+                        <h1>Entreprise</h1>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.name)  }}
+                            {{ form_errors(form.company.name) }}
+                            {{ form_widget(form.company.name) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.siret)  }}
+                            {{ form_errors(form.company.siret) }}
+                            {{ form_widget(form.company.siret) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.address.firstLine)  }}
+                            {{ form_errors(form.company.address.firstLine) }}
+                            {{ form_widget(form.company.address.firstLine) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.address.secondLine)  }}
+                            {{ form_errors(form.company.address.secondLine) }}
+                            {{ form_widget(form.company.address.secondLine) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.address.thirdLine)  }}
+                            {{ form_errors(form.company.address.thirdLine) }}
+                            {{ form_widget(form.company.address.thirdLine) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.address.city)  }}
+                            {{ form_errors(form.company.address.city) }}
+                            {{ form_widget(form.company.address.city) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.address.zipcode)  }}
+                            {{ form_errors(form.company.address.zipcode) }}
+                            {{ form_widget(form.company.address.zipcode) }}
+                        </div>
+                        <div class="inscription_item">
+                            {{ form_label(form.company.address.country)  }}
+                            {{ form_errors(form.company.address.country) }}
+                            {{ form_widget(form.company.address.country) }}
+                        </div>
                     </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.phoneNumber)  }}
-                        {{ form_errors(form.phoneNumber) }}
-                        {{ form_widget(form.phoneNumber) }}
+
+                        {{ form_row(form._token) }}
+                    <div>
+                        <input class="submit" type="submit" value="{{ 'registration.submit'|trans }}" />
                     </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.mobilePhoneNumber)  }}
-                        {{ form_errors(form.mobilePhoneNumber) }}
-                        {{ form_widget(form.mobilePhoneNumber) }}
-                    </div>
-                </div>
-                <div id="company_info">
-                    <h1>Entreprise</h1>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.name)  }}
-                        {{ form_errors(form.company.name) }}
-                        {{ form_widget(form.company.name) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.siret)  }}
-                        {{ form_errors(form.company.siret) }}
-                        {{ form_widget(form.company.siret) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.address.firstLine)  }}
-                        {{ form_errors(form.company.address.firstLine) }}
-                        {{ form_widget(form.company.address.firstLine) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.address.secondLine)  }}
-                        {{ form_errors(form.company.address.secondLine) }}
-                        {{ form_widget(form.company.address.secondLine) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.address.thirdLine)  }}
-                        {{ form_errors(form.company.address.thirdLine) }}
-                        {{ form_widget(form.company.address.thirdLine) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.address.city)  }}
-                        {{ form_errors(form.company.address.city) }}
-                        {{ form_widget(form.company.address.city) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.address.zipcode)  }}
-                        {{ form_errors(form.company.address.zipcode) }}
-                        {{ form_widget(form.company.address.zipcode) }}
-                    </div>
-                    <div class="inscription_item">
-                        {{ form_label(form.company.address.country)  }}
-                        {{ form_errors(form.company.address.country) }}
-                        {{ form_widget(form.company.address.country) }}
-                    </div>
-                </div>
-                    
-                    {{ form_row(form._token) }}
-                <div>
-                    <input class="submit" type="submit" value="{{ 'registration.submit'|trans }}" />
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock content %}

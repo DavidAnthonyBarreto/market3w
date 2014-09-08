@@ -17,11 +17,11 @@ class CompanyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', 'text', array(
-            'label'    => 'Nom de la société',
+            'label'    => 'Nom de la société *',
             'required' => true
         ));
         $builder->add('siret', 'text', array(
-            'label'    => 'SIRET',
+            'label'    => 'SIRET *',
             'required' => true
         ));
         

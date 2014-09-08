@@ -434,6 +434,7 @@ video#bgvid {
 	-o-background-size: cover;
 	background-size: cover;
 	color:#FFF;
+	margin-bottom: -100px;
 }
 .informations h2{
 	color:#FFF;
@@ -504,7 +505,7 @@ video#bgvid {
     font-size: 16px;
 }
 .contact_element textarea{
-    width: 99%;
+    width: 95%;
 }
 .contact_form .submit{
 	background: #FFF;

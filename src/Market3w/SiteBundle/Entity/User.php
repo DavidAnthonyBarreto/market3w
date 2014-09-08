@@ -5,7 +5,9 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 
 /**
@@ -72,12 +74,6 @@ class User extends BaseUser
      * )
      */
     protected $mobilePhoneNumber;
-    
-//    /**
-//     * @var string
-//     * @ORM\Column(name="company", type="string", length=75, nullable=true)
-//     */
-//    protected $company;
     
     /**
      * @ORM\OneToMany(targetEntity="Market3w\SiteBundle\Entity\Appointment", mappedBy="webMarketeur")
@@ -453,4 +449,24 @@ class User extends BaseUser
         
         return $readableRoles;
     }
+    
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addConstraint(new Assert\Callback(array(
+            'methods' => array('isPhoneNumbersValid'),
+        )));
+    }
+    
+    public function isPhoneNumbersValid(ExecutionContextInterface $context)
+    {
+        if ( $this->getPhoneNumber() == null && $this->getMobilePhoneNumber() == null ) {
+            $context->addViolationAt(
+                'phoneNumber',
+                'Au moins un numéro de téléphone doit être renseigné',
+                array(),
+                null
+            );
+        }
+    }
+
 }

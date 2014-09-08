@@ -5,11 +5,13 @@
             <a class="profile_button" href="{{ path('fos_user_profile_edit') }}">Modifier vos informations</a>
         </div>
         
+        {% if is_granted("ROLE_CLIENT") %}
+            <div>
+                <a class="profile_button" href="{{ path('market3w_site_client_seo') }}">Référencement</a>
+            </div>
+        {% endif %}
         <div>
-            <a class="profile_button" href="{{ path('market3w_site_client_seo') }}">Suivre mon référencement</a>
-        </div>
-        <div>
-            <a class="profile_button" href="{{ path('market3w_site_client_billing') }}">Mes factures</a>
+            <a class="profile_button" href="{{ path('market3w_site_client_billing') }}">Facturation</a>
         </div>
         
 	<div class="fos_user_user_show">

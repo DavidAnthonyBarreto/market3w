@@ -1,13 +1,13 @@
 Bonjour {{ appointment.prospect.firstName }} {{ appointment.prospect.lastName }},
 
-Je suis {{ wm.firstName }} {{ wm.lastName }}, votre conseiller web-marketing chez Market3w.
+Je suis {{ appointment.webMarketeur.firstName }} {{ appointment.webMarketeur.lastName }}, votre conseiller web-marketing chez Market3w.
 
 Je vous confirme notre rendez-vous du {{ appointment.date|date("m/d/Y") }} 
 à {{ appointment.hour|date("H:i") }}. 
 
 {% if appointment.type.name == "Skype" %}
         Vous avez souhaité être contacté via Skype avec le pseudo : {{ appointment.prospect.skypePseudo }}.
-        Mon pseudo Skype est le suivant : {{ wm.skypePseudo }}.
+        Mon pseudo Skype est le suivant : {{ appointment.webMarketeur.skypePseudo }}.
     {% elseif  appointment.type.name == "Physiquement" %}
         Nous nous rencontrerons à l'adresse suivante : 
             {{ appointment.address.firstLine }}
@@ -29,4 +29,4 @@ Pour tout changement dans les modalités de notre rendez-vous, vous pouvez me co
 
 Cordialement,
 
-{{ wm.firstName }} {{ wm.lastName }}
+{{ appointment.webMarketeur.firstName }} {{ appointment.webMarketeur.lastName }}

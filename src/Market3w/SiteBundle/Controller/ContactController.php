@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\FormError;
 
 use Market3w\SiteBundle\Entity\Appointment;
 use Market3w\SiteBundle\Form\Type\AppointmentType;
@@ -19,7 +20,14 @@ class ContactController extends Controller
     public function indexAction(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-                
+        
+        $em = $this->getDoctrine()->getManager();
+        $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->findAppointmentForProspect($user->getId());
+        
+        if ( !is_null($appointment) ) {
+            return $this->render('Market3wSiteBundle:Contact:already.html.twig', array('appointment' => $appointment));
+        }
+        
         // form
         $appointment = new Appointment();
         $appointment->setProspect($user);
@@ -30,17 +38,20 @@ class ContactController extends Controller
         $form->handleRequest($request);
         
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             
-            // assigne web marketeur
-            $wmList  = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')->findAvailableWebMarketeur("WEB_MARKETEUR");
-            // celui qui a le moins de rdv ce mois-ci
-            $wmIndex = array_rand($wmList, 1);
-            $wm = $wmList[$wmIndex];
             
-            $appointment->setWebMarketeur($wm);
+            $wm = $this->getDoctrine()->getRepository('Market3wSiteBundle:User')
+                    ->findAvailableWebMarketeur(
+                            $appointment->getDate(),
+                            $appointment->getHour() 
+            );
             
-            // set skype pseudo
+            if(is_null($wm) ){
+                $form->get('date')->addError(new FormError('Aucun web-marketeur n\'est disponible veuillez changer de date et/ou d\'heure'));
+            }
+            
+            $appointment->setWebMarketeur($wm[0]);
+            
             if( !is_null($form['skype']->getData()) ){
                 $user->setSkypePseudo($form['skype']->getData());
             }
@@ -63,5 +74,4 @@ class ContactController extends Controller
     {
         return array();
     }
-    
 }

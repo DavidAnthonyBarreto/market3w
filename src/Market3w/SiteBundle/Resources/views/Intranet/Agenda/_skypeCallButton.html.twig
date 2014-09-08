@@ -1,10 +1,10 @@
 <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
 
-<div id="SkypeButtonCall">
+<div id="SkypeButtonCall_{{ pseudo }}">
     <script type="text/javascript">
         Skype.ui({
           "name": "dropdown",
-          "element": "SkypeButtonCall",
+          "element": "SkypeButtonCall_{{ pseudo }}",
           "participants": ["{{ pseudo }}"],
           "imageColor": "white",
           "imageSize": 24

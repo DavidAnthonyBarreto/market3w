@@ -162,21 +162,21 @@ class AgendaController extends Controller
         
         $appointment = $em->getRepository('Market3wSiteBundle:Appointment')->find($id);
                 
-        $message = \Swift_Message::newInstance()
-            ->setSubject('Market3w - Confirmation de rendez-vous avec votre conseiller web-marketing')
-            ->setFrom($appointment->getWebMarketeur()->getEmail())
-            ->setTo($appointment->getProspect()->getEmail())
-            ->setBody($this->renderView('Market3wSiteBundle:Email:confirmAppointment.txt.twig', array('appointment' => $appointment)))
-        ;
-        $this->get('mailer')->send($message);
-        
         $appointment->setConfirmed(true);
         $em->persist($appointment);
         $em->flush();
+
+//        $message = \Swift_Message::newInstance()
+//            ->setSubject('Market3w - Confirmation de rendez-vous avec votre conseiller web-marketing')
+//            ->setFrom($appointment->getWebMarketeur()->getEmail())
+//            ->setTo($appointment->getProspect()->getEmail())
+//            ->setBody($this->renderView('Market3wSiteBundle:Email:confirmAppointment.txt.twig', array('appointment' => $appointment)))
+//        ;
+//        $this->get('mailer')->send($message);
         
          $this->get('session')->getFlashBag()->add(
             'notice',
-            'Le rendez-vous est confirmé. Un email a été envoyé au prospect.'
+            'Le rendez-vous est confirmé.'
         );
         
         if ($this->container->get('request')->get('_route') == 'api_confirm_appointment' ){

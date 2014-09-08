@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Market3w\SiteBundle\Form\Type\Intranet\ClientInfoType;
 use Market3w\SiteBundle\Form\Type\Intranet\ClientType;
 use Market3w\SiteBundle\Entity\User;
+use Market3w\SiteBundle\Entity\Company;
+use Market3w\SiteBundle\Entity\Address;
 
 
 /**
@@ -134,7 +136,7 @@ class WebMarketeurController extends Controller
     }
 
     /**
-     * Billing client
+    * Add client
      *
      * @Route("/add", name="web_marketeur_add_client")
      * @Template()
@@ -172,5 +174,62 @@ class WebMarketeurController extends Controller
         
         return array('form' => $form->createView());    
     }
+    
+    /**
+     * API Edit appointment
+     */
+    public function postClientAction(Request $request)
+    {                
+        $em = $this->getDoctrine()->getManager();
+        $wm = $em->getRepository('Market3wSiteBundle:User')->find($request->get('id'));
         
+        // Create Address
+        $address = new Address();
+        $address->setFirstLine($request->get('firstLine'));
+        
+        if( !empty(trim($request->get('secondLine'))) ) {
+            $address->setSecondLine($request->get('secondLine'));
+        }
+        
+        if( !empty(trim($request->get('thirdLine'))) ) {
+            $address->setThirdLine($request->get('thirdLine'));
+        }
+                
+        $address->setZipcode($request->get('zipcode'));
+        $address->setCity($request->get('city'));
+        $address->setCountry($request->get('country'));
+        
+        // Create company and link address
+        $company = new Company();
+        $company->setName($request->get('company'));
+        $company->setSiret($request->get('siret'));
+        $company->setAddress($address);    
+        
+        // Create client or prospect and link company
+        $client = new User();
+        $client->setEmail($request->get('email'));
+        $client->setUsername($client->getEmail());
+        $client->setPassword(uniqid());
+        $client->setEnabled(true);
+        $client->setWebMarketeur($wm);
+        $client->setFirstName($request->get('firstName'));
+        $client->setLastName($request->get('lastName'));
+        $client->setPhoneNumber($request->get('phoneNumber'));
+        $client->setMobilePhoneNumber($request->get('mobilePhoneNumber'));
+        $client->setCompany($company);
+        
+        $em->persist($client);
+        $em->flush();
+        
+        if ($request->get('type') == 2){
+            $fosUserManipulator = $this->container->get('fos_user.util.user_manipulator');
+            $fosUserManipulator->removeRole($client->getUsername(), 'ROLE_PROSPECT');
+            $fosUserManipulator->addRole($client->getUsername(), 'ROLE_CLIENT');
+        }
+        
+        $em->flush();
+        
+        return new Response();
+    }
+    
 }

@@ -61,6 +61,7 @@ input {
 	border-radius: 10px;
 	background-color: #FFF;
 	transition:all 0.3s;
+	margin:5px;
 }
 
 input:focus { 
@@ -264,7 +265,7 @@ nav ul li a:hover{
 }
 .inscription_field form{
 	margin: auto;
-	width: 340px;
+	width: 360px;
 }
 
 .inscription_field .fixed_content{
@@ -609,9 +610,11 @@ footer ul li em{
 		margin-bottom: 10px;
 	}
 	.inscription_field form input, .company-info .inscription_item input{
-		display:block;
+		display: block;
 	}
-
+	.inscription_field form input[type=radio]{
+		 display: inline; 
+	}
 	.company-info .inscription_content {
 		width: 250px;
 		margin: auto;

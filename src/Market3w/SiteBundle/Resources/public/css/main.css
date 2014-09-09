@@ -362,7 +362,7 @@ video#bgvid {
 	margin: auto;
 	border-radius: 200px;
 	border:2px solid #FFF;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.7);
 	opacity: 1;
 	transition:all 0.3s;
 }
@@ -393,6 +393,7 @@ video#bgvid {
 	overflow: hidden;
 	vertical-align: top;
 	transition:opacity 0.3s;
+	border:5px solid #1abc9c;
 }
 .detail_realisations {
 	font-size: 18px;

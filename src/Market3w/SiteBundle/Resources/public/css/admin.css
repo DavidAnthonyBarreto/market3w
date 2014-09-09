@@ -141,7 +141,7 @@ tr:nth-of-type(2n+1) {
 .show_client_container{
 	margin-bottom: 100px;
 }
-.intranet_button, #dropdown_SkypeButtonCall li a{
+.intranet_button, .SkypeButtonCall_paraElement ul li a{
 	color: #fff;
 	padding: 10px;
 	background: #1abc9c;
@@ -176,7 +176,7 @@ table .intranet_button{
 	margin: 10px;
 }
 
-.intranet_button:hover, .edit-date-container:hover, #dropdown_SkypeButtonCall li a:hover{
+.intranet_button:hover, .edit-date-container:hover, .SkypeButtonCall_paraElement ul li a:hover{
 	color: #1abc9c;
 	background: #FFF;
 	border-radius: 20px;
@@ -264,15 +264,15 @@ table .intranet_button{
 .ui-datepicker-title{
 	margin-top: 20px;
 }
-#SkypeButtonCall_paraElement{
+.SkypeButtonCall_paraElement{
 	margin:10px 0 10px 10px;
 	text-align: center;
 }
-.show_agenda_content #SkypeButtonCall_paraElement{
+.show_agenda_content .SkypeButtonCall_paraElement{
 	margin:10px 0 10px 10px;
 	text-align: left;
 }
-#dropdown_SkypeButtonCall{
+.SkypeButtonCall_paraElement ul{
 	margin-top: 0px!important;
 	margin-left: -14px!important;
 	padding-left:0!important;
@@ -284,14 +284,14 @@ table .intranet_button{
 	background-color: #4B4B4B!important;
 	text-align: center;
 }
-#dropdown_SkypeButtonCall li a{
+.SkypeButtonCall_paraElement ul li a{
 	color: #FFF!important;
 	width: 70%!important;
 }
-#dropdown_SkypeButtonCall li a:hover{
+.SkypeButtonCall_paraElement ul li a:hover{
 	color: #18836E!important;
 }
-#SkypeButtonCall_paraElement img{
+.SkypeButtonCall_paraElement img{
 	margin:0!important;
 	padding:0!important;
 	vertical-align: 0!important;
@@ -418,7 +418,7 @@ footer{
 		margin-bottom: 100px;
 	}
 	/*****Table*****/
-	#dropdown_SkypeButtonCall {
+	.SkypeButtonCall_paraElement ul {
 		margin-left: 100px!important;
 		width: 265px!important;
 	}
@@ -454,7 +454,7 @@ footer{
 		margin-bottom: 80px;
 	}
 	/*****Table*****/
-	#dropdown_SkypeButtonCall {
+	.SkypeButtonCall_paraElement ul {
 		margin-left: -15px!important;
 	}
 }

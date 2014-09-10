@@ -187,11 +187,11 @@ class WebMarketeurController extends Controller
         $address = new Address();
         $address->setFirstLine($request->get('firstLine'));
         
-        if( !empty(trim($request->get('secondLine'))) ) {
+        if( trim($request->get('secondLine')) == false ) {
             $address->setSecondLine($request->get('secondLine'));
         }
         
-        if( !empty(trim($request->get('thirdLine'))) ) {
+        if( trim($request->get('thirdLine')) == false ) {
             $address->setThirdLine($request->get('thirdLine'));
         }
                 
